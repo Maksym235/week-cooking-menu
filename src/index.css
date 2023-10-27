@@ -1,0 +1,51 @@
+@import "normalize.css";
+:root[data-theme="light"] {
+  --bodyBcg: #fff;
+}
+:root[data-theme="dark"] {
+  --bodyBcg: #000;
+}
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+:root {
+  --accent-color: #458ef7;
+  --text-color-main: #0d0d0d;
+  --text-color-grey: #cecece;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+button {
+  cursor: pointer;
+}
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--bodyBcg);
+}
