@@ -1,6 +1,6 @@
 @import "normalize.css";
 :root[data-theme="light"] {
-  --bodyBcg: #fff;
+  --bodyBcg:#f1e8e6;
 }
 :root[data-theme="dark"] {
   --bodyBcg: #000;
