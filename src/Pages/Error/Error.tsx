@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import CookImg from '/assets/cookImg.png'
+import CookImg from './assets/cookImg.png'
 import styles from './Error.module.css'
 import {NavLink} from "react-router-dom";
 export default function ErrorPage() {
