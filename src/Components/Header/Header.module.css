@@ -1,0 +1,17 @@
+.header {
+    height: 60px;
+    /*display: flex;*/
+    width: 100%;
+    border-bottom: 2px solid var(--sideBarBg);
+}
+
+.conteiner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.select_options {
+    display: flex;
+    gap: 20px;
+}

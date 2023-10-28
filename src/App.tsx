@@ -6,7 +6,7 @@ import Ingredients from "./Pages/Ingredients/Ingredients.tsx";
 import Dishes from "./Pages/Dishes/Dishes.tsx";
 import Home from "./Pages/Home/Home.tsx";
 import WeekMenu from "./Pages/WeekMenu/WeekMenu.tsx";
-import ErrorPage from "./Pages/Dishes/Error/Error.tsx";
+import ErrorPage from "./Pages/Error/Error.tsx";
 const router = createBrowserRouter([
     {
         Component: () => <Layout/>,

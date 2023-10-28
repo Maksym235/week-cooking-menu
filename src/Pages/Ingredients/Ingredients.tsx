@@ -1,8 +1,14 @@
+import {Header} from "../../Components/Header/Header.tsx";
+import styles from './Ingredients.module.css'
+import {IngredientsList} from "../../Components/IngredientsList/IngredientsList.tsx";
+import {CreateNewBtn} from "../../Components/CreateNewBtn/CreateNewBtn.tsx";
 const Ingredients = () => {
 return (
-<div>
-    <h1>Ingredients page</h1>
-</div>
+<section className={styles.conteiner}>
+    <Header title='Ingredients'/>
+    <IngredientsList/>
+    <CreateNewBtn/>
+</section>
 )
 }
 

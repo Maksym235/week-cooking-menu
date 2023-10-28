@@ -1,0 +1,29 @@
+.list_conteiner {
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 420px;
+    width: 300px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    background-color: var(--cardBg);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.list {
+    padding: 10px 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list_item {
+    display: flex;
+    gap: 20px;
+}
+
+.ing_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

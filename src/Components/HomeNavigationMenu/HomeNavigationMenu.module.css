@@ -1,0 +1,17 @@
+.conteiner {
+    display: flex;
+    gap: 30px;
+}
+
+.navLinkBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 22px;
+    width: 160px;
+    height: 40px;
+    background-color: var(--accentColor);
+    color: #fff;
+}

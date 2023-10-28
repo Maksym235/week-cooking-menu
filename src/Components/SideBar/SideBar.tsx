@@ -1,66 +1,39 @@
 import {PiCarrotBold, PiBowlFoodBold, PiCalendarBlankBold, PiHouseBold, PiGearSixBold} from 'react-icons/pi'
-import './sidebar.scss'
+import styles from './SideBar.module.css'
 import {NavLink} from "react-router-dom";
-import {Popover} from "react-tiny-popover";
 import {useLocation} from "react-router-dom";
-import {useState} from "react";
-
+import {Popover} from "antd";
 export const SideBar = () => {
-    const [isOpen, setIsOpen] = useState('')
     const {pathname} = useLocation()
-    const onMouseEntryToLink = (value: string) => {
-        setIsOpen(value)
-    }
-    const onMouseLeaveFromLink = () => {
-        setIsOpen('')
-    }
-return (
-<section className='sideBar_section'>
 
-    <div className='conteiner'>
-        <Popover
-            isOpen={isOpen === '/'}
-            positions={['right']} // preferred positions by priority
-            content={<div>Hi! I'm popover content.</div>}
-        >
-        <NavLink onMouseEnter={() => onMouseEntryToLink('/')}  onMouseLeave={onMouseLeaveFromLink} className={pathname === '/' ? 'NavLinkSideBar current' :'NavLinkSideBar'} to='/'>
-            <PiHouseBold color='#f55951' size={26}/>
-        </NavLink>
-    </Popover>
-        <Popover
-            isOpen={isOpen === '/ingredients'}
-            positions={['right']} // preferred positions by priority
-            content={<div>Hi! I'm popover co.</div>}
-        >
-        <NavLink  onMouseEnter={() => onMouseEntryToLink('/')} onMouseLeave={onMouseLeaveFromLink} className={pathname === '/ingredients'  ? 'NavLinkSideBar current' :'NavLinkSideBar'} to='/ingredients'>
-            <PiCarrotBold color='#f55951' size={26}/>
+return (
+<section className={styles.sideBar_section}>
+    <div className={styles.conteiner}>
+        <Popover content='Home'>
+        <NavLink  className={pathname === '/' ? styles.current : styles.NavLinkSideBar} to='/'>
+            <PiHouseBold color='var(--accentColor)' size={26}/>
         </NavLink>
         </Popover>
-            <Popover
-                isOpen={isOpen === 'dishes'}
-                positions={['right']} // preferred positions by priority
-                content={<div>Hi! I'm ver content.</div>}
-            >
-        <NavLink  onMouseEnter={() => onMouseEntryToLink('/')} onMouseLeave={onMouseLeaveFromLink} className={pathname === '/dishes' ? 'NavLinkSideBar current' :'NavLinkSideBar' } to='/dishes'>
-            <PiBowlFoodBold color='#f55951' size={26}/>
+        <Popover content='Ingredients'>
+        <NavLink  className={pathname === '/ingredients'  ? styles.current : styles.NavLinkSideBar} to='/ingredients'>
+            <PiCarrotBold color='var(--accentColor)' size={26}/>
         </NavLink>
-            </Popover>
-                <Popover
-                    isOpen={isOpen === 'weekmenu'}
-                    positions={['right']} // preferred positions by priority
-                    content={<div>Him popover content.</div>}
-                >
-        <NavLink  onMouseEnter={() => onMouseEntryToLink('/')} onMouseLeave={onMouseLeaveFromLink} className={pathname === '/weekMenu'  ? 'NavLinkSideBar current' :'NavLinkSideBar'} to='/weekMenu'>
-            <PiCalendarBlankBold color='#f55951' size={26}/>
+        </Popover>
+        <Popover content='Dishes'>
+        <NavLink  className={pathname === '/dishes' ? styles.current : styles.NavLinkSideBar} to='/dishes'>
+            <PiBowlFoodBold color='var(--accentColor)' size={26}/>
         </NavLink>
-                </Popover>
-                    <Popover
-                        isOpen={isOpen === 'user'}
-                        positions={['right']} // preferred positions by priority
-                        content={<div> popover content.</div>}
-                    >
-            <PiGearSixBold  onMouseEnter={() => onMouseEntryToLink('/')} onMouseLeave={onMouseLeaveFromLink} color='#f55951' size={26}/>
-                    </Popover>
+        </Popover>
+        <Popover content='Menu'>
+        <NavLink  className={pathname === '/weekMenu'  ? styles.current : styles.NavLinkSideBar} to='/weekMenu'>
+            <PiCalendarBlankBold color='var(--accentColor)' size={26}/>
+        </NavLink>
+        </Popover>
+        <Popover content='Settings'>
+        <NavLink className={pathname === '/*'  ? styles.current : styles.NavLinkSideBar} to='*'>
+            <PiGearSixBold  color='var(--accentColor)' size={26}/>
+        </NavLink>
+        </Popover>
     </div>
 
 </section>
