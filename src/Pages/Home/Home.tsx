@@ -1,5 +1,5 @@
 import {HomeNavigationMenu} from "../../Components/HomeNavigationMenu/HomeNavigationMenu.tsx";
-import CookImg from "./cookImg.png";
+import CookImg from '/assets/cookImg.png'
 import styles from './Home.module.css'
 const Home = () => {
 return (
