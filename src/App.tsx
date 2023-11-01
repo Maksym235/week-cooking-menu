@@ -15,7 +15,7 @@ const router = createBrowserRouter([
             {index: true, Component: () => <Home/>},
             {
                 path: '/ingredients',
-                element: <Ingredients/>
+                element:<Ingredients/>
             },
             {
                 path: '/dishes',
