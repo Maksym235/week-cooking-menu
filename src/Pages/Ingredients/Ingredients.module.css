@@ -1,3 +1,8 @@
 .conteiner {
     width: 100%;
 }
+
+.ingWrapper {
+    display: flex;
+    /*align-items: center;*/
+}

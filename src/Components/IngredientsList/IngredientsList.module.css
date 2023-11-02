@@ -3,8 +3,8 @@
     margin-left: 30px;
     height: 420px;
     width: 300px;
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
     background-color: var(--cardBg);
     overflow-x: hidden;
     overflow-y: scroll;

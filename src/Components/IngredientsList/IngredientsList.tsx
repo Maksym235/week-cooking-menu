@@ -1,5 +1,8 @@
 import styles from './IngredientsList.module.css'
-export const IngredientsList = () => {
+export const IngredientsList = ({setCurrent}: any) => {
+    const setCurrentIng = (item: any) => {
+        setCurrent(item)
+    }
     const data = [
         {
             "img": "https://loremflickr.com/640/480/food",
@@ -65,7 +68,7 @@ export const IngredientsList = () => {
 return (
 <div className={styles.list_conteiner}>
     <ul className={styles.list}>
-        {data.map(item => <li className={styles.list_item} key={item.id}>
+        {data.map(item => <li onClick={() => setCurrentIng(item)} className={styles.list_item} key={item.id}>
             <img className={styles.ing_image} src={item.img} alt={item.name}/>
             <p>{item.name}</p>
         </li>)}

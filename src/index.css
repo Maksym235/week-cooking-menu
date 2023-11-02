@@ -1,4 +1,9 @@
 @import "normalize.css";
+
+@font-face {
+    font-family: e-Ukraine-medium;
+    src: local('e-Ukraine-medium'), url("../public/e-Ukraine-Medium.otf") format('woff');
+}
 :root[data-theme="light"] {
     --bodyBcg:#f1e8e6;
     --cardBg: #edd2cb;
@@ -48,5 +53,6 @@ a {
 }
 
 body {
+    font-family: e-Ukraine-medium, serif;
     background-color: var(--bodyBcg);
 }
