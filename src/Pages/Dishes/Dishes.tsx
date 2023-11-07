@@ -1,7 +1,11 @@
+import {DishesDetailsInfo} from "../../Components/DishesDetailsInfo/DishesDetailsInfo.tsx";
+import {DishesList} from "../../Components/DishesList/DishesList.tsx";
+
 const Dishes = () => {
 return (
-<main>
-    <h1>Dishes page</h1>
+<main style={{width: '100%'}}>
+    <DishesDetailsInfo/>
+    <DishesList/>
 </main>
 )
 }

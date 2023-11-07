@@ -1,11 +1,5 @@
-import styles from './IngredientsList.module.css'
-import {useState} from "react";
-export const IngredientsList = ({setCurrent}: any) => {
-    const [curItem, setCurItem] = useState('')
-    const setCurrentIng = (item: any) => {
-        setCurrent(item)
-        setCurItem(item.id)
-    }
+import styles from './DishesList.module.css'
+export const DishesList = () => {
     const data = [
         {
             "img": "https://loremflickr.com/640/480/food",
@@ -69,9 +63,14 @@ export const IngredientsList = ({setCurrent}: any) => {
         }
     ]
 return (
-<div className={styles.list_conteiner}>
+<div className={styles.conteiner}>
+    <div className={styles.categoryWrapper}>
+        <p className={styles.categoryItem}>breakfast</p>
+        <p className={styles.categoryItem}>lanch</p>
+        <p className={styles.categoryItem}>dinner</p>
+    </div>
     <ul className={styles.list}>
-        {data.map(item => <li onClick={() => setCurrentIng(item)} className={ curItem === item.id ? styles.list_item_current : styles.list_item} key={item.id}>
+        {data.map(item => <li className={styles.list_item} key={item.id}>
             <img className={styles.ing_image} src={item.img} alt={item.name}/>
             <p>{item.name}</p>
         </li>)}

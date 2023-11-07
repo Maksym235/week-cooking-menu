@@ -1,5 +1,6 @@
 .sideBar_section {
     width: 60px;
+    min-width: 60px;
     height: 100dvh;
     background-color: var(--sideBarBg);
     display: flex;
