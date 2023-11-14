@@ -61,3 +61,25 @@ body {
     font-family: e-Ukraine-medium, serif;
     background-color: var(--bodyBcg);
 }
+
+@media (max-width: 1300px) {
+    main {
+        max-height: 550px;
+    }
+}
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+      background: transparent;
+  }
+
+::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 16px;
+  }
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+      background: #555;
+  }

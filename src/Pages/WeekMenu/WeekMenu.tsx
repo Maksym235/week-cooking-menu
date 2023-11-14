@@ -1,6 +1,10 @@
+import {WeekList} from "../../Components/WeekList/WeekList.tsx";
+
 const WeekMenu = () => {
 return (
-<div>Week menu page</div>
-)
+    <main>
+        <WeekList/>
+    </main>
+   )
 }
 export default WeekMenu
