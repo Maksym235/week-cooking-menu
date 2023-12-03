@@ -1,9 +1,10 @@
 import styles from './Ingredients.module.css'
 // import {Header} from "../../Components/Header/Header.tsx";
 import {IngredientsList} from "../../Components/IngredientsList/IngredientsList.tsx";
-import {CreateNewBtn} from "../../Components/CreateNewBtn/CreateNewBtn.tsx";
+// import {CreateNewBtn} from "../../Components/CreateNewBtn/CreateNewBtn.tsx";
 import {DetailsInfoIngredients} from "../../Components/DetailsInfoIngredients/DetailsInfoIngredients.tsx";
 import {useState} from "react";
+import {PageBar} from "../../Components/PageBar/PageBar.tsx";
 const Ingredients = () => {
     const [currentIng, setCurrentIng] = useState(null)
     const setCurrentIngredient = (item: any) => {
@@ -12,12 +13,12 @@ const Ingredients = () => {
 
     return (
 <section className={styles.conteiner}>
+    <PageBar title='Ingredients'/>
     {/*<Header title='Ingredients'/>*/}
     <div className={styles.ingWrapper}>
     <IngredientsList setCurrent={setCurrentIngredient}/>
         {currentIng && <DetailsInfoIngredients item={currentIng}/>}
     </div>
-    <CreateNewBtn/>
 </section>
 )
 }

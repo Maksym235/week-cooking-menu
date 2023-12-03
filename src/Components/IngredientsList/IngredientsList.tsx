@@ -70,6 +70,10 @@ export const IngredientsList = ({setCurrent}: any) => {
     ]
 return (
 <div className={styles.list_conteiner}>
+    <div className={styles.listHeader}>
+        <p>Your ingredients</p>
+        <button className={styles.listHeaderBtn}>Add ingredients</button>
+    </div>
     <ul className={styles.list}>
         {data.map(item => <li onClick={() => setCurrentIng(item)} className={ curItem === item.id ? styles.list_item_current : styles.list_item} key={item.id}>
             <img className={styles.ing_image} src={item.img} alt={item.name}/>

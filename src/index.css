@@ -5,11 +5,16 @@
     src: local('e-Ukraine-medium'), url("../public/e-Ukraine-Medium.otf") format('woff');
 }
 :root[data-theme="light"] {
-    --bodyBcg:#f1e8e6;
+    --bodyBcg:#F1E8E6;
     --cardBg: #edd2cb;
-    --sideBarBg: #361d32;
+    /*--sideBarBg: #361d32;*/
+    --sideBarBg: #fff;
+    --activePage: #FEEEEE;
+    --blackColor: #000;
     --curentPageColor: rgba(237, 210, 203, 0.2);
     --accentColor: #f55951;
+    --silverColor: #9C9AA8;
+    --ligthSilverColor: #F7F7F7;
 }
 :root[data-theme="dark"] {
     --bodyBcg: #000;

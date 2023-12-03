@@ -2,38 +2,44 @@ import {PiCarrotBold, PiBowlFoodBold, PiCalendarBlankBold, PiHouseBold, PiGearSi
 import styles from './SideBar.module.css'
 import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
-import {Popover} from "antd";
+// import {Popover} from "antd";
 export const SideBar = () => {
     const {pathname} = useLocation()
 
 return (
 <section className={styles.sideBar_section}>
     <div className={styles.conteiner}>
-        <Popover content='Home'>
+        <div className={styles.titleConteiner}>
+            <div className={styles.titleLogo}></div>
+            <p className={styles.titleText}>WeekMenu</p>
+        </div>
+
         <NavLink  className={pathname === '/' ? styles.current : styles.NavLinkSideBar} to='/'>
-            <PiHouseBold color='var(--accentColor)' size={26}/>
+            <PiHouseBold color={pathname === '/' ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/' ? styles.NavLinksTextCurrent : styles.NavLinksText}>Home</p>
         </NavLink>
-        </Popover>
-        <Popover content='Ingredients'>
+
         <NavLink  className={pathname === '/ingredients'  ? styles.current : styles.NavLinkSideBar} to='/ingredients'>
-            <PiCarrotBold color='var(--accentColor)' size={26}/>
+            <PiCarrotBold color={pathname === '/ingredients' ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/ingredients' ? styles.NavLinksTextCurrent : styles.NavLinksText}>Ingredients</p>
         </NavLink>
-        </Popover>
-        <Popover content='Dishes'>
+
         <NavLink  className={pathname === '/dishes' ? styles.current : styles.NavLinkSideBar} to='/dishes'>
-            <PiBowlFoodBold color='var(--accentColor)' size={26}/>
+            <PiBowlFoodBold color={pathname === '/dishes' ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/dishes' ? styles.NavLinksTextCurrent : styles.NavLinksText}>Dishes</p>
         </NavLink>
-        </Popover>
-        <Popover content='Menu'>
+
         <NavLink  className={pathname === '/weekMenu'  ? styles.current : styles.NavLinkSideBar} to='/weekMenu'>
-            <PiCalendarBlankBold color='var(--accentColor)' size={26}/>
+            <PiCalendarBlankBold color={pathname === '/weekMenu' ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/weekMenu' ? styles.NavLinksTextCurrent : styles.NavLinksText}>Menu</p>
         </NavLink>
-        </Popover>
-        <Popover content='Settings'>
+
+
         <NavLink className={pathname === '/*'  ? styles.current : styles.NavLinkSideBar} to='*'>
-            <PiGearSixBold  color='var(--accentColor)' size={26}/>
+            <PiGearSixBold  color={pathname === '/*' ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/*' ? styles.NavLinksTextCurrent : styles.NavLinksText}>Settings</p>
         </NavLink>
-        </Popover>
+
     </div>
 
 </section>
