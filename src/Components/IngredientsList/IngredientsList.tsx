@@ -1,7 +1,16 @@
 import styles from './IngredientsList.module.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useSearchParams } from "react-router-dom";
+
 export const IngredientsList = ({setCurrent}: any) => {
     const [curItem, setCurItem] = useState('')
+    const [searchParams] = useSearchParams ();
+    const currentList= searchParams.get('currentList')
+    const [curListState, setCurListState] = useState(currentList)
+    useEffect(() => {
+        setCurListState(currentList)
+        setCurItem('')
+    }, [currentList])
     const setCurrentIng = (item: any) => {
         setCurrent(item)
         setCurItem(item.id)
@@ -74,12 +83,12 @@ return (
         <p>Your ingredients</p>
         <button className={styles.listHeaderBtn}>Add ingredients</button>
     </div>
-    <ul className={styles.list}>
+    {curListState === 'shoppingList' && <ul className={styles.list}>
         {data.map(item => <li onClick={() => setCurrentIng(item)} className={ curItem === item.id ? styles.list_item_current : styles.list_item} key={item.id}>
             <img className={styles.ing_image} src={item.img} alt={item.name}/>
             <p>{item.name}</p>
         </li>)}
-    </ul>
+    </ul>}
 </div>
 )
 }
