@@ -1,0 +1,23 @@
+.conteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.ing_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.icon {
+    width: 10px;
+    height: 10px;
+    background-color: #f55951;
+}

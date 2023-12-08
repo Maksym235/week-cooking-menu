@@ -15,6 +15,7 @@
     --accentColor: #f55951;
     --silverColor: #9C9AA8;
     --ligthSilverColor: #F7F7F7;
+    --creamColor: #EEEEEE;
 }
 :root[data-theme="dark"] {
     --bodyBcg: #000;

@@ -1,11 +1,14 @@
 .list_conteiner {
-    margin-top: 30px;
-    margin-left: 30px;
-    height: 395px;
-    width: 424px;
+    margin-top: 24px;
+    /*margin-bottom: ;*/
+    /*margin-left: 24px;*/
+    height: 404px;
+    /*width: 100%;*/
+    min-width: 375px;
     padding: 0 24px 24px 24px;
-    border-top-left-radius: 24px;
-    border-bottom-left-radius: 24px;
+    border-radius: 16px;
+    /*border-top-left-radius: 24px;*/
+    /*border-bottom-left-radius: 24px;*/
     position: relative;
     background-color: var(--sideBarBg);
     overflow-x: hidden;
@@ -16,12 +19,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
+    padding: 24px 0 12px 0;
     position: sticky;
     top: 0;
     left: 0;
     background-color: var(--sideBarBg);
-    border-bottom: 1px solid var(--accentColor);
+    border-bottom: 2px solid var(--creamColor);
 }
 
 .listHeaderBtn {
@@ -42,6 +45,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 28px;
+    padding: 8px 0;
     color: var(--blackColor);
 }
 
@@ -56,6 +60,7 @@
 .list_item {
     display: flex;
     gap: 20px;
+    cursor: pointer;
 }
 
 .list_item_current {
@@ -63,6 +68,7 @@
     gap: 20px;
     background-color: rgba(186, 164, 159, 0.4) ;
     border-radius: 24px;
+    cursor: pointer;
 }
 
 .ing_image {
@@ -76,7 +82,9 @@
         padding: 24px;
     }
     .list_conteiner {
-        width: 724px;
-        height: 680px;
+        min-width: 724px;
+        height: 685px;
+        margin-left: 24px;
     }
+
 }

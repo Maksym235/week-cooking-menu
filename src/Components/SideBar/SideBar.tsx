@@ -40,8 +40,8 @@ return (
         {/*<NavLink  className={pathname === '/ingredients'  ? styles.current : styles.NavLinkSideBar} to='/ingredients'>*/}
         <div className={styles.ingredientsConteiner}>
             <NavLink to='/ingredients' className={styles.ingredientsTitle} onClick={ShowIngredientsListVariables}>
-        <PiCarrotBold color={pathname === '/ingredients'&& !isOpen ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
-            <p className={pathname === '/ingredients' && !isOpen ? styles.NavLinksTextCurrent : styles.NavLinksText}>Ingredients</p>
+        <PiCarrotBold color={pathname === '/ingredients'&& isOpen ? 'var(--accentColor)' : 'var(--silverColor)'} size={26}/>
+            <p className={pathname === '/ingredients' && isOpen ? styles.NavLinksTextCurrent : styles.NavLinksText}>Ingredients</p>
             </NavLink>
             {isOpen && <div className={styles.subListConteiner}>
             <NavLink to='/ingredients?currentList=yourIngs' onClick={() => handleSetCurrentList('yourIngs')} className={currentList === 'yourIngs' ? styles.subListTextCurrent : styles.subListText}>Your Ingredients</NavLink>
