@@ -5,10 +5,14 @@ import {YourIngredientsListItem} from "../IngredientsListItems/YourIngredientsIt
 import {ShoppingListItem} from "../IngredientsListItems/ShoppingListItem/ShoppingListItem.tsx";
 
 export const IngredientsList = ({setCurrent}: any) => {
+    const titleVariables: any = {
+        yourIngs: "Your ingredients",
+        shoppingList: "Shopping List  "
+    }
     const [curItem, setCurItem] = useState('')
     const [searchParams] = useSearchParams ();
     const currentList= searchParams.get('currentList')
-    const [curListState, setCurListState] = useState(currentList)
+    const [curListState, setCurListState] = useState<string | null>(currentList)
     useEffect(() => {
         setCurListState(currentList)
         setCurItem('')
@@ -82,7 +86,7 @@ export const IngredientsList = ({setCurrent}: any) => {
 return (
 <div className={styles.list_conteiner}>
     <div className={styles.listHeader}>
-        <p>Your ingredients</p>
+        <p>{curListState && titleVariables[curListState]}</p>
         <button className={styles.listHeaderBtn}>Add ingredients</button>
     </div>
     {<ul className={styles.list}>

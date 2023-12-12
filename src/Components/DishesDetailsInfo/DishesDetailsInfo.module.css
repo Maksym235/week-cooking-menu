@@ -1,65 +1,224 @@
+/*.conteiner {*/
+/*    margin: 30px 30px 0 30px;*/
+/*    width: calc(100% - 60px);*/
+/*    height: 270px;*/
+/*    background-color: var(--cardBg);*/
+/*    border-radius: 24px;*/
+/*}*/
+
+/*.main_info_block {*/
+/*    display: flex;*/
+/*}*/
+
+/*.img {*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*    margin: 30px 0 0 30px;*/
+/*    border-radius: 50%;*/
+/*}*/
+
+/*.textBlock {*/
+/*    margin-left: 30px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.nameBlock {*/
+/*    margin-top: 30px;*/
+/*    display: flex;*/
+/*    width: 300px;*/
+/*    flex-direction: column;*/
+/*    gap: 50px;*/
+/*    position: relative;*/
+/*}*/
+
+/*.nameBlock::after {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    content: '';*/
+/*    height: 100%;*/
+/*    width: 1px;*/
+/*    background-color: var(--sideBarBg);*/
+/*}*/
+
+/*.ingredientsBlock {*/
+/*    display: flex;*/
+/*    margin-left: 30px;*/
+/*    margin-top: 30px;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+/*.ingredientsList {*/
+/*    display: flex;*/
+/*    gap: 30px;*/
+/*}*/
+
+/*.ingredientsTitle {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.ingredientsItem {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 30px;*/
+/*}*/
+
 .conteiner {
-    margin: 30px 30px 0 30px;
-    width: calc(100% - 60px);
-    height: 270px;
-    background-color: var(--cardBg);
-    border-radius: 24px;
-}
-
-.main_info_block {
     display: flex;
-}
-
-.img {
-    width: 200px;
-    height: 200px;
-    margin: 30px 0 0 30px;
-    border-radius: 50%;
-}
-
-.textBlock {
-    margin-left: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.nameBlock {
-    margin-top: 30px;
-    display: flex;
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
+    /*height: 293px;*/
+    max-height: 175px;
+    padding: 24px;
     flex-direction: column;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 16px;
+    flex-shrink: 0;
+    background-color: var(--sideBarBg);
+    border-radius: 24px;
+    margin-top: 16px;
+}
+
+.headerCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /*align-self: stretch;*/
+    /*margin-bottom: 32px;*/
     position: relative;
 }
 
-.nameBlock::after {
-    position: absolute;
-    top: 0;
-    right: 0;
+.headerTitle {
+    /*font-family: Manrope;*/
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    color: var(--blackColor);
+}
+
+.headerBtn {
+    display: flex;
+    height: 44px;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    background-color: var(--activePage);
+    /*font-family: Manrope;*/
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--accentColor);
+    border: none;
+}
+
+.headerCard::after {
     content: '';
-    height: 100%;
-    width: 1px;
+    position: absolute;
+    width: 100%;
+    bottom: -8px;
+    left: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--creamColor);
+}
+
+.detailsConteiner {
+    display: flex;
+    padding: 8px 0px;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    border-radius: 16px;
     background-color: var(--sideBarBg);
 }
 
-.ingredientsBlock {
+.img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.textConteiner {
     display: flex;
-    margin-left: 30px;
-    margin-top: 30px;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    /*flex: 1 0 0;*/
+}
+
+.NameConteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.CategoryConteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.label {
+    /*font-family: Manrope;*/
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--silverColor);
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.label::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--creamColor);
+}
+
+.categoryList {
+    display: flex;
+    gap: 10px;
+}
+
+.categoryValue {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
     align-items: center;
-}
-.ingredientsList {
-    display: flex;
-    gap: 30px;
+    gap: 10px;
+    border-radius: 40px;
+    /*font-family: Manrope;*/
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    background-color: var(--activePage);
 }
 
-.ingredientsTitle {
-    margin-bottom: 20px;
-}
-
-.ingredientsItem {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+@media (min-width: 1600px) {
+    .conteiner {
+        /*width: 552px;*/
+        min-width: 550px;
+        height: 293px;
+    }
+    .img {
+        width: 120px;
+        height: 120px;
+    }
+    .label {
+        font-size: 16px;
+    }
 }

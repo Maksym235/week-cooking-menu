@@ -9,7 +9,11 @@ return (
     <div className={styles.conteiner}>
         <div className={styles.wrapper}>
             <img className={styles.ing_image} src={img} alt={name}/>
-            <p>{name}</p>
+            <div className={styles.textWrapper}>
+            <p className={styles.name}>{name}</p>
+            <p className={styles.description}>Category: <span className={styles.descriptionValue}>Cheese</span></p>
+            <p className={styles.description}>Count: <span className={styles.descriptionValue}>200gram</span></p>
+            </div>
         </div>
         <div className={styles.icon}></div>
     </div>
