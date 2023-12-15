@@ -1,73 +1,8 @@
-/*.conteiner {*/
-/*    margin: 30px 30px 0 30px;*/
-/*    width: calc(100% - 60px);*/
-/*    height: 270px;*/
-/*    background-color: var(--cardBg);*/
-/*    border-radius: 24px;*/
-/*}*/
-
-/*.main_info_block {*/
-/*    display: flex;*/
-/*}*/
-
-/*.img {*/
-/*    width: 200px;*/
-/*    height: 200px;*/
-/*    margin: 30px 0 0 30px;*/
-/*    border-radius: 50%;*/
-/*}*/
-
-/*.textBlock {*/
-/*    margin-left: 30px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*}*/
-
-/*.nameBlock {*/
-/*    margin-top: 30px;*/
-/*    display: flex;*/
-/*    width: 300px;*/
-/*    flex-direction: column;*/
-/*    gap: 50px;*/
-/*    position: relative;*/
-/*}*/
-
-/*.nameBlock::after {*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    right: 0;*/
-/*    content: '';*/
-/*    height: 100%;*/
-/*    width: 1px;*/
-/*    background-color: var(--sideBarBg);*/
-/*}*/
-
-/*.ingredientsBlock {*/
-/*    display: flex;*/
-/*    margin-left: 30px;*/
-/*    margin-top: 30px;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*}*/
-/*.ingredientsList {*/
-/*    display: flex;*/
-/*    gap: 30px;*/
-/*}*/
-
-/*.ingredientsTitle {*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.ingredientsItem {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    gap: 30px;*/
-/*}*/
 
 .conteiner {
     display: flex;
-    width: 100%;
-    max-width: 400px;
+    /*width: 100%;*/
+    min-width: 400px;
     /*height: 293px;*/
     max-height: 175px;
     padding: 24px;
