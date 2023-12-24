@@ -110,4 +110,10 @@
   .headerTitle {
     font-size: 24px;
   }
+  .conteiner {
+    min-width: 940px;
+  }
+  .list {
+    min-width: 940px;
+  }
 }

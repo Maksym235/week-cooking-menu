@@ -46,9 +46,8 @@
 
 @media (min-width: 1600px) {
     .conteiner {
-        width: calc(100% - 120px);
+        width: calc(100% - 48px);
         padding: 24px;
-        margin-left: 24px;
     }
     .title {
         font-size: 32px

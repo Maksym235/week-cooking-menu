@@ -55,6 +55,17 @@ display: flex;
 
 .listFlex {
     display: flex;
+    gap: 24px;
     overflow-y: auto;
     max-height: 90px;
+}
+
+@media (min-width: 1600px) {
+    .container {
+        height: 100%;
+        max-height: 446px;
+    }
+    .listFlex {
+        max-height: none;
+    } 
 }

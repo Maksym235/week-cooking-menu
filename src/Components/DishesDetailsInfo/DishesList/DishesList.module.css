@@ -1,8 +1,17 @@
 .listsContainer {
     display: flex;
+    position: relative;
 
 }
-
+.listsContainer:not(:last-child)::after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -12px;
+    background-color: var(--creamColor);
+}
 .listWrapper {
     display: flex;
     flex-direction: column;

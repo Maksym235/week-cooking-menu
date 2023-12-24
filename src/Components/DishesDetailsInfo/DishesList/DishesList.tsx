@@ -28,7 +28,64 @@ export const DishesList:FC<ITitle> = ({title}) => {
             img: "https://loremflickr.com/640/480/food",
             name: "responsive transmitter",
             id: "4",
-        },]
+        },{
+            img: "https://loremflickr.com/640/480/food",
+            name: "Bicycle",
+            id: "1",
+        },
+            {
+                img: "https://loremflickr.com/640/480/food",
+                name: "male",
+                id: "2",
+            },
+            {
+                img: "https://loremflickr.com/640/480/food",
+                name: "City",
+                id: "3",
+            },
+            {
+                img: "https://loremflickr.com/640/480/food",
+                name: "responsive transmitter",
+                id: "4",
+            },{
+                img: "https://loremflickr.com/640/480/food",
+                name: "Bicycle",
+                id: "1",
+            },
+                {
+                    img: "https://loremflickr.com/640/480/food",
+                    name: "male",
+                    id: "2",
+                },
+                {
+                    img: "https://loremflickr.com/640/480/food",
+                    name: "City",
+                    id: "3",
+                },
+                {
+                    img: "https://loremflickr.com/640/480/food",
+                    name: "responsive transmitter",
+                    id: "4",
+                },{
+                    img: "https://loremflickr.com/640/480/food",
+                    name: "Bicycle",
+                    id: "1",
+                },
+                    {
+                        img: "https://loremflickr.com/640/480/food",
+                        name: "male",
+                        id: "2",
+                    },
+                    {
+                        img: "https://loremflickr.com/640/480/food",
+                        name: "City",
+                        id: "3",
+                    },
+                    {
+                        img: "https://loremflickr.com/640/480/food",
+                        name: "responsive transmitter",
+                        id: "4",
+                    }]
 return (
     <div className={styles.listsContainer}>
         <div className={styles.listWrapper}>

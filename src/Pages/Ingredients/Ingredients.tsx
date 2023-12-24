@@ -6,6 +6,7 @@ import {DetailsInfoIngredients} from "../../Components/DetailsInfoIngredients/De
 import {useEffect, useState} from "react";
 import {PageBar} from "../../Components/PageBar/PageBar.tsx";
 import {useSearchParams} from "react-router-dom";
+import { ShoppingListHistory } from '../../Components/ShoppingListHistory/ShoppingListHistory.tsx';
 const Ingredients = () => {
     const [currentIng, setCurrentIng] = useState(null)
     const [searchParams] = useSearchParams ();
@@ -25,6 +26,7 @@ const Ingredients = () => {
     <div className={styles.ingWrapper}>
         {currentList && <IngredientsList setCurrent={setCurrentIngredient}/>}
         {currentIng && <DetailsInfoIngredients item={currentIng}/>}
+        {currentList === 'shoppingList' && <ShoppingListHistory/>}
     </div>
 </section>
 )

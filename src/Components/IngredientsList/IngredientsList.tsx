@@ -90,7 +90,7 @@ return (
         <button className={styles.listHeaderBtn}>Add ingredients</button>
     </div>
     {<ul className={styles.list}>
-        {data.map(item => <li onClick={() => setCurrentIng(item)} className={ curItem === item.id ? styles.list_item_current : styles.list_item} key={item.id}>
+        {data.map(item => <li onClick={() => curListState === 'yourIngs' && setCurrentIng(item)} className={ curItem === item.id ? styles.list_item_current : styles.list_item} key={item.id}>
             {curListState === 'yourIngs' && <YourIngredientsListItem img={item.img} name={item.name} id={item.id}/>}
             {curListState === 'shoppingList' && <ShoppingListItem img={item.img} name={item.name}/>}
             {/*<img className={styles.ing_image} src={item.img} alt={item.name}/>*/}
