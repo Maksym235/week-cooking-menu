@@ -1,15 +1,15 @@
 .conteiner {
-    width: 100%;
-    margin-left: 16px;
+  width: 100%;
+  margin-left: 16px;
 }
 
 .ingWrapper {
-    display: flex;
-    /*align-items: center;*/
+  display: flex;
+  /*align-items: center;*/
 }
 
 @media (min-width: 1600px) {
-    .conteiner {
-        margin-left: 24px;
-    }
+  .conteiner {
+    margin-left: 24px;
+  }
 }

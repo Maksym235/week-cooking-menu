@@ -1,15 +1,15 @@
 .main_conteiner {
-    width: 100%;
-    margin-left: 16px;
+  width: 100%;
+  margin-left: 16px;
 }
 
 .info_conteiner {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 }
 
 @media (min-width: 1600px) {
-    .main_conteiner {
-        margin-left: 24px;
-    }
+  .main_conteiner {
+    margin-left: 24px;
+  }
 }
