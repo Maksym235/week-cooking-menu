@@ -2,95 +2,12 @@ import styles from "./WeekList.module.css";
 import { WeekDay } from "../WeekDay/WeekDay.tsx";
 import { useQuery, gql } from "@apollo/client";
 const WEEK_LIST = gql`
-  query Query($getWeekByIdId: ID!) {
+  query ExampleQuery($getWeekByIdId: ID!) {
     getWeekById(id: $getWeekByIdId) {
       period1
       period2
-      monday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      tuesday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      wednesday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      thursday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      friday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      saturday {
-        b {
-          name
-          id
-        }
-        l {
-          name
-          id
-        }
-        d {
-          name
-          id
-        }
-      }
-      sunday {
+      week {
+        day
         b {
           name
           id

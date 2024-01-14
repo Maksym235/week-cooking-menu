@@ -1,46 +1,50 @@
-import styles from "./AddIngredientModal.module.css";
+import React from "react";
+import styles from "./AddDish.module.css";
 import { useMutation, gql } from "@apollo/client";
 import { useForm } from "react-hook-form";
-
-const ADD_INGREDIENT = gql`
-  mutation CreateIngredient(
+const ADD_DISH = gql`
+  mutation Mutation(
     $name: String!
-    $category: String
-    $defaultValue: Int
+    $category: [String!]
     $description: String
+    $ingredients: [IngredientInDish]!
   ) {
-    createIngredient(
+    addDish(
       name: $name
       category: $category
-      defaultValue: $defaultValue
       description: $description
+      ingredients: $ingredients
     ) {
       id
-      category
-      defaultValue
       name
+      category
       description
     }
   }
 `;
-
-export const AddIngredientModal = ({ toggleIsOpen, refetchData }: any) => {
-  const [createIngredient, { data, loading, error }] =
-    useMutation(ADD_INGREDIENT);
+const AddDishModal = ({ toggleIsOpen }: any) => {
+  const [addDish, { data, loading, error }] = useMutation(ADD_DISH);
   const { register, handleSubmit } = useForm();
+
   const submitForm = (data: any) => {
-    createIngredient({
+    addDish({
       variables: {
         name: data.name,
-        category: data.category ? data.category : "",
-        defaultValue: data.defaultValue ? Number(data.defaultValue) : "",
-        description: data.description ? data.description : "",
+        category: data.category,
+        description: data.description,
+        ingredients: [
+          {
+            name: "test",
+            category: "",
+            defaultValue: 10,
+            description: "",
+          },
+        ],
       },
     });
   };
   if (data) {
     toggleIsOpen();
-    refetchData();
   }
   if (loading) {
     return <div>Loading...</div>;
@@ -63,20 +67,11 @@ export const AddIngredientModal = ({ toggleIsOpen, refetchData }: any) => {
       </label>
       <label className={styles.label}>
         Category
-        <input
-          className={styles.input}
-          {...register("category")}
-          placeholder="category"
-        />
-      </label>
-      <label className={styles.label}>
-        Default value
-        <input
-          className={styles.input}
-          type="number"
-          {...register("defaultValue")}
-          placeholder="defaultValue"
-        />
+        <select className={styles.select} {...register("category")}>
+          <option value="Breakfast">breakfast</option>
+          <option value="Lunch">lunch</option>
+          <option value="Dinner">dinner</option>
+        </select>
       </label>
       <label className={styles.label}>
         Description
@@ -91,3 +86,5 @@ export const AddIngredientModal = ({ toggleIsOpen, refetchData }: any) => {
     </form>
   );
 };
+
+export default AddDishModal;
