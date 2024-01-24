@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./AddDish.module.css";
 import { useMutation, gql } from "@apollo/client";
 import { useForm } from "react-hook-form";

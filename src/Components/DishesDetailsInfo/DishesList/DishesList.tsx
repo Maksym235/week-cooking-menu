@@ -1,122 +1,22 @@
 import styles from "./DishesList.module.css";
 import { FC } from "react";
-import { useQuery, gql } from "@apollo/client";
 export interface IIng {
   name: string;
   id: string;
   category: string[];
 }
-export interface ITitle {
+export interface IProps {
   title: string;
+  data: any;
 }
-
-const DISHES = gql`
-  query Query {
-    getDishes {
-      id
-      name
-      category
-    }
-  }
-`;
-export const DishesList: FC<ITitle> = ({ title }) => {
-  const { data, loading, error } = useQuery(DISHES);
-  //   const data: IIng[] = [
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "Bicycle",
-  //       id: "1",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "male",
-  //       id: "2",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "City",
-  //       id: "3",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "responsive transmitter",
-  //       id: "4",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "Bicycle",
-  //       id: "1",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "male",
-  //       id: "2",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "City",
-  //       id: "3",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "responsive transmitter",
-  //       id: "4",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "Bicycle",
-  //       id: "1",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "male",
-  //       id: "2",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "City",
-  //       id: "3",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "responsive transmitter",
-  //       id: "4",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "Bicycle",
-  //       id: "1",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "male",
-  //       id: "2",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "City",
-  //       id: "3",
-  //     },
-  //     {
-  //       img: "https://loremflickr.com/640/480/food",
-  //       name: "responsive transmitter",
-  //       id: "4",
-  //     },
-  //   ];
-  if (error) {
-    console.log(error);
-    return <div>{error.message}</div>;
-  }
-  if (loading) {
-    return <div>Loading....</div>;
-  }
+export const DishesList: FC<IProps> = ({ data, title }) => {
   return (
     <div className={styles.listsContainer}>
       <div className={styles.listWrapper}>
         <p className={styles.listTitle}>{title}</p>
         <ul className={styles.list}>
-          {data.getDishes &&
-            data.getDishes.map(({ name, id }: IIng) => (
+          {data &&
+            data.map(({ name, id }: IIng) => (
               <li>
                 <div className={styles.itemConteiner}>
                   <img
