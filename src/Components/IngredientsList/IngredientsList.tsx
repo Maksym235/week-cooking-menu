@@ -1,11 +1,12 @@
 import styles from "./IngredientsList.module.css";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { YourIngredientsListItem } from "../IngredientsListItems/YourIngredientsItem/YourIngredientsListItem.tsx";
 import { ShoppingListItem } from "../IngredientsListItems/ShoppingListItem/ShoppingListItem.tsx";
 import { useQuery, gql } from "@apollo/client";
 import { ModalConteiner } from "../ModalConteiner/ModalContainer.tsx";
 import { AddIngredientModal } from "../Modals/AddIngredient/AddIngredientModal.tsx";
+import { toast } from "react-toastify";
 export interface IIngredient {
   id: string;
   name: string;
@@ -25,6 +26,7 @@ export const IngredientsList = ({ setCurrent }: any) => {
     yourIngs: "Your ingredients",
     shoppingList: "Shopping List  ",
   };
+  const navigate = useNavigate();
   const { data, loading, error, refetch } = useQuery(YING);
   const [curItem, setCurItem] = useState("");
   const [searchParams] = useSearchParams();
@@ -110,6 +112,33 @@ export const IngredientsList = ({ setCurrent }: any) => {
     return <div>Loading...</div>;
   }
   if (error) {
+    if (error.message === "not auth") {
+      navigate("/");
+      toast.error(`please sign in or sign up`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    if (error.message === "Context creation failed: jwt expired") {
+      localStorage.clear();
+      navigate("/");
+      toast.error(`please sign in or sign up`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     return <div>{error.message}</div>;
   }
   return (

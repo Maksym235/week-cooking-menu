@@ -1,6 +1,8 @@
 import styles from "./WeekList.module.css";
 import { WeekDay } from "../WeekDay/WeekDay.tsx";
 import { useQuery, gql } from "@apollo/client";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const WEEK_LIST = gql`
   query ExampleQuery($getWeekByIdId: ID!) {
     getWeekById(id: $getWeekByIdId) {
@@ -63,6 +65,7 @@ const getRandomColor = () => {
 };
 
 export const WeekList = () => {
+  const navigate = useNavigate();
   const { data, loading, error } = useQuery(WEEK_LIST, {
     variables: {
       getWeekByIdId: "656b864e3f291f75643930d8",
@@ -73,6 +76,33 @@ export const WeekList = () => {
     return <div>Loading...</div>;
   }
   if (error) {
+    if (error.message === "not auth" || error.message === "Unauthorized") {
+      navigate("/");
+      toast.error(`please sign in or sign up`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    if (error.message === "Context creation failed: jwt expired") {
+      localStorage.clear();
+      navigate("/");
+      toast.error(`please sign in or sign up`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
     return <div>{error.message}</div>;
   }
   return (
