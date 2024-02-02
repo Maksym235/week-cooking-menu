@@ -2,6 +2,10 @@ import React from "react";
 import styles from "./AddDish.module.css";
 import { useMutation, gql } from "@apollo/client";
 import { useForm } from "react-hook-form";
+interface IProps {
+	toggleIsOpen: () => void;
+}
+
 const ADD_DISH = gql`
 	mutation Mutation(
 		$name: String!
@@ -22,7 +26,7 @@ const ADD_DISH = gql`
 		}
 	}
 `;
-const AddDishModal: React.FC = ({ toggleIsOpen }: any) => {
+const AddDishModal: React.FC<IProps> = ({ toggleIsOpen }) => {
 	const [addDish, { data, loading, error }] = useMutation(ADD_DISH);
 	const { register, handleSubmit } = useForm();
 
