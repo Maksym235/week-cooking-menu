@@ -1,14 +1,20 @@
 .conteiner {
-    margin-top: 30px;
-    padding-bottom: 30px;
-    width: 100%;
-    max-width: 1568px;
-    overflow-y: auto;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	width: 100%;
+	max-width: 1290px;
+	overflow-y: auto;
 }
 
 .list {
-    /* margin-left: 30px; */
-    margin-right: 30px;
-    display: flex;
-    gap: 10px;
+	/* margin-left: 30px; */
+	margin-right: 30px;
+	display: flex;
+	gap: 10px;
+}
+
+@media (min-width: 1600px) {
+	.conteiner {
+		max-width: 1568px;
+	}
 }
