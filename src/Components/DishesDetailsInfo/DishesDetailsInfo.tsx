@@ -1,20 +1,54 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./DishesDetailsInfo.module.css";
-import { IDish } from "../../types/dish";
+import { useQuery, gql } from "@apollo/client";
+import { toast } from "react-toastify";
+import { ModalConteiner } from "../ModalConteiner/ModalContainer";
+import { EditDishInfo } from "../Modals/EditDishInfo/EditDishInfo";
 interface IProps {
-	dish: IDish;
-	loading: boolean;
+	dishId: string;
 }
-export const DishesDetailsInfo: FC<IProps> = ({ dish, loading }) => {
+const GET_DISH = gql`
+	query Query($getDishByIdId: ID!) {
+		getDishById(id: $getDishByIdId) {
+			category
+			name
+		}
+	}
+`;
+export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
+	const [isOpenModal, setIsOpenModal] = useState(false);
+	const { data, loading, error } = useQuery(GET_DISH, {
+		variables: {
+			getDishByIdId: dishId,
+		},
+	});
+	const toggleAddIngModal = () => {
+		setIsOpenModal((state) => !state);
+	};
 	// const categoryData = ["Lunch", "Dinner", "breakfast"];
 	if (loading) {
-		return <div>Loading</div>;
+		<div>loading...</div>;
+	}
+	if (error) {
+		console.log(error);
+		toast.error(`${error.message}`, {
+			position: "top-center",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "light",
+		});
 	}
 	return (
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
 				<p>Dishes Details</p>
-				<button className={styles.headerBtn}>Edit Details</button>
+				<button onClick={toggleAddIngModal} className={styles.headerBtn}>
+					Edit Details
+				</button>
 			</div>
 			<div className={styles.detailsConteiner}>
 				<img
@@ -25,19 +59,29 @@ export const DishesDetailsInfo: FC<IProps> = ({ dish, loading }) => {
 				<div className={styles.textConteiner}>
 					<div className={styles.NameConteiner}>
 						<p className={styles.label}>Name:</p>
-						<p>{dish && dish.name}</p>
+						<p>{data && data.getDishById.name}</p>
 					</div>
 					<div className={styles.CategoryConteiner}>
 						<p className={styles.label}>Category:</p>
 						<ul className={styles.categoryList}>
-							{dish &&
-								dish.category.map((item) => (
+							{data &&
+								data.getDishById.category.map((item: string) => (
 									<li className={styles.categoryValue}>{item}</li>
 								))}
 						</ul>
 					</div>
 				</div>
 			</div>
+			<ModalConteiner
+				toggleIsOpen={toggleAddIngModal}
+				isOpen={isOpenModal}
+				children={
+					<EditDishInfo
+						// refetchData={refetch}
+						toggleIsOpen={toggleAddIngModal}
+					/>
+				}
+			/>
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import styles from "./AddDish.module.css";
 import { useMutation, gql } from "@apollo/client";
-import { useForm } from "react-hook-form";
-
+import { Controller, useForm } from "react-hook-form";
+import Select from "react-select";
 interface IPropsDishModal {
 	toggleIsOpen: () => void;
 }
@@ -27,8 +27,13 @@ const ADD_DISH = gql`
 `;
 const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 	const [addDish, { data, loading, error }] = useMutation(ADD_DISH);
-	const { register, handleSubmit } = useForm();
-
+	// const { register, handleSubmit } = useForm();
+	const { control, handleSubmit } = useForm();
+	const options = [
+		{ value: "Dinner", label: "Dinner" },
+		{ value: "Lunch", label: "Lunch" },
+		{ value: "Breakfast", label: "Breakfast" },
+	];
 	const submitForm = (data: any) => {
 		addDish({
 			variables: {
@@ -62,29 +67,62 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 		>
 			<label className={styles.label}>
 				Name
-				<input
+				<Controller
+					name="name"
+					control={control}
+					render={({ field }) => (
+						<input placeholder="name" className={styles.input} {...field} />
+					)}
+				/>
+				{/* <input
 					className={styles.input}
 					{...register("name")}
 					placeholder="name"
-				/>
+				/> */}
 			</label>
 			<label className={styles.label}>
 				Category
-				<select className={styles.select} {...register("category")}>
+				<Controller
+					name="category"
+					control={control}
+					render={({ field }) => (
+						<Select
+							// className={styles.select}
+							{...field}
+							defaultValue={[options[1], options[2]]}
+							isMulti
+							name="colors"
+							options={options}
+							className="basic-multi-select"
+							classNamePrefix="select"
+						/>
+					)}
+				/>
+				{/* <select className={styles.select} {...register("category")}>
 					<option value="Breakfast">breakfast</option>
 					<option value="Lunch">lunch</option>
 					<option value="Dinner">dinner</option>
-				</select>
+				</select> */}
 			</label>
 			<label className={styles.label}>
 				Description
-				<input
+				<Controller
+					name="description"
+					control={control}
+					render={({ field }) => (
+						<input
+							placeholder="description"
+							className={styles.input}
+							{...field}
+						/>
+					)}
+				/>
+				{/* <input
 					className={styles.input}
 					{...register("description")}
 					placeholder="description"
-				/>
+				/> */}
 			</label>
-			<p>{data}</p>
 			<input className={styles.submit_btn} type="submit" />
 		</form>
 	);
