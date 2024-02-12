@@ -10,11 +10,18 @@ interface IProps {
 const GET_DISH = gql`
 	query Query($getDishByIdId: ID!) {
 		getDishById(id: $getDishByIdId) {
+			id
 			category
 			name
 		}
 	}
 `;
+
+const categoryColors: Record<string, string> = {
+	Breakfast: "#E8E0FF",
+	Lunch: "#FFEDC8 ",
+	Dinner: "#CCF2FF",
+};
 export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 	const [isOpenModal, setIsOpenModal] = useState(false);
 	const { data, loading, error } = useQuery(GET_DISH, {
@@ -66,7 +73,12 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 						<ul className={styles.categoryList}>
 							{data &&
 								data.getDishById.category.map((item: string) => (
-									<li className={styles.categoryValue}>{item}</li>
+									<li
+										className={styles.categoryValue}
+										style={{ backgroundColor: categoryColors[item] }}
+									>
+										{item}
+									</li>
 								))}
 						</ul>
 					</div>

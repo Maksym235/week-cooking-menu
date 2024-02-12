@@ -11,6 +11,12 @@ export interface IProps {
 	setDish: (id: string) => void;
 }
 
+const categoryColors: Record<string, string> = {
+	Breakfast: "#E8E0FF",
+	Lunch: "#FFEDC8 ",
+	Dinner: "#CCF2FF",
+};
+
 export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 	const handleSelectDish = (id: string) => {
 		setDish(id);
@@ -18,7 +24,12 @@ export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 	return (
 		<div className={styles.listsContainer}>
 			<div className={styles.listWrapper}>
-				<p className={styles.listTitle}>{title}</p>
+				<p
+					style={{ backgroundColor: categoryColors[title] }}
+					className={styles.listTitle}
+				>
+					{title}
+				</p>
 				<ul className={styles.list}>
 					{data &&
 						data.map(({ name, id }: IIng) => (
