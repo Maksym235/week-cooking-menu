@@ -1,0 +1,10 @@
+.main_container {
+	margin-left: 16px;
+	width: 100%;
+}
+
+.main_block {
+	width: 100%;
+	border-radius: 16px;
+	background-color: #fff;
+}
