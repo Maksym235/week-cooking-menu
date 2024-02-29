@@ -5,6 +5,30 @@
 	flex-direction: column;
 }
 
+.image_wrapper {
+	display: flex;
+	gap: 220px;
+	align-items: flex-end;
+}
+
+.eddit_btn {
+	display: flex;
+	padding: 6px 12px;
+	height: 40px;
+	align-items: center;
+	background-color: #f6f8fa;
+	justify-content: center;
+	gap: 8px;
+	border: 1px solid var(--silverColor);
+	border-radius: 6px;
+	/* font-family: SF Pro Text; */
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px; /* 142.857% */
+	letter-spacing: -0.15px;
+}
+
 .setting_img {
 	width: 100px;
 	height: 100px;
@@ -16,7 +40,7 @@
 	margin-top: 30px;
 	width: 400px;
 	display: flex;
-	gap: 30px;
+	gap: 20px;
 	flex-direction: column;
 }
 
@@ -42,6 +66,11 @@
 	border-radius: 6px /* utility class: .rounded-2 */;
 	border: 1px solid var(--silverColor);
 	background: var(--sideBarBg) /* utility class: .color-bg-default */;
+	transition: border 0.2s ease-out;
+}
+
+.isEdit {
+	border: 1px solid var(--accentColor);
 }
 
 .input::placeholder {
@@ -54,6 +83,7 @@
 }
 
 .submit_btn {
+	cursor: pointer;
 	display: flex;
 	width: 400px;
 	margin-top: 30px;
@@ -70,4 +100,9 @@
 	font-weight: 600;
 	line-height: 20px; /* 142.857% */
 	letter-spacing: -0.15px;
+}
+
+.isEdit_btn {
+	color: var(--accentColor);
+	border: 1px solid var(--accentColor);
 }

@@ -1,38 +1,42 @@
 .daysList {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 30px;
-  border-radius: 16px;
-  /* max-width: 300px; */
-  width: 300px;
-  /* height: 644px; */
-  background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+	gap: 18px;
+	border-radius: 16px;
+	width: 300px;
+	background-color: #fff;
 }
 
 .daysList_item {
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  color: var(--silverColor);
-  border-bottom: 1px solid var(--ligthSilverColor);
-  transition: all 0.2s ease-in;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	padding: 16px;
+	color: var(--silverColor);
+	border-bottom: 1px solid var(--ligthSilverColor);
+	transition: all 0.2s ease-in;
 }
 
 .active {
-  border-color: var(--accentColor);
-  color: var(--blackColor);
+	border-color: var(--accentColor);
+	color: var(--blackColor);
 }
 
 .daysList_item_icon {
-  width: 24px;
-  height: 24px;
-  fill: var(--silverColor);
+	width: 24px;
+	height: 24px;
+	fill: var(--silverColor);
 }
 
 .daysList_item:hover,
 .daysList_item:focus {
-  border-color: var(--accentColor);
-  color: var(--blackColor);
+	border-color: var(--accentColor);
+	color: var(--blackColor);
+}
+
+@media (main-width: 1600px) {
+	.daysList {
+		gap: 40px;
+	}
 }

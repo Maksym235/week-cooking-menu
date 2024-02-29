@@ -7,6 +7,7 @@ export const Settings = () => {
 			<PageBar title="Settings" />
 			<div className={styles.main_block}>
 				<SettingsBlock />
+				<button className={styles.logout_btn}>Logout</button>
 			</div>
 		</main>
 	);

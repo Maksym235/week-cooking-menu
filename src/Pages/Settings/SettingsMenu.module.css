@@ -7,4 +7,25 @@
 	width: 100%;
 	border-radius: 16px;
 	background-color: #fff;
+	position: relative;
+}
+
+.logout_btn {
+	right: 20px;
+	top: 20px;
+	position: absolute;
+	display: flex;
+	height: 44px;
+	padding: 8px 16px;
+	align-items: center;
+	gap: 8px;
+	border-radius: 40px;
+	background-color: var(--activePage);
+	/*font-family: Manrope;*/
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border: none;
+	color: var(--accentColor);
 }
