@@ -8,6 +8,8 @@ import { useState } from "react";
 import { IWeekDay } from "../../types/WeekDay.ts";
 import { WeekDaysSideBar } from "../WeekDaysSideBar/WeekDaysSideBar.tsx";
 import { WeekSettingsBlock } from "../WeekSettingsBlock/WeekSettingsBlock.tsx";
+import {ModalConteiner} from "../ModalConteiner/ModalContainer.tsx";
+import {CreateNewWeekList} from "../Modals/CreateNewWeekList/CreateNewWeekList.tsx";
 const WEEK_LIST = gql`
   query Query($getWeekByIdId: ID!) {
     getWeekById(id: $getWeekByIdId) {
@@ -31,7 +33,7 @@ const WEEK_LIST = gql`
     }
   }
 `;
-const week = [
+export const week = [
   {
     day: "Monday",
     key: 1,
@@ -71,6 +73,7 @@ const week = [
 
 export const WeekList = () => {
   const [currentDay, setCurrentDay] = useState(week[0]);
+  const [isOpenModal, setIsOpenModal] = useState(true)
   const navigate = useNavigate();
   const { data, loading, error } = useQuery(WEEK_LIST, {
     variables: {
@@ -115,6 +118,10 @@ export const WeekList = () => {
     }
     return <div>{error.message}</div>;
   }
+
+  const toggleCreateMenuModal = () => {
+    setIsOpenModal(state => !state)
+  }
   return (
     <section className={styles.conteiner}>
       <WeekDaysSideBar
@@ -140,6 +147,16 @@ export const WeekList = () => {
           </li>
         ))}
       </ul> */}
+      <ModalConteiner
+          toggleIsOpen={toggleCreateMenuModal}
+          isOpen={isOpenModal}
+          children={
+            <CreateNewWeekList
+                // refetchData={refetch}
+                toggleIsOpen={toggleCreateMenuModal}
+            />
+          }
+      />
     </section>
   );
 };
