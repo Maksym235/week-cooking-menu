@@ -69,3 +69,10 @@
 	line-height: 20px; /* 142.857% */
 	letter-spacing: -0.15px;
 }
+.select_container {
+	display: flex;
+	gap: 20px;
+}
+.select_ing {
+	width: 150px;
+}
