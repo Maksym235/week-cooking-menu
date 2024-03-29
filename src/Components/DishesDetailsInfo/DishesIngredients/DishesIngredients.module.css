@@ -1,7 +1,7 @@
 .conteiner {
 	display: flex;
 	/*width: 100%;*/
-	min-width: 770px;
+	min-width: 795px;
 	/*height: 293px;*/
 	min-height: 175px;
 	padding: 24px 24px 0 24px;
@@ -67,7 +67,7 @@
 
 .list {
 	display: flex;
-	max-width: 760px;
+	max-width: 795px;
 	gap: 20px;
 	flex-wrap: wrap;
 }
@@ -111,9 +111,9 @@
 		font-size: 24px;
 	}
 	.conteiner {
-		min-width: 940px;
+		min-width: 960px;
 	}
 	.list {
-		min-width: 940px;
+		min-width: 960px;
 	}
 }

@@ -139,7 +139,13 @@ export const WeekList = () => {
 					}
 				/>
 			)}
-			<WeekSettingsBlock openModal={toggleCreateMenuModal} />
+			<WeekSettingsBlock
+				periods={{
+					period1: data.getWeekById.period1,
+					period2: data.getWeekById.period2,
+				}}
+				openModal={toggleCreateMenuModal}
+			/>
 			{/* <ul className={styles.list}>
         {week.map((item: { day: string; key: number }) => (
           <li key={item.key}>

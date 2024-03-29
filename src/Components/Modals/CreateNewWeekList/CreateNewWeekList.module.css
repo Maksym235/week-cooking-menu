@@ -1,68 +1,69 @@
 .days_list {
-    display: flex;
-    gap: 50px;
+	display: flex;
+	gap: 50px;
 }
 
 .days_list_item {
-    cursor: pointer;
-    padding: 10px;
+	cursor: pointer;
+	padding: 10px;
 }
 
 .active {
-    border-bottom: 2px solid var(--accentColor);
-    /*transition: border ease-in-out;*/
+	border-bottom: 2px solid var(--accentColor);
+	/*transition: border ease-in-out;*/
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    gap: 24px;
-    margin-top: 50px;
-    padding: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	gap: 24px;
+	margin-top: 50px;
+	padding: 30px;
+	z-index: 100;
 }
 
 .mealtimes_conteiner {
-    position: relative;
+	position: relative;
 }
 .mealtimes_conteiner::after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    bottom: -12px;
-    left: 0;
-    background-color: var(--creamColor);
+	content: "";
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	bottom: -12px;
+	left: 0;
+	background-color: var(--creamColor);
 }
 
 .mealtimes {
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    color: var(--silverColor);
-    margin-bottom: 4px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--silverColor);
+	margin-bottom: 4px;
 }
 
 .category {
-    display: flex;
-    padding: 8px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 40px;
-    width: 74px;
-    color: var(--blackColor);
-    background-color: var(--activePage);
-    margin-bottom: 8px;
+	display: flex;
+	padding: 8px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border-radius: 40px;
+	width: 74px;
+	color: var(--blackColor);
+	background-color: var(--activePage);
+	margin-bottom: 8px;
 }
 
 .dish {
-    color: var(--silverColor);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    margin-bottom: 4px;
+	color: var(--silverColor);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	margin-bottom: 4px;
 }

@@ -14,7 +14,7 @@ export const NewWeekDay = ({
 	dinnerDishes,
 	day,
 }: IMealtimesDishes) => {
-	const [breakfast, setBreackfast] = useState([]);
+	const [breakfast, setBreackfast] = useState<any>([]);
 	const [lunch, setLunch] = useState([]);
 	const [dinner, setDinner] = useState([]);
 	const categoryColors: Record<string, string> = {
@@ -23,6 +23,7 @@ export const NewWeekDay = ({
 		Dinner: "#CCF2FF",
 	};
 	const onChangeBreakfast = (evt: any) => {
+		console.log(evt);
 		setBreackfast(evt);
 	};
 	const onChangeLunch = (evt: any) => {
@@ -58,6 +59,7 @@ export const NewWeekDay = ({
 					<p className={styles.dish}>Dish:</p>
 					<Select
 						isMulti
+						defaultValue={breakfast}
 						onChange={onChangeBreakfast}
 						name="colors"
 						options={colourOptions}
