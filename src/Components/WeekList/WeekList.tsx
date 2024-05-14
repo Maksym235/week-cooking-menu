@@ -9,27 +9,29 @@ import { IWeekDay } from "../../types/WeekDay.ts";
 import { WeekDaysSideBar } from "../WeekDaysSideBar/WeekDaysSideBar.tsx";
 import { WeekSettingsBlock } from "../WeekSettingsBlock/WeekSettingsBlock.tsx";
 import { ModalConteiner } from "../ModalConteiner/ModalContainer.tsx";
-import { CreateNewWeekList } from "../Modals/CreateNewWeekList/CreateNewWeekList.tsx";
+import dayjs from "dayjs";
+import { SetToDayNewDish } from "../Modals/SetToDayNewDish/SetToDayNewDish.tsx";
 const WEEK_LIST = gql`
-	query Query($getWeekByIdId: ID!) {
-		getWeekById(id: $getWeekByIdId) {
-			period1
-			period2
+	query ExampleQuery($period: String) {
+		getWeekByPeriod(period: $period) {
 			week {
-				day
-				b {
-					name
-					id
-				}
 				l {
-					name
 					id
+					name
 				}
 				d {
 					name
 					id
 				}
+				day
+				b {
+					name
+					id
+				}
 			}
+			period2
+			period1
+			id
 		}
 	}
 `;
@@ -63,25 +65,19 @@ export const week = [
 		key: 6,
 	},
 ];
-// const getRandomColor = () => {
-//   const red = Math.floor(Math.random() * 256);
-//   const green = Math.floor(Math.random() * 256);
-//   const blue = Math.floor(Math.random() * 256);
-//   const color = "rgb(" + red + "," + green + "," + blue + ")";
-//   return color;
-// };
-
 export const WeekList = () => {
 	const [currentDay, setCurrentDay] = useState(week[0]);
-	const [isOpenModal, setIsOpenModal] = useState(true);
+	const [isOpenModal, setIsOpenModal] = useState(false);
+	const [editedMealtime, setEditedMealtime] = useState("");
 	const navigate = useNavigate();
-	const { data, loading, error } = useQuery(WEEK_LIST, {
+	dayjs().locale("uk-ua");
+	const currentWeekMonday = dayjs().day(1).format("YYYY-MM-DD");
+	const { data, loading, error, refetch } = useQuery(WEEK_LIST, {
 		variables: {
-			getWeekByIdId: "656b864e3f291f75643930d8",
+			period: currentWeekMonday,
 		},
 		fetchPolicy: "no-cache",
 	});
-	console.log(data);
 	const handleSetCurrentDay = (day: { day: string; key: number }) => {
 		setCurrentDay(day);
 	};
@@ -118,10 +114,19 @@ export const WeekList = () => {
 		}
 		return <div>{error.message}</div>;
 	}
-
 	const toggleCreateMenuModal = () => {
 		setIsOpenModal((state) => !state);
 	};
+
+	const changeMealtime = (mealtime: string) => {
+		setEditedMealtime(mealtime);
+	};
+	console.log(
+		data.getWeekByPeriod.week.find(
+			(item: IWeekDay) =>
+				item.day.toLowerCase() === currentDay.day.toLowerCase(),
+		),
+	);
 	return (
 		<section className={styles.conteiner}>
 			<WeekDaysSideBar
@@ -131,20 +136,25 @@ export const WeekList = () => {
 			/>
 			{week && (
 				<WeekDay
+					changeMealtime={changeMealtime}
+					togleIsOpen={toggleCreateMenuModal}
+					weekId={data.getWeekByPeriod.id}
 					day={
 						data &&
-						data.getWeekById.week.find(
-							(item: IWeekDay) => item.day === currentDay.day.toLowerCase(),
+						data.getWeekByPeriod.week.find(
+							(item: IWeekDay) =>
+								item.day.toLowerCase() === currentDay.day.toLowerCase(),
 						)
 					}
 				/>
 			)}
 			<WeekSettingsBlock
 				periods={{
-					period1: data.getWeekById.period1,
-					period2: data.getWeekById.period2,
+					period1: data.getWeekByPeriod.period1,
+					period2: data.getWeekByPeriod.period2,
 				}}
 				openModal={toggleCreateMenuModal}
+				refetchData={refetch}
 			/>
 			{/* <ul className={styles.list}>
         {week.map((item: { day: string; key: number }) => (
@@ -157,8 +167,15 @@ export const WeekList = () => {
 				toggleIsOpen={toggleCreateMenuModal}
 				isOpen={isOpenModal}
 				children={
-					<CreateNewWeekList
-						// refetchData={refetch}
+					<SetToDayNewDish
+						weekId={data.getWeekByPeriod.id}
+						currentDay={currentDay}
+						dayData={data.getWeekByPeriod.week.find(
+							(item: IWeekDay) =>
+								item.day.toLowerCase() === currentDay.day.toLowerCase(),
+						)}
+						refetchData={refetch}
+						mealtime={editedMealtime}
 						toggleIsOpen={toggleCreateMenuModal}
 					/>
 				}

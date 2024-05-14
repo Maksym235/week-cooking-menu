@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styles from "./WeekSettingsBlock.module.css";
 import dayjs from "dayjs";
-import { useMutation, useQuery, gql } from "@apollo/client";
-import axios from "axios";
+// import { useMutation, useQuery, gql } from "@apollo/client";
+// import axios from "axios";
 // import "dayjs/locale/uk-ua";
 interface IPeriods {
 	period1: string;
@@ -12,45 +12,53 @@ interface IPeriods {
 interface Iprops {
 	openModal: () => void;
 	periods: IPeriods;
+	refetchData: any;
 }
 
-const CREATE_INITIAL_WEEK = gql`
-	mutation Mutation($content: AddWeek!) {
-		createWeek(content: $content) {
-			week {
-				l {
-					name
-					id
-				}
-				day
-				d {
-					name
-					id
-				}
-				b {
-					name
-					id
-				}
-			}
-			period2
-			period1
-		}
-	}
-`;
-const GET_NEXT_WEEK = gql``;
-export const WeekSettingsBlock: FC<Iprops> = ({ openModal, periods }) => {
-	const [createWeek, { data, loading, error }] =
-		useMutation(CREATE_INITIAL_WEEK);
+// const CREATE_INITIAL_WEEK = gql`
+// 	mutation Mutation($content: AddWeek!) {
+// 		createWeek(content: $content) {
+// 			week {
+// 				l {
+// 					name
+// 					id
+// 				}
+// 				day
+// 				d {
+// 					name
+// 					id
+// 				}
+// 				b {
+// 					name
+// 					id
+// 				}
+// 			}
+// 			period2
+// 			period1
+// 		}
+// 	}
+// `;
+export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
+	// const [createWeek, { data, loading, error }] =
+	// 	useMutation(CREATE_INITIAL_WEEK);
 	dayjs().locale("uk-ua");
 	const currentWeekMonday = dayjs().day(1).format("YYYY-MM-DD");
-	console.log(currentWeekMonday);
 
 	const handleChangeWeek = () => {
-		if (currentWeekMonday !== periods.period1) {
-			console.log("create week ");
+		if (currentWeekMonday === periods.period1) {
+			// console.log("create week ");
+			// console.log();
+			const nextWeekMonday = dayjs(currentWeekMonday)
+				.add(7, "days")
+				.format("YYYY-MM-DD");
+			refetchData({
+				period: nextWeekMonday,
+			});
 			return;
 		}
-		console.log("f");
+		refetchData({
+			period: currentWeekMonday,
+		});
 	};
 	return (
 		<div className={styles.container}>
@@ -60,10 +68,7 @@ export const WeekSettingsBlock: FC<Iprops> = ({ openModal, periods }) => {
 				<p className={styles.period}>{periods.period2}</p>
 			</div>
 			<button onClick={handleChangeWeek} className={styles.btn}>
-				{currentWeekMonday === periods.period1 ? `prew week` : `next week`}
-			</button>
-			<button onClick={openModal} className={styles.btn}>
-				Create new list
+				{currentWeekMonday === periods.period1 ? `next week` : `current week`}
 			</button>
 			<button className={styles.btn}>save this list</button>
 		</div>

@@ -1,80 +1,88 @@
 .conteiner {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--sideBarBg);
-  border-radius: 24px;
-  padding: 24px;
-  width: 100%;
-  /* height: 450px; */
-  min-width: 225px;
-  gap: 24px;
-  /* width: 300px; */
+	display: flex;
+	flex-direction: column;
+	background-color: var(--sideBarBg);
+	border-radius: 24px;
+	padding: 24px;
+	width: 100%;
+	/* height: 450px; */
+	min-width: 225px;
+	gap: 24px;
+	/* width: 300px; */
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--blackColor);
-  height: 40px;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--blackColor);
+	height: 40px;
+	border-top-left-radius: 24px;
+	border-top-right-radius: 24px;
 }
 
 .title {
-  padding: 10px;
-  /* border-radius: 4px; */
-  border-bottom: 2px solid var(--accentColor);
+	padding: 10px;
+	/* border-radius: 4px; */
+	border-bottom: 2px solid var(--accentColor);
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  gap: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 100%;
+	gap: 24px;
 }
 
 .mealtimes_conteiner {
-  position: relative;
+	position: relative;
+}
+
+.icon_conteiner {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: pointer;
+	padding: 10px;
 }
 .mealtimes_conteiner::after {
-  content: "";
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  background-color: var(--creamColor);
+	content: "";
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	bottom: -12px;
+	left: 0;
+	background-color: var(--creamColor);
 }
 
 .mealtimes {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--silverColor);
-  margin-bottom: 4px;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: var(--silverColor);
+	margin-bottom: 4px;
 }
 
 .category {
-  display: flex;
-  padding: 8px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 40px;
-  width: 74px;
-  color: var(--blackColor);
-  background-color: var(--activePage);
-  margin-bottom: 8px;
+	display: flex;
+	padding: 8px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	border-radius: 40px;
+	width: 74px;
+	color: var(--blackColor);
+	background-color: var(--activePage);
+	margin-bottom: 8px;
 }
 
 .dish {
-  color: var(--silverColor);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  margin-bottom: 4px;
+	color: var(--silverColor);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+	margin-bottom: 4px;
 }
