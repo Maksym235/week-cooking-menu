@@ -3,6 +3,7 @@ import { useMutation, gql } from "@apollo/client";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { WellcomeMessage } from "./WellcomeMessage/WellcomeMessage";
+import { useTranslation } from "react-i18next";
 const LOGIN = gql`
 	mutation Login($email: String, $password: String) {
 		login(email: $email, password: $password) {
@@ -25,6 +26,7 @@ const REGISTER = gql`
 	}
 `;
 export const LoginForm = ({ form }: { form: string }) => {
+	const { t } = useTranslation();
 	const [login, { data, loading, error }] = useMutation(LOGIN);
 	const [
 		register,
@@ -113,9 +115,9 @@ export const LoginForm = ({ form }: { form: string }) => {
 					<form onSubmit={handleSubmitform} className={styles.form}>
 						{form === "register" && (
 							<label className={styles.label}>
-								name
+								{t("Auth.Forms.name")}
 								<input
-									placeholder="enter your name"
+									placeholder={t("Auth.Forms.placeholderName")}
 									className={styles.input}
 									name="name"
 									type="text"
@@ -123,25 +125,25 @@ export const LoginForm = ({ form }: { form: string }) => {
 							</label>
 						)}
 						<label className={styles.label}>
-							email
+							{t("Auth.Forms.email")}
 							<input
-								placeholder="enter your email"
+								placeholder={t("Auth.Forms.placeholderEmail")}
 								className={styles.input}
 								name="email"
 								type="email"
 							/>
 						</label>
 						<label className={styles.label}>
-							password
+							{t("Auth.Forms.password")}
 							<input
-								placeholder="enter your password"
+								placeholder={t("Auth.Forms.placeholderPassword")}
 								className={styles.input}
 								name="password"
 								type="password"
 							/>
 						</label>
 						<button className={styles.button} type="submit">
-							<span>Submit</span>
+							<span>{t("Auth.Forms.submit")}</span>
 						</button>
 					</form>
 				)}

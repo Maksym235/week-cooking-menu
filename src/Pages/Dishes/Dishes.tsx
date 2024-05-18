@@ -4,14 +4,16 @@ import { PageBar } from "../../Components/PageBar/PageBar.tsx";
 import { DishesIngredients } from "../../Components/DishesDetailsInfo/DishesIngredients/DishesIngredients.tsx";
 import { DishListContainer } from "../../Components/DishesDetailsInfo/DishListContainer/DishListContainer.tsx";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 const Dishes = () => {
+	const { t } = useTranslation();
 	const [currentDish, setCurrentDish] = useState<string>("");
 	const setSelectedDish = (id: string) => {
 		setCurrentDish(id);
 	};
 	return (
 		<main className={styles.main_conteiner}>
-			<PageBar title="Dishes" />
+			<PageBar title={t(`Header.dishes`)} />
 			{/*<DishesIngredients/>*/}
 			<div className={styles.info_conteiner}>
 				<DishesDetailsInfo dishId={currentDish} />

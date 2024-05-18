@@ -9,8 +9,10 @@ import styles from "./SideBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 // import {Popover} from "antd";
 export const SideBar = () => {
+	const { t } = useTranslation();
 	const [isOpen, setIsOpen] = useState(false);
 	const [currentList, setCurrentList] = useState<string | null>(null);
 	const { pathname } = useLocation();
@@ -54,7 +56,7 @@ export const SideBar = () => {
 								: styles.NavLinksText
 						}
 					>
-						Home
+						{t("Sidebar.home")}
 					</p>
 				</NavLink>
 
@@ -80,7 +82,7 @@ export const SideBar = () => {
 									: styles.NavLinksText
 							}
 						>
-							Ingredients
+							{t(`Sidebar.ingredients`)}
 						</p>
 					</NavLink>
 					{isOpen && (
@@ -94,7 +96,7 @@ export const SideBar = () => {
 										: styles.subListText
 								}
 							>
-								Your Ingredients
+								{t(`Sidebar.yourIngrediens`)}
 							</NavLink>
 							<NavLink
 								to="/ingredients?currentList=shoppingList"
@@ -105,7 +107,7 @@ export const SideBar = () => {
 										: styles.subListText
 								}
 							>
-								Shopping List
+								{t(`Sidebar.shoppingList`)}
 							</NavLink>
 						</div>
 					)}
@@ -134,7 +136,7 @@ export const SideBar = () => {
 								: styles.NavLinksText
 						}
 					>
-						Dishes
+						{t(`Sidebar.dishes`)}
 					</p>
 				</NavLink>
 
@@ -160,7 +162,7 @@ export const SideBar = () => {
 								: styles.NavLinksText
 						}
 					>
-						Menu
+						{t("Sidebar.menu")}
 					</p>
 				</NavLink>
 
@@ -188,7 +190,7 @@ export const SideBar = () => {
 								: styles.NavLinksText
 						}
 					>
-						Settings
+						{t(`Sidebar.settings`)}
 					</p>
 				</NavLink>
 			</div>
