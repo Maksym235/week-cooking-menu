@@ -57,4 +57,24 @@ export const uk_language = {
 		addDish: "Додати страву",
 		selectDish: "виберіть страву",
 	},
+	MenuPage: {
+		days: {
+			monday: "Понеділок",
+			tuesday: "Вівторок",
+			wednesday: "Середа",
+			thuesday: "Четвер",
+			friday: "П'ятниця",
+			saturday: "Субота",
+			sunday: "Неділя",
+		},
+		mealtimes: "Час прийому їжі",
+		dish: "Страва",
+		nextWeek: "Наступний тиждень",
+		currentWeek: "Поточний тиждень",
+		getShoppingList: "Створити список покупок",
+	},
+	SettingsPage: {
+		edit: "Редагувати",
+		logout: "Вийти",
+	},
 };

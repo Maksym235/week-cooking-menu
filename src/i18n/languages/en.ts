@@ -57,4 +57,24 @@ export const en_language = {
 		addDish: "Add dish",
 		selectDish: "select dish",
 	},
+	MenuPage: {
+		days: {
+			monday: "Monday",
+			tuesday: "Tuesday",
+			wednesday: "Wednesday",
+			thuesday: "Thuesday",
+			friday: "Friday",
+			saturday: "Saturday",
+			sunday: "Sunday",
+		},
+		mealtimes: "Mealtimes",
+		dish: "Dish",
+		nextWeek: "Next week",
+		currentWeek: "Current week",
+		getShoppingList: "Get shopping list",
+	},
+	SettingsPage: {
+		edit: "Edit",
+		logout: "Logout",
+	},
 };
