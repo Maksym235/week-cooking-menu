@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./WeekSettingsBlock.module.css";
 import dayjs from "dayjs";
+import { useTranslation } from "react-i18next";
 // import { useMutation, useQuery, gql } from "@apollo/client";
 // import axios from "axios";
 // import "dayjs/locale/uk-ua";
@@ -39,6 +40,7 @@ interface Iprops {
 // 	}
 // `;
 export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
+	const { t } = useTranslation();
 	// const [createWeek, { data, loading, error }] =
 	// 	useMutation(CREATE_INITIAL_WEEK);
 	dayjs().locale("uk-ua");
@@ -68,9 +70,11 @@ export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
 				<p className={styles.period}>{periods.period2}</p>
 			</div>
 			<button onClick={handleChangeWeek} className={styles.btn}>
-				{currentWeekMonday === periods.period1 ? `next week` : `current week`}
+				{currentWeekMonday === periods.period1
+					? t(`MenuPage.nextWeek`)
+					: t(`MenuPage.currentWeek`)}
 			</button>
-			<button className={styles.btn}>save this list</button>
+			<button className={styles.btn}>{t(`MenuPage.getShoppingList`)}</button>
 		</div>
 	);
 };

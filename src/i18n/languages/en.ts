@@ -9,6 +9,8 @@ export const en_language = {
 			placeholderEmail: "enter your email",
 			password: "password",
 			placeholderPassword: "enter your password",
+			newPassword: "new password",
+			placeholderNewPassword: "enter new password",
 			submit: "Submit",
 		},
 	},
@@ -62,7 +64,7 @@ export const en_language = {
 			monday: "Monday",
 			tuesday: "Tuesday",
 			wednesday: "Wednesday",
-			thuesday: "Thuesday",
+			thursday: "Thursday",
 			friday: "Friday",
 			saturday: "Saturday",
 			sunday: "Sunday",
@@ -76,5 +78,35 @@ export const en_language = {
 	SettingsPage: {
 		edit: "Edit",
 		logout: "Logout",
+	},
+	Modals: {
+		Container: {
+			close: "Close",
+		},
+		AddDish: {
+			name: "Name",
+			category: "Category",
+			desc: "Description",
+			ingredients: {
+				ingerdients: "Ingredients",
+				ingredient: "Ingredient",
+				count: "Count",
+				weightType: "Weight type",
+				plus: "Plus",
+			},
+		},
+		AddIngredient: {
+			name: "Name",
+			category: "Category",
+			defaultValue: "Default value",
+			desc: "Description",
+		},
+		EditDishInfo: {
+			name: "new name",
+		},
+		SetToDayNewDish: {
+			selectDish: "Select dish",
+			submit: "Submit",
+		},
 	},
 };

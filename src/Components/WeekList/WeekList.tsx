@@ -11,6 +11,7 @@ import { WeekSettingsBlock } from "../WeekSettingsBlock/WeekSettingsBlock.tsx";
 import { ModalConteiner } from "../ModalConteiner/ModalContainer.tsx";
 import dayjs from "dayjs";
 import { SetToDayNewDish } from "../Modals/SetToDayNewDish/SetToDayNewDish.tsx";
+import { week } from "./week.ts";
 const WEEK_LIST = gql`
 	query ExampleQuery($period: String) {
 		getWeekByPeriod(period: $period) {
@@ -35,36 +36,7 @@ const WEEK_LIST = gql`
 		}
 	}
 `;
-export const week = [
-	{
-		day: "Monday",
-		key: 0,
-	},
-	{
-		day: "Tuesday",
-		key: 1,
-	},
-	{
-		day: "Wednesday",
-		key: 2,
-	},
-	{
-		day: "Thursday",
-		key: 3,
-	},
-	{
-		day: "Friday",
-		key: 4,
-	},
-	{
-		day: "Saturday",
-		key: 5,
-	},
-	{
-		day: "Sunday",
-		key: 6,
-	},
-];
+
 export const WeekList = () => {
 	const [currentDay, setCurrentDay] = useState(week[0]);
 	const [isOpenModal, setIsOpenModal] = useState(false);
@@ -121,12 +93,6 @@ export const WeekList = () => {
 	const changeMealtime = (mealtime: string) => {
 		setEditedMealtime(mealtime);
 	};
-	console.log(
-		data.getWeekByPeriod.week.find(
-			(item: IWeekDay) =>
-				item.day.toLowerCase() === currentDay.day.toLowerCase(),
-		),
-	);
 	return (
 		<section className={styles.conteiner}>
 			<WeekDaysSideBar

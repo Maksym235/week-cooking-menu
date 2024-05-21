@@ -1,15 +1,17 @@
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
 import styles from "./EditDishInfo.module.css";
+import { useTranslation } from "react-i18next";
 export const EditDishInfo = ({
 	toggleIsOpen,
 }: {
 	toggleIsOpen: () => void;
 }) => {
+	const { t } = useTranslation();
 	const options = [
-		{ value: "Dinner", label: "Dinner", isFixed: true },
-		{ value: "Lunch", label: "Lunch" },
-		{ value: "Breakfast", label: "Breakfast" },
+		{ value: "Dinner", label: t(`Categories.dinner`), isFixed: true },
+		{ value: "Lunch", label: t(`Categories.lunch`) },
+		{ value: "Breakfast", label: t(`Categories.breakfast`) },
 	];
 	const { control, handleSubmit } = useForm({
 		defaultValues: {
@@ -30,7 +32,11 @@ export const EditDishInfo = ({
 				name="name"
 				control={control}
 				render={({ field }) => (
-					<input placeholder="Dish name" className={styles.input} {...field} />
+					<input
+						placeholder={t(`Modals.EditDishInfo.name`)}
+						className={styles.input}
+						{...field}
+					/>
 				)}
 			/>
 			<Controller
