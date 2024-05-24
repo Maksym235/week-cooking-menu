@@ -11,13 +11,12 @@ export interface IProps {
 	setDish: (id: string) => void;
 }
 
-const categoryColors: Record<string, string> = {
-	Breakfast: "#E8E0FF",
-	Lunch: "#FFEDC8 ",
-	Dinner: "#CCF2FF",
-};
-
 export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
+	const categoryColors: Record<string, string> = {
+		Breakfast: "#E8E0FF",
+		Lunch: "#FFEDC8 ",
+		Dinner: "#CCF2FF",
+	};
 	const handleSelectDish = (id: string) => {
 		setDish(id);
 	};

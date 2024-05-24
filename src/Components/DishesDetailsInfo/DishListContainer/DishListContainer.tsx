@@ -6,6 +6,7 @@ import AddDishModal from "../../Modals/AddDish/AddDishModal.tsx";
 import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 export interface IDishesListProps {
 	setDish: (id: string) => void;
@@ -21,6 +22,7 @@ const DISHES = gql`
 `;
 const CATEGORIES: string[] = ["Breakfast", "Lunch", "Dinner"];
 export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
+	const { t } = useTranslation();
 	const { data, loading, error } = useQuery(DISHES);
 	const [isOpenmodal, setIsOpenModal] = useState(false);
 	const navigate = useNavigate();
@@ -66,9 +68,9 @@ export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
 		<>
 			<div className={styles.container}>
 				<div className={styles.headerCard}>
-					<p className={styles.headerTitle}>List of dishes for today</p>
+					<p className={styles.headerTitle}>{t(`DishesPage.dishesList`)}</p>
 					<button onClick={toggleAddDishmodal} className={styles.headerBtn}>
-						Add Dish
+						{t(`DishesPage.addDish`)}
 					</button>
 				</div>
 				<div className={styles.listFlex}>

@@ -38,6 +38,7 @@ export const uk_language = {
 	},
 	IngredientsPage: {
 		yourIngrediens: "Твої інгредієнти",
+		shoppingList: "список покупок",
 		addIng: "Додати інгредієнт",
 		addToShopList: "Додати до списку покупок",
 		ingDesc: "Опис інгредієнта",
@@ -45,6 +46,7 @@ export const uk_language = {
 		category: "Категорія",
 		default: "Кількісь за замовчуванням",
 		desc: "Опис",
+		gram: "грам",
 	},
 	DishesPage: {
 		dishDetails: "Детальніше про ставу",

@@ -8,6 +8,7 @@ import { EditDishInfo } from "../Modals/EditDishInfo/EditDishInfo";
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from "/public/icon_pencil.svg?react";
+import { useTranslation } from "react-i18next";
 interface IProps {
 	dishId: string;
 }
@@ -27,6 +28,7 @@ const categoryColors: Record<string, string> = {
 	Dinner: "#CCF2FF",
 };
 export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
+	const { t } = useTranslation();
 	const [isOpenModal, setIsOpenModal] = useState(false);
 	const { data, loading, error } = useQuery(GET_DISH, {
 		variables: {
@@ -56,10 +58,10 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 	return (
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
-				<p>Dishes Details</p>
+				<p>{t(`DishesPage.dishDetails`)}</p>
 				<button onClick={toggleAddIngModal} className={styles.headerBtn}>
 					<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" />
-					Edit Details
+					{t(`DishesPage.editDish`)}
 				</button>
 			</div>
 			<div className={styles.detailsConteiner}>
@@ -70,11 +72,13 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 				/>
 				<div className={styles.textConteiner}>
 					<div className={styles.NameConteiner}>
-						<p className={styles.label}>Name:</p>
-						<p>{data ? data.getDishById.name : "select dish"}</p>
+						<p className={styles.label}>{t(`DishesPage.name`)}:</p>
+						<p>
+							{data ? data.getDishById.name : `${t(`DishesPage.selectDish`)}`}
+						</p>
 					</div>
 					<div className={styles.CategoryConteiner}>
-						<p className={styles.label}>Category:</p>
+						<p className={styles.label}>{t(`DishesPage.category`)}:</p>
 						<ul className={styles.categoryList}>
 							{data
 								? data.getDishById.category.map((item: string) => (
@@ -85,7 +89,7 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 											{item}
 										</li>
 								  ))
-								: "select dish"}
+								: `${t(`DishesPage.selectDish`)}`}
 						</ul>
 					</div>
 				</div>

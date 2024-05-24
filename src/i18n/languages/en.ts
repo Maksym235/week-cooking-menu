@@ -38,6 +38,7 @@ export const en_language = {
 	},
 	IngredientsPage: {
 		yourIngrediens: "your ingredients",
+		shoppingList: "shopping list",
 		addIng: "Adds ingredient",
 		addToShopList: "Add to shopping list",
 		ingDesc: "Ingredients descriptions",
@@ -45,6 +46,7 @@ export const en_language = {
 		category: "Category",
 		default: "Default value",
 		desc: "Description",
+		gram: "gram",
 	},
 	DishesPage: {
 		dishDetails: "Dish details",
