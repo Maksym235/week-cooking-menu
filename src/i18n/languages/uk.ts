@@ -9,6 +9,8 @@ export const uk_language = {
 			placeholderEmail: "Введіть вашу пошту",
 			password: "пароль",
 			placeholderPassword: "Введіть ваш пароль",
+			newPassword: "Новий пароль",
+			placeholderNewPassword: "Введіть новий пароль",
 			submit: "Гаразд",
 		},
 	},
@@ -64,7 +66,7 @@ export const uk_language = {
 			monday: "Понеділок",
 			tuesday: "Вівторок",
 			wednesday: "Середа",
-			thuesday: "Четвер",
+			thursday: "Четвер",
 			friday: "П'ятниця",
 			saturday: "Субота",
 			sunday: "Неділя",
@@ -78,5 +80,35 @@ export const uk_language = {
 	SettingsPage: {
 		edit: "Редагувати",
 		logout: "Вийти",
+	},
+	Modals: {
+		Container: {
+			close: "Закрити",
+		},
+		AddDish: {
+			name: "Назва",
+			category: "Категорія",
+			desc: "Опис",
+			ingredients: {
+				ingredients: "Інгредієнти",
+				ingredient: "Інгредієнт",
+				count: "Кількість",
+				weightType: "Тип виміру ваги",
+				plus: "Додати",
+			},
+		},
+		AddIngredient: {
+			name: "Назва",
+			category: "Категорія",
+			defaultValue: "Значення за змовчуванням",
+			desc: "Опис",
+		},
+		EditDishInfo: {
+			name: "Нова назва",
+		},
+		SetToDayNewDish: {
+			selectDish: "Оберіть страву",
+			submit: "Гаразд",
+		},
 	},
 };

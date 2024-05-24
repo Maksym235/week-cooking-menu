@@ -9,7 +9,9 @@ export const Settings = () => {
 			<PageBar title={t("Header.settings")} />
 			<div className={styles.main_block}>
 				<SettingsBlock />
-				<button className={styles.logout_btn}>Logout</button>
+				<button className={styles.logout_btn}>
+					{t(`SettingsPage.logout`)}
+				</button>
 			</div>
 		</main>
 	);

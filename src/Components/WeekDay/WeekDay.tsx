@@ -7,6 +7,7 @@ import { IWeekDay } from "../../types/WeekDay";
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from "/public/icon_pencil.svg?react";
+import { useTranslation } from "react-i18next";
 interface IProps {
 	day: IWeekDay;
 	weekId: string;
@@ -15,6 +16,7 @@ interface IProps {
 }
 
 export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
+	const { t } = useTranslation();
 	const onEditDish = (mealtime: string) => {
 		togleIsOpen();
 		changeMealtime(mealtime);
@@ -28,18 +30,20 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 	return (
 		<div className={styles.conteiner}>
 			<div className={styles.header}>
-				<p className={styles.title}>{day?.day}</p>
+				<p className={styles.title}>
+					{t(`MenuPage.days.${day.day.toLowerCase()}`)}
+				</p>
 			</div>
 			<div className={styles.wrapper}>
 				<div className={styles.mealtimes_conteiner}>
-					<p className={styles.mealtimes}>Mealtimes:</p>
+					<p className={styles.mealtimes}>{t(`MenuPage.mealtimes`)}:</p>
 					<p
 						style={{ backgroundColor: categoryColors.Breakfast }}
 						className={styles.category}
 					>
-						Breakfast
+						{t(`Categories.breakfast`)}
 					</p>
-					<p className={styles.dish}>Dish:</p>
+					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p>{day?.b?.name ? day.b.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}
@@ -50,14 +54,14 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 				</div>
 
 				<div className={styles.mealtimes_conteiner}>
-					<p className={styles.mealtimes}>Mealtimes:</p>
+					<p className={styles.mealtimes}>{t(`MenuPage.mealtimes`)}:</p>
 					<p
 						style={{ backgroundColor: categoryColors.Lunch }}
 						className={styles.category}
 					>
-						Lunch
+						{t(`Categories.lunch`)}
 					</p>
-					<p className={styles.dish}>Dish:</p>
+					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p>{day?.l?.name ? day.l.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}
@@ -67,14 +71,14 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 					</div>
 				</div>
 				<div className={styles.mealtimes_conteiner}>
-					<p className={styles.mealtimes}>Mealtimes:</p>
+					<p className={styles.mealtimes}>{t(`MenuPage.mealtimes`)}:</p>
 					<p
 						style={{ backgroundColor: categoryColors.Dinner }}
 						className={styles.category}
 					>
-						Dinner
+						{t(`Categories.dinner`)}
 					</p>
-					<p className={styles.dish}>Dish:</p>
+					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p>{day?.d?.name ? day.d.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}

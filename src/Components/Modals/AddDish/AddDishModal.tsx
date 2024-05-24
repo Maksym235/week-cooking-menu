@@ -2,6 +2,7 @@ import styles from "./AddDish.module.css";
 import { useMutation, useQuery, gql } from "@apollo/client";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import Select from "react-select";
 interface IPropsDishModal {
 	toggleIsOpen: () => void;
@@ -65,6 +66,7 @@ export interface IIngredientCount {
 	ing: IDishIngredient;
 }
 const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
+	const { t } = useTranslation();
 	const [ingredientsCount, setIngredientsCount] = useState<IIngredientCount[]>([
 		{
 			key: 1,
@@ -201,12 +203,16 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 			onSubmit={handleSubmit((data) => submitForm(data))}
 		>
 			<label className={styles.label}>
-				Name
+				{t(`Modals.AddDish.name`)}
 				<Controller
 					name="name"
 					control={control}
 					render={({ field }) => (
-						<input placeholder="dishName" className={styles.input} {...field} />
+						<input
+							placeholder={t(`Modals.AddDish.name`)}
+							className={styles.input}
+							{...field}
+						/>
 					)}
 				/>
 				{/* <input
@@ -216,7 +222,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				/> */}
 			</label>
 			<label className={styles.label}>
-				Category
+				{t(`Modals.AddDish.category`)}
 				<Controller
 					name="category"
 					control={control}
@@ -240,13 +246,13 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				</select> */}
 			</label>
 			<label className={styles.label}>
-				Description
+				{t(`Modals.AddDish.desc`)}
 				<Controller
 					name="description"
 					control={control}
 					render={({ field }) => (
 						<input
-							placeholder="description"
+							placeholder={t(`Modals.AddDish.desc`)}
 							className={styles.input}
 							{...field}
 						/>
@@ -259,11 +265,13 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				/> */}
 			</label>
 			<div>
-				<label className={styles.label}>Ingredients</label>
+				<label className={styles.label}>
+					{t(`Modals.AddDish.ingredients.ingredients`)}
+				</label>
 				{ingredientsCount.map((el: any) => (
 					<div key={el.key}>
 						{/* <label className={styles.label}> */}
-						Ingredient
+						{t(`Modals.AddDish.ingredients.ingredient`)}
 						<Select
 							onChange={(evt) => handleSelectIngredient(evt, el.key)}
 							isSearchable={true}
@@ -272,8 +280,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 						/>
 						<div className={styles.select_container}>
 							<div>
-								{" "}
-								кількісь
+								{t(`Modals.AddDish.ingredients.count`)}
 								<input
 									type="number"
 									onBlur={(evt) => handleChangeCountIng(evt, el.key)}
@@ -282,7 +289,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 								/>
 							</div>
 							<div>
-								тип виміру ваги
+								{t(`Modals.AddDish.ingredients.weightType`)}
 								<Select
 									options={weightsType}
 									onChange={(evt) => handleChangeWeightType(evt, el.key)}
@@ -313,7 +320,9 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 					// />
 				))}
 
-				<p onClick={handleAddIngredients}>plus</p>
+				<p onClick={handleAddIngredients}>
+					{t(`Modals.AddDish.ingredients.plus`)}
+				</p>
 			</div>
 			<input className={styles.submit_btn} type="submit" />
 		</form>

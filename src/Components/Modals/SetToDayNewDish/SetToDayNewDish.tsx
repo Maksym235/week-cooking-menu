@@ -5,6 +5,7 @@ import { useQuery, gql, useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { IWeekDay } from "../../../types/WeekDay";
+import { useTranslation } from "react-i18next";
 export interface IProps {
 	toggleIsOpen: () => void;
 	mealtime: string;
@@ -104,6 +105,7 @@ export const SetToDayNewDish: FC<IProps> = ({
 	weekId,
 	dayData,
 }) => {
+	const { t } = useTranslation();
 	const [selectedDish, setSelectedDIsh] = useState("");
 	const { data, error, loading } = useQuery(GET_DISHES, {
 		variables: {
@@ -246,15 +248,19 @@ export const SetToDayNewDish: FC<IProps> = ({
 	return (
 		<div className={styles.container}>
 			<div className={styles.title_container}>
-				<p className={styles.title}>Breakfast</p>
+				<p className={styles.title}>
+					{t(`Categories.${mealtime.toLowerCase()}`)}
+				</p>
 			</div>
-			<p className={styles.service_text}>select dish</p>
+			<p className={styles.service_text}>
+				{t(`Modals.SetToDayNewDish.selectDish`)}
+			</p>
 			<Select
 				onChange={(evt: any) => setSelectedDIsh(evt.value)}
 				options={options}
 			/>
 			<button onClick={onSubmit} type="submit">
-				Submit
+				{t(`Modals.SetToDayNewDish.submit`)}
 			</button>
 		</div>
 	);

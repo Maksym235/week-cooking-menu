@@ -14,7 +14,9 @@ import EditSvg from "/public/icon_pencil.svg?react";
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import CrossSvg from "/public/cross.svg?react";
+import { useTranslation } from "react-i18next";
 export const SettingsBlock = () => {
+	const { t } = useTranslation();
 	const [isEdit, setIsEdit] = useState(false);
 	const user = JSON.parse(localStorage.getItem("user")!);
 	const { register, handleSubmit } = useForm();
@@ -37,7 +39,7 @@ export const SettingsBlock = () => {
 							: `${styles.eddit_btn} ${styles.isEdit_btn}`
 					}
 				>
-					Edit{" "}
+					{t(`SettingsPage.edit`)}
 					{!isEdit ? (
 						<EditSvg fill="#000" />
 					) : (
@@ -50,7 +52,7 @@ export const SettingsBlock = () => {
 				onSubmit={handleSubmit((data) => submitForm(data))}
 			>
 				<label className={styles.label}>
-					Name
+					{t(`Auth.Forms.name`)}
 					<input
 						disabled={!isEdit}
 						type="text"
@@ -59,11 +61,11 @@ export const SettingsBlock = () => {
 							!isEdit ? `${styles.input}` : `${styles.input} ${styles.isEdit}`
 						}
 						{...register("name")}
-						placeholder="name"
+						placeholder={t(`Auth.Forms.placeholderName`)}
 					/>
 				</label>
 				<label className={styles.label}>
-					Email
+					{t(`Auth.Forms.email`)}
 					<input
 						disabled={!isEdit}
 						type="email"
@@ -72,11 +74,11 @@ export const SettingsBlock = () => {
 							!isEdit ? `${styles.input}` : `${styles.input} ${styles.isEdit}`
 						}
 						{...register("email")}
-						placeholder="email"
+						placeholder={t(`Auth.Forms.placeholderEmail`)}
 					/>
 				</label>
 				<label className={styles.label}>
-					Password
+					{t(`Auth.Forms.password`)}
 					<input
 						disabled={!isEdit}
 						min="6"
@@ -85,11 +87,11 @@ export const SettingsBlock = () => {
 							!isEdit ? `${styles.input}` : `${styles.input} ${styles.isEdit}`
 						}
 						{...register("password", { min: 8, max: 99 })}
-						placeholder="password"
+						placeholder={t(`Auth.Forms.placeholderPassword`)}
 					/>
 				</label>
 				<label className={styles.label}>
-					New password
+					{t(`Auth.Forms.newPassword`)}
 					<input
 						disabled={!isEdit}
 						min="6"
@@ -98,7 +100,7 @@ export const SettingsBlock = () => {
 							!isEdit ? `${styles.input}` : `${styles.input} ${styles.isEdit}`
 						}
 						{...register("NewPassword", { min: 8, max: 99 })}
-						placeholder="new password"
+						placeholder={t(`Auth.Forms.placeholderNewPassword`)}
 					/>
 				</label>
 				<input
