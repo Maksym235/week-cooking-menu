@@ -36,7 +36,9 @@ export const DetailsInfoIngredients = ({ item }: any) => {
 					</button>
 				</div>
 				<div className={styles.infoConteiner}>
-					<img className={styles.img} src={item.img} alt={item.name} />
+					<div className={styles.img}>
+						{item.name ? item.name.slice(0, 1).toUpperCase() : ""}
+					</div>
 					<div className={styles.textWrapper}>
 						<h3 className={styles.text}>
 							{t(`IngredientsPage.name`)}:

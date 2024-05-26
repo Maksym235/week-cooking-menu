@@ -59,17 +59,26 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
 				<p>{t(`DishesPage.dishDetails`)}</p>
-				<button onClick={toggleAddIngModal} className={styles.headerBtn}>
-					<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" />
+				<button
+					disabled={!data}
+					onClick={toggleAddIngModal}
+					className={
+						data
+							? `${styles.headerBtn}`
+							: `${styles.headerBtn} ${styles.disabledBtn}`
+					}
+				>
+					<EditSvg
+						fill={data ? "var(--accentColor)" : "var(--silverColor)"}
+						stroke={data ? "var(--accentColor)" : "var(--silverColor)"}
+					/>
 					{t(`DishesPage.editDish`)}
 				</button>
 			</div>
 			<div className={styles.detailsConteiner}>
-				<img
-					src="https://loremflickr.com/640/480/food"
-					alt="img"
-					className={styles.img}
-				/>
+				<div className={styles.img}>
+					{data ? data.getDishById.name.slice(0, 1) : ""}
+				</div>
 				<div className={styles.textConteiner}>
 					<div className={styles.NameConteiner}>
 						<p className={styles.label}>{t(`DishesPage.name`)}:</p>

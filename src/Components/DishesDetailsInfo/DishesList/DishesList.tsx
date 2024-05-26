@@ -37,11 +37,9 @@ export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 									onClick={() => handleSelectDish(id)}
 									className={styles.itemConteiner}
 								>
-									<img
-										src='"https://loremflickr.com/640/480/food"'
-										alt={name}
-										className={styles.img}
-									/>
+									<div className={styles.img}>
+										{name ? name.slice(0, 1) : ""}
+									</div>
 									<div className={styles.textConteiner}>
 										<p className={styles.itemTitle}>{name}</p>
 										<p className={styles.itemText}>200gram</p>

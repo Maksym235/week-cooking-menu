@@ -100,9 +100,20 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
 				<p className={styles.headerTitle}>Dishes ingredients</p>
-				<button onClick={toggleAddIngModal} className={styles.headerBtn}>
-					<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" /> Edit
-					ingredients
+				<button
+					disabled={!data}
+					onClick={toggleAddIngModal}
+					className={
+						data
+							? `${styles.headerBtn}`
+							: `${styles.headerBtn} ${styles.disabledBtn}`
+					}
+				>
+					<EditSvg
+						fill={data ? "var(--accentColor)" : "var(--silverColor)"}
+						stroke={data ? "var(--accentColor)" : "var(--silverColor)"}
+					/>{" "}
+					Edit ingredients
 				</button>
 			</div>
 			<div className={styles.listConteiner}>
@@ -120,11 +131,9 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 								}) => (
 									<li>
 										<div className={styles.itemConteiner}>
-											<img
-												src="https://loremflickr.com/640/480/food"
-												alt={name}
-												className={styles.img}
-											/>
+											<div className={styles.img}>
+												{name ? name.slice(0, 1) : ""}
+											</div>
 											<div className={styles.textConteiner}>
 												<p className={styles.itemTitle}>{name}</p>
 												<p className={styles.itemText}>{defaultValue}</p>

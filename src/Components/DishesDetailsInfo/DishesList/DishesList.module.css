@@ -52,6 +52,16 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
+	background-color: var(--cardBg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	font-family: Manrope;
+	color: var(--sideBarBg);
 }
 .textConteiner {
 	display: flex;
