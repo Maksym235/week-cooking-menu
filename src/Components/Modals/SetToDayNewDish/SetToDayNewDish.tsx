@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { IWeekDay } from "../../../types/WeekDay";
 import { useTranslation } from "react-i18next";
+import { errorOptions } from "../../../utils/toastOptions";
 export interface IProps {
 	toggleIsOpen: () => void;
 	mealtime: string;
@@ -132,16 +133,7 @@ export const SetToDayNewDish: FC<IProps> = ({
 			WeekError?.message === "Unauthorized"
 		) {
 			navigate("/");
-			toast.error(`please sign in or sign up`, {
-				position: "top-center",
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: "light",
-			});
+			toast.error(`please sign in or sign up`, errorOptions);
 		}
 		if (
 			error?.message === "Context creation failed: jwt expired" ||
@@ -149,16 +141,7 @@ export const SetToDayNewDish: FC<IProps> = ({
 		) {
 			localStorage.clear();
 			navigate("/");
-			toast.error(`please sign in or sign up`, {
-				position: "top-center",
-				autoClose: 3000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: "light",
-			});
+			toast.error(`please sign in or sign up`, errorOptions);
 		}
 		return <div>{error?.message}</div>;
 	}
