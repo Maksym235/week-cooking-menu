@@ -15,6 +15,8 @@ const GET_INGS = gql`
 				name
 				category
 				defaultValue
+				count
+				weightType
 			}
 		}
 	}
@@ -123,11 +125,15 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 								({
 									name,
 									category,
-									defaultValue,
+									// defaultValue,
+									count,
+									weightType,
 								}: {
 									name: string;
 									category: string;
-									defaultValue: number;
+									// defaultValue: number;
+									count: number;
+									weightType: string;
 								}) => (
 									<li>
 										<div className={styles.itemConteiner}>
@@ -136,7 +142,10 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 											</div>
 											<div className={styles.textConteiner}>
 												<p className={styles.itemTitle}>{name}</p>
-												<p className={styles.itemText}>{defaultValue}</p>
+												<p className={styles.itemText}>
+													{count}
+													{weightType}
+												</p>
 												<p className={styles.itemText}>{category}</p>
 											</div>
 										</div>

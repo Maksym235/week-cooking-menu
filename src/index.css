@@ -64,7 +64,9 @@ p {
 a {
 	text-decoration: none;
 }
-
+/* * {
+	outline: 1px solid green;
+} */
 body {
 	font-family: Manrope-SemiBold, serif;
 	background-color: var(--bodyBcg);

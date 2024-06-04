@@ -1,21 +1,24 @@
 import { FC, useState } from "react";
 import styles from "./EditDishIngredients.module.css";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import { IIngredients } from "../../../types/ingredients";
-import { FaRegTrashAlt, FaPlus } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 import Select from "react-select";
 import { useQuery, gql } from "@apollo/client";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { errorOptions } from "../../../utils/toastOptions";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
+// import Arrow from "/public/arow-right.svg?react";
+import EditSvg from "/public/icon_pencil.svg?react";
+
 interface IProps {
 	toggleIsOpen: () => void;
 	ings: Record<string, Record<string, Array<IIngredients>>>;
 }
 interface IItemProps {
 	name: string;
-	value: number | undefined;
-	category: string;
 }
 // ================================================
 // 		GET INGREDIENTS FOR SELECT AND CREATE ITEM FOR LIST
@@ -31,19 +34,10 @@ const GET_ALL_INGREDIENTS = gql`
 	}
 `;
 
-export const SelectIngredientItem: FC<IItemProps> = ({
-	name,
-	value,
-	category,
-}) => {
+export const SelectIngredientItem: FC<IItemProps> = ({ name }) => {
 	return (
 		<div>
-			<div>
-				<p>{name}</p>
-				<p>{value}</p>
-				<p>{category}</p>
-			</div>
-			<FaPlus color="var(--accentColor)" />
+			<p>{name}</p>
 		</div>
 	);
 };
@@ -53,9 +47,8 @@ export const SelectIngredientItem: FC<IItemProps> = ({
 export const EditDishIngredients: FC<IProps> = ({ ings }) => {
 	const { data, loading, error } = useQuery(GET_ALL_INGREDIENTS);
 	const [ingsData, setIngsData] = useState(ings.getDishById.ingredients);
+	const [selectedIng, setSelectedIng] = useState<any | null>(null);
 	const navigate = useNavigate();
-	const { register, handleSubmit } = useForm();
-	console.log(register);
 	// const onAddOne = () => {
 	// 	const defaultIng = {
 	// 		name: "",
@@ -64,22 +57,33 @@ export const EditDishIngredients: FC<IProps> = ({ ings }) => {
 	// 	};
 	// 	setIngsData((state) => [...state, defaultIng]);
 	// };
+	const weightsType = [
+		{ label: "грам", value: "грам" },
+		{ label: "шт", value: "шт" },
+		{ label: "мл", value: "мл" },
+		{ label: "дрібка", value: "дрібка" },
+		{ label: "стакан", value: "стакан" },
+		{ label: "ст.л", value: "ст.л" },
+		{ label: "ч.л", value: "ч.л" },
+	];
+	const handleSelectIng = (value: any) => {
+		setSelectedIng(value);
+	};
 	const allIngsList = data
 		? data.getIngredients.map((el: IIngredients) => {
 				return {
-					value: el.name,
-					label: (
-						<SelectIngredientItem
-							name={el.name}
-							value={el.defaultValue}
-							category={el.category}
-						/>
-					),
+					value: el,
+					label: <SelectIngredientItem name={el.name} />,
 				};
+				// eslint-disable-next-line no-mixed-spaces-and-tabs
 		  })
 		: [];
-	const onSubmit = (data: any) => {
-		console.log(data);
+	// const onSubmit = (data: any) => {
+	// 	console.log(data);
+	// };
+	const onDelete = (name: string) => {
+		const filteredData = ingsData.filter((ing) => ing.name !== name);
+		setIngsData(filteredData);
 	};
 	if (loading) {
 		return <div>Loading...</div>;
@@ -98,14 +102,7 @@ export const EditDishIngredients: FC<IProps> = ({ ings }) => {
 	}
 
 	return (
-		<form
-			className={styles.form}
-			onSubmit={handleSubmit((data) => onSubmit(data))}
-		>
-			<div>
-				<p>Всі інгредієнти</p>
-				<Select options={allIngsList} />
-			</div>
+		<div className={styles.main_container}>
 			<div>
 				<p>Інгредієнти в страві</p>
 				<ul className={styles.form_list}>
@@ -116,11 +113,18 @@ export const EditDishIngredients: FC<IProps> = ({ ings }) => {
 									<p>{item.name}</p>
 									{/* <p>{item.defaultValue}</p> */}
 								</div>
-
-								<FaRegTrashAlt
-									className={styles.delete_icon}
-									color="var(--accentColor)"
-								/>
+								<div className={styles.icons_container}>
+									<EditSvg
+										className={styles.icon}
+										fill={data ? "var(--accentColor)" : "var(--silverColor)"}
+										stroke={data ? "var(--accentColor)" : "var(--silverColor)"}
+									/>
+									<FaRegTrashAlt
+										onClick={() => onDelete(item.name)}
+										className={styles.icon}
+										color="var(--accentColor)"
+									/>
+								</div>
 
 								{/* <label className={styles.label}>
 								Name
@@ -151,11 +155,30 @@ export const EditDishIngredients: FC<IProps> = ({ ings }) => {
 						))}
 				</ul>
 			</div>
-			{/* <button onClick={onAddOne} className={styles.btn}>
-				add one
-			</button> */}
-			{/* <input {...register("firstName")} placeholder="First name" /> */}
-			<input className={styles.btn} type="submit" />
-		</form>
+			<div className={styles.new_ings_container}>
+				<p>Всі інгредієнти</p>
+				<Select
+					className={styles.select_ings}
+					onChange={(evt: any) => handleSelectIng(evt.value)}
+					options={allIngsList}
+				/>
+				{selectedIng && (
+					<>
+						<div className={styles.new_ing_details}>
+							<input
+								placeholder={selectedIng.defaultValue}
+								className={styles.new_ing_count}
+							/>
+							<Select
+								className={styles.select_weight_type}
+								options={weightsType}
+								defaultValue={weightsType[0]}
+							/>
+						</div>
+						<button className={styles.btn_add}>Add</button>
+					</>
+				)}
+			</div>
+		</div>
 	);
 };
