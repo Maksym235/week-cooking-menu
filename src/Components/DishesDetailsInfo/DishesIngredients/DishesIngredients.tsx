@@ -12,6 +12,7 @@ const GET_INGS = gql`
 	query Query($getDishByIdId: ID!) {
 		getDishById(id: $getDishByIdId) {
 			ingredients {
+				id
 				name
 				category
 				defaultValue
@@ -31,7 +32,7 @@ interface IProps {
 }
 export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 	const [isOpenModal, setIsOpenModal] = useState(false);
-	const { data, loading, error } = useQuery(GET_INGS, {
+	const { data, loading, error, refetch } = useQuery(GET_INGS, {
 		variables: {
 			getDishByIdId: dishId,
 		},
@@ -160,7 +161,8 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 				isOpen={isOpenModal}
 				children={
 					<EditDishIngredients
-						// refetchData={refetch}
+						refetchData={refetch}
+						dishId={dishId}
 						ings={data}
 						toggleIsOpen={toggleAddIngModal}
 					/>

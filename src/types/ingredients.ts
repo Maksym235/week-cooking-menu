@@ -3,5 +3,7 @@ export interface IIngredients {
 	category: string;
 	defaultValue?: number;
 	id?: string;
+	count?: number;
+	weightType: string;
 	description?: string;
 }

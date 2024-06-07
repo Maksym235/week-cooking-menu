@@ -26,6 +26,7 @@ const client = new ApolloClient({
 	link: authLink.concat(httpLink),
 	cache: new InMemoryCache({
 		typePolicies: { MsgInvite: { keyFields: ["name"] } },
+		addTypename: false,
 	}),
 });
 ReactDOM.createRoot(document.getElementById("root")!).render(
