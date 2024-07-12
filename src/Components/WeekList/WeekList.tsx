@@ -119,6 +119,7 @@ export const WeekList = () => {
 					period1: data.getWeekByPeriod.period1,
 					period2: data.getWeekByPeriod.period2,
 				}}
+				weekId={data.getWeekByPeriod.id}
 				openModal={toggleCreateMenuModal}
 				refetchData={refetch}
 			/>

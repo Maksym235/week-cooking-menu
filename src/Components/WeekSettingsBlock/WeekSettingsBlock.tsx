@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./WeekSettingsBlock.module.css";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
+import { ModalConteiner } from "../ModalConteiner/ModalContainer";
+import { ShowProductList } from "../Modals/ShowProductList/ShowProductList";
 // import { useMutation, useQuery, gql } from "@apollo/client";
 // import axios from "axios";
 // import "dayjs/locale/uk-ua";
@@ -14,6 +16,7 @@ interface Iprops {
 	openModal: () => void;
 	periods: IPeriods;
 	refetchData: any;
+	weekId: string;
 }
 
 // const CREATE_INITIAL_WEEK = gql`
@@ -39,12 +42,17 @@ interface Iprops {
 // 		}
 // 	}
 // `;
-export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
+export const WeekSettingsBlock: FC<Iprops> = ({
+	periods,
+	refetchData,
+	weekId,
+}) => {
 	const { t } = useTranslation();
 	// const [createWeek, { data, loading, error }] =
 	// 	useMutation(CREATE_INITIAL_WEEK);
 	dayjs().locale("uk-ua");
 	const currentWeekMonday = dayjs().day(1).format("YYYY-MM-DD");
+	const [isOpenModal, setIsModalOpen] = useState(false);
 
 	const handleChangeWeek = () => {
 		if (currentWeekMonday === periods.period1) {
@@ -62,6 +70,9 @@ export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
 			period: currentWeekMonday,
 		});
 	};
+	const toggleProductListModal = () => {
+		setIsModalOpen((state) => !state);
+	};
 	return (
 		<div className={styles.container}>
 			<div className={styles.periods_container}>
@@ -74,7 +85,27 @@ export const WeekSettingsBlock: FC<Iprops> = ({ periods, refetchData }) => {
 					? t(`MenuPage.nextWeek`)
 					: t(`MenuPage.currentWeek`)}
 			</button>
-			<button className={styles.btn}>{t(`MenuPage.getShoppingList`)}</button>
+			<button onClick={toggleProductListModal} className={styles.btn}>
+				{t(`MenuPage.getShoppingList`)}
+			</button>
+			<ModalConteiner
+				toggleIsOpen={toggleProductListModal}
+				isOpen={isOpenModal}
+				children={
+					<ShowProductList toggleIsOpen={toggleProductListModal} />
+					// <SetToDayNewDish
+					// 	weekId={data.getWeekByPeriod.id}
+					// 	currentDay={currentDay}
+					// 	dayData={data.getWeekByPeriod.week.find(
+					// 		(item: IWeekDay) =>
+					// 			item.day.toLowerCase() === currentDay.day.toLowerCase(),
+					// 	)}
+					// 	refetchData={refetch}
+					// 	mealtime={editedMealtime}
+					// toggleIsOpen={toggleCreateMenuModal}
+					// />
+				}
+			/>
 		</div>
 	);
 };
