@@ -1,8 +1,5 @@
 import React from "react";
 import styles from "./ShowProductList.module.css";
-export interface IProps {
-	toggleIsOpen: () => void;
-}
 export interface IDataProduct {
 	count: number;
 	weightType: string;
@@ -41,7 +38,11 @@ const data: IdataType = {
 		weightType: "грам",
 	},
 };
-export const ShowProductList: React.FC<IProps> = ({ toggleIsOpen }) => {
+export interface IProps {
+	toggleIsOpen: () => void;
+	data: IdataType;
+}
+export const ShowProductList: React.FC<IProps> = ({ toggleIsOpen, data }) => {
 	return (
 		<div className={styles.container}>
 			<h4 className={styles.title}>Список продуктів</h4>

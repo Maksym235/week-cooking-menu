@@ -7,6 +7,7 @@ const ADD_INGREDIENT = gql`
 	mutation CreateIngredient(
 		$name: String!
 		$category: String
+		$weightType: String
 		$defaultValue: Int
 		$description: String
 	) {
@@ -14,6 +15,7 @@ const ADD_INGREDIENT = gql`
 			name: $name
 			category: $category
 			defaultValue: $defaultValue
+			weightType: $weightType
 			description: $description
 		) {
 			id
@@ -37,6 +39,7 @@ export const AddIngredientModal = ({ toggleIsOpen, refetchData }: any) => {
 				category: data.category ? data.category : "",
 				defaultValue: data.defaultValue ? Number(data.defaultValue) : "",
 				description: data.description ? data.description : "",
+				weightType: "грам",
 			},
 		});
 	};

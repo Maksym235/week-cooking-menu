@@ -27,7 +27,6 @@ export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
 	const [isOpenmodal, setIsOpenModal] = useState(false);
 	const navigate = useNavigate();
 	const toggleAddDishmodal = () => {
-		console.log("open");
 		setIsOpenModal((state) => !state);
 	};
 	if (error) {

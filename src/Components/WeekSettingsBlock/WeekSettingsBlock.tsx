@@ -4,6 +4,8 @@ import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { ModalConteiner } from "../ModalConteiner/ModalContainer";
 import { ShowProductList } from "../Modals/ShowProductList/ShowProductList";
+import { gql, useQuery } from "@apollo/client";
+import { toast } from "react-toastify";
 // import { useMutation, useQuery, gql } from "@apollo/client";
 // import axios from "axios";
 // import "dayjs/locale/uk-ua";
@@ -18,7 +20,11 @@ interface Iprops {
 	refetchData: any;
 	weekId: string;
 }
-
+const GET_PRODUCTS_LIST = gql`
+	query Query($getProductsListId: ID!) {
+		getProductsList(id: $getProductsListId)
+	}
+`;
 // const CREATE_INITIAL_WEEK = gql`
 // 	mutation Mutation($content: AddWeek!) {
 // 		createWeek(content: $content) {
@@ -50,6 +56,11 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 	const { t } = useTranslation();
 	// const [createWeek, { data, loading, error }] =
 	// 	useMutation(CREATE_INITIAL_WEEK);
+	const { data, loading, error } = useQuery(GET_PRODUCTS_LIST, {
+		variables: {
+			getProductsListId: weekId,
+		},
+	});
 	dayjs().locale("uk-ua");
 	const currentWeekMonday = dayjs().day(1).format("YYYY-MM-DD");
 	const [isOpenModal, setIsModalOpen] = useState(false);
@@ -73,6 +84,22 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 	const toggleProductListModal = () => {
 		setIsModalOpen((state) => !state);
 	};
+	if (loading) {
+		<div>loading...</div>;
+	}
+	if (error) {
+		console.log(error);
+		toast.error(`${error.message}`, {
+			position: "top-center",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "light",
+		});
+	}
 	return (
 		<div className={styles.container}>
 			<div className={styles.periods_container}>
@@ -92,7 +119,10 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 				toggleIsOpen={toggleProductListModal}
 				isOpen={isOpenModal}
 				children={
-					<ShowProductList toggleIsOpen={toggleProductListModal} />
+					<ShowProductList
+						data={data ? data.getProductsList : []}
+						toggleIsOpen={toggleProductListModal}
+					/>
 					// <SetToDayNewDish
 					// 	weekId={data.getWeekByPeriod.id}
 					// 	currentDay={currentDay}
