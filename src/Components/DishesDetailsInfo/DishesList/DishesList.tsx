@@ -13,9 +13,9 @@ export interface IProps {
 
 export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 	const categoryColors: Record<string, string> = {
-		Breakfast: "#E8E0FF",
-		Lunch: "#FFEDC8 ",
-		Dinner: "#CCF2FF",
+		Breakfast: "var(--breakfast)",
+		Lunch: "var(--lunch) ",
+		Dinner: "var(--dinner)",
 	};
 	const handleSelectDish = (id: string) => {
 		setDish(id);

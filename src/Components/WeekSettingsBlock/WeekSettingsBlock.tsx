@@ -6,6 +6,7 @@ import { ModalConteiner } from "../ModalConteiner/ModalContainer";
 import { ShowProductList } from "../Modals/ShowProductList/ShowProductList";
 import { gql, useQuery } from "@apollo/client";
 import { toast } from "react-toastify";
+import { Loading } from "../Loading/Loading";
 // import { useMutation, useQuery, gql } from "@apollo/client";
 // import axios from "axios";
 // import "dayjs/locale/uk-ua";
@@ -85,7 +86,7 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 		setIsModalOpen((state) => !state);
 	};
 	if (loading) {
-		<div>loading...</div>;
+		<Loading />;
 	}
 	if (error) {
 		console.log(error);

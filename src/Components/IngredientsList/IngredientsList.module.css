@@ -15,7 +15,9 @@
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
-
+.title {
+	color: var(--textColor);
+}
 .listHeader {
 	display: flex;
 	justify-content: space-between;

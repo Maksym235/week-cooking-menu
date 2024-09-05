@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
+import { Loading } from "../../Loading/Loading";
 interface IPropsDishModal {
 	toggleIsOpen: () => void;
 }
@@ -127,7 +128,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 		toggleIsOpen();
 	}
 	if (loading || IngLoading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error || IngError) {
 		return <div>{error?.message || IngError?.message}</div>;

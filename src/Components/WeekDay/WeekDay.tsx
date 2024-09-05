@@ -23,9 +23,9 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 	};
 
 	const categoryColors: Record<string, string> = {
-		Breakfast: "#E8E0FF",
-		Lunch: "#FFEDC8 ",
-		Dinner: "#CCF2FF",
+		Breakfast: "var(--breakfast)",
+		Lunch: "var(--lunch) ",
+		Dinner: "var(--dinner)",
 	};
 	return (
 		<div className={styles.conteiner}>
@@ -44,7 +44,7 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 						{t(`Categories.breakfast`)}
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
-					<p>{day?.b?.name ? day.b.name : "-"}</p>
+					<p className={styles.itemName}>{day?.b?.name ? day.b.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Breakfast")}
@@ -62,7 +62,7 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 						{t(`Categories.lunch`)}
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
-					<p>{day?.l?.name ? day.l.name : "-"}</p>
+					<p className={styles.itemName}>{day?.l?.name ? day.l.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Lunch")}
@@ -79,7 +79,7 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 						{t(`Categories.dinner`)}
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
-					<p>{day?.d?.name ? day.d.name : "-"}</p>
+					<p className={styles.itemName}>{day?.d?.name ? day.d.name : "-"}</p>
 					<div
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Dinner")}

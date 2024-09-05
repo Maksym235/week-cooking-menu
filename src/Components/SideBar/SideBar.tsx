@@ -98,7 +98,7 @@ export const SideBar = () => {
 							>
 								{t(`Sidebar.yourIngrediens`)}
 							</NavLink>
-							<NavLink
+							{/* <NavLink
 								to="/ingredients?currentList=shoppingList"
 								onClick={() => handleSetCurrentList("shoppingList")}
 								className={
@@ -108,7 +108,7 @@ export const SideBar = () => {
 								}
 							>
 								{t(`Sidebar.shoppingList`)}
-							</NavLink>
+							</NavLink> */}
 						</div>
 					)}
 				</div>

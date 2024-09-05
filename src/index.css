@@ -8,6 +8,7 @@
 :root[data-theme="light"] {
 	--bodyBcg: #f1e8e6;
 	--cardBg: #edd2cb;
+	--textColor: #000;
 	/*--sideBarBg: #361d32;*/
 	--sideBarBg: #fff;
 	--activePage: #feeeee;
@@ -18,9 +19,31 @@
 	--ligthSilverColor: #f7f7f7;
 	--creamColor: #eeeeee;
 	--disabledColor: #e8e8e8;
+	--buttonBg: #feeeee;
+	--breakfast: #e8e0ff;
+	--lunch: #ffedc8;
+	--dinner: #ccf2ff;
+	--loadingBg: rgb(241, 232, 230, 0.8);
 }
 :root[data-theme="dark"] {
-	--bodyBcg: #000;
+	--bodyBcg: #484545;
+	--cardBg: rgb(172, 119, 102);
+	--textColor: #fff;
+	/*--sideBarBg: #222222;*/
+	--sideBarBg: #302e2e;
+	--activePage: #3e3d43;
+	--blackColor: #fff;
+	--curentPageColor: rgb(237, 210, 203);
+	--accentColor: rgb(253, 84, 78);
+	--silverColor: #cccad8;
+	--ligthSilverColor: #2a2a2a;
+	--creamColor: #dedede;
+	--buttonBg: #cc423d4e;
+	--disabledColor: #2c2c2c;
+	--breakfast: #c5b1ff;
+	--lunch: #ffe1a4;
+	--dinner: #9ee7ff;
+	--loadingBg: rgb(72, 69, 69, 0.8);
 }
 :root {
 	font-synthesis: none;

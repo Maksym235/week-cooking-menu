@@ -9,6 +9,7 @@ import { EditDishInfo } from "../Modals/EditDishInfo/EditDishInfo";
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from "/public/icon_pencil.svg?react";
 import { useTranslation } from "react-i18next";
+import { Loading } from "../Loading/Loading";
 interface IProps {
 	dishId: string;
 }
@@ -23,9 +24,9 @@ const GET_DISH = gql`
 `;
 
 const categoryColors: Record<string, string> = {
-	Breakfast: "#E8E0FF",
-	Lunch: "#FFEDC8 ",
-	Dinner: "#CCF2FF",
+	Breakfast: "var(--breakfast)",
+	Lunch: "var(--lunch) ",
+	Dinner: "var(--dinner)",
 };
 export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 	const { t } = useTranslation();
@@ -40,7 +41,7 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 	};
 	// const categoryData = ["Lunch", "Dinner", "breakfast"];
 	if (loading) {
-		<div>loading...</div>;
+		<Loading />;
 	}
 	if (error) {
 		console.log(error);
@@ -58,7 +59,7 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 	return (
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
-				<p>{t(`DishesPage.dishDetails`)}</p>
+				<p className={styles.title}>{t(`DishesPage.dishDetails`)}</p>
 				<button
 					disabled={!data}
 					onClick={toggleAddIngModal}
@@ -82,23 +83,27 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 				<div className={styles.textConteiner}>
 					<div className={styles.NameConteiner}>
 						<p className={styles.label}>{t(`DishesPage.name`)}:</p>
-						<p>
+						<p className={styles.dataName}>
 							{data ? data.getDishById.name : `${t(`DishesPage.selectDish`)}`}
 						</p>
 					</div>
 					<div className={styles.CategoryConteiner}>
 						<p className={styles.label}>{t(`DishesPage.category`)}:</p>
 						<ul className={styles.categoryList}>
-							{data
-								? data.getDishById.category.map((item: string) => (
-										<li
-											className={styles.categoryValue}
-											style={{ backgroundColor: categoryColors[item] }}
-										>
-											{item}
-										</li>
-								  ))
-								: `${t(`DishesPage.selectDish`)}`}
+							{data ? (
+								data.getDishById.category.map((item: string) => (
+									<li
+										className={styles.categoryValue}
+										style={{ backgroundColor: categoryColors[item] }}
+									>
+										{item}
+									</li>
+								))
+							) : (
+								<p className={styles.categoryEmpty}>
+									{t(`DishesPage.selectDish`)}
+								</p>
+							)}
 						</ul>
 					</div>
 				</div>

@@ -8,36 +8,36 @@ export interface IDataProduct {
 export interface IdataType {
 	[key: string]: IDataProduct;
 }
-const data: IdataType = {
-	Молоко: {
-		count: 350,
-		weightType: "мл",
-	},
-	Олія: {
-		count: 45,
-		weightType: "ст.л",
-	},
-	яйце: {
-		count: 0,
-		weightType: "шт",
-	},
-	цукор: {
-		count: 10,
-		weightType: "ч.л",
-	},
-	сіль: {
-		count: 2,
-		weightType: "дрібка",
-	},
-	Розпушувач: {
-		count: 5,
-		weightType: "ч.л",
-	},
-	борошно: {
-		count: 1,
-		weightType: "грам",
-	},
-};
+// const data: IdataType = {
+// 	Молоко: {
+// 		count: 350,
+// 		weightType: "мл",
+// 	},
+// 	Олія: {
+// 		count: 45,
+// 		weightType: "ст.л",
+// 	},
+// 	яйце: {
+// 		count: 0,
+// 		weightType: "шт",
+// 	},
+// 	цукор: {
+// 		count: 10,
+// 		weightType: "ч.л",
+// 	},
+// 	сіль: {
+// 		count: 2,
+// 		weightType: "дрібка",
+// 	},
+// 	Розпушувач: {
+// 		count: 5,
+// 		weightType: "ч.л",
+// 	},
+// 	борошно: {
+// 		count: 1,
+// 		weightType: "грам",
+// 	},
+// };
 export interface IProps {
 	toggleIsOpen: () => void;
 	data: IdataType;

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import styles from "./ModalContainer.module.css";
 import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
+import close_icon from "../../../public/icon_close.svg";
 const modalRoot = document.querySelector("#modal-root")!;
 export const ModalConteiner = ({ children, isOpen, toggleIsOpen }: any) => {
 	const { t } = useTranslation();
@@ -32,7 +33,8 @@ export const ModalConteiner = ({ children, isOpen, toggleIsOpen }: any) => {
 						onClick={() => toggleIsOpen()}
 						className={styles.close}
 					>
-						{t(`Modals.Container.close`)}
+						<img src={close_icon} alt="close icon" />
+						{/* {t(`Modals.Container.close`)} */}
 					</button>
 				</div>
 			</div>,

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { IWeekDay } from "../../../types/WeekDay";
 import { useTranslation } from "react-i18next";
 import { errorOptions } from "../../../utils/toastOptions";
+import { Loading } from "../../Loading/Loading";
 export interface IProps {
 	toggleIsOpen: () => void;
 	mealtime: string;
@@ -123,7 +124,7 @@ export const SetToDayNewDish: FC<IProps> = ({
 		return;
 	}
 	if (loading || WeekLoading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error || WeekError) {
 		if (
@@ -242,7 +243,7 @@ export const SetToDayNewDish: FC<IProps> = ({
 				onChange={(evt: any) => setSelectedDIsh(evt.value)}
 				options={options}
 			/>
-			<button onClick={onSubmit} type="submit">
+			<button className={styles.submit_btn} onClick={onSubmit} type="submit">
 				{t(`Modals.SetToDayNewDish.submit`)}
 			</button>
 		</div>

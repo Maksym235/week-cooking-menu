@@ -2,6 +2,7 @@ import styles from "./AddIngredientModal.module.css";
 import { useMutation, gql } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { Loading } from "../../Loading/Loading";
 
 const ADD_INGREDIENT = gql`
 	mutation CreateIngredient(
@@ -48,7 +49,7 @@ export const AddIngredientModal = ({ toggleIsOpen, refetchData }: any) => {
 		refetchData();
 	}
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error) {
 		return <div>{error.message}</div>;

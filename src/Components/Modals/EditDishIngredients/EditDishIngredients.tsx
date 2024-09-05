@@ -12,6 +12,7 @@ import { errorOptions } from "../../../utils/toastOptions";
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from "/public/icon_pencil.svg?react";
+import { Loading } from "../../Loading/Loading";
 
 interface IProps {
 	refetchData: any;
@@ -190,7 +191,7 @@ export const EditDishIngredients: FC<IProps> = ({
 		toggleIsOpen();
 	};
 	if (loading || mutationLoading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error || mutationError) {
 		if (

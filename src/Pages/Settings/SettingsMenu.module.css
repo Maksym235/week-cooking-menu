@@ -6,7 +6,7 @@
 .main_block {
 	width: 100%;
 	border-radius: 16px;
-	background-color: #fff;
+	background-color: var(--sideBarBg);
 	position: relative;
 }
 

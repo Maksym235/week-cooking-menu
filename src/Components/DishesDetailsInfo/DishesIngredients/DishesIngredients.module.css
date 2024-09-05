@@ -119,7 +119,9 @@
 	line-height: 16px;
 	color: var(--blackColor);
 }
-
+.emptyIngs {
+	color: var(--textColor);
+}
 @media (min-width: 1600px) {
 	.headerTitle {
 		font-size: 24px;

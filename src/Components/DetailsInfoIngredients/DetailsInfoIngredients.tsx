@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styles from "./DetailsInfoingredients.module.css";
 import { useQuery, gql } from "@apollo/client";
+import { Loading } from "../Loading/Loading";
 export const DetailsInfoIngredients = ({ item }: any) => {
 	const { t } = useTranslation();
 	const INGREDIENT = gql`
@@ -21,7 +22,7 @@ export const DetailsInfoIngredients = ({ item }: any) => {
 		},
 	});
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error) {
 		return <div>{error.message}</div>;

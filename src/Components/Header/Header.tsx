@@ -1,6 +1,7 @@
 import * as dayjs from "dayjs";
 import styles from "./Header.module.css";
 import Select from "react-select";
+import "./style.css";
 export const Header = ({ title }: any) => {
 	const langOptions = [
 		{ value: "", label: "Ukraine" },
@@ -11,7 +12,6 @@ export const Header = ({ title }: any) => {
 		{ value: "dark", label: "dark" },
 	];
 	const date = dayjs().format("DD.MM.YYYY");
-
 	return (
 		<header className={styles.header}>
 			<div className={styles.conteiner}>

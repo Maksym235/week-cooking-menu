@@ -14,6 +14,10 @@
 	margin-top: 16px;
 }
 
+.title {
+	color: var(--textColor);
+}
+
 .headerCard {
 	display: flex;
 	justify-content: space-between;
@@ -128,6 +132,10 @@
 	margin-bottom: 5px;
 }
 
+.dataName {
+	color: var(--textColor);
+}
+
 .label::after {
 	content: "";
 	position: absolute;
@@ -157,7 +165,9 @@
 	line-height: 20px;
 	background-color: var(--activePage);
 }
-
+.categoryEmpty {
+	color: var(--textColor);
+}
 @media (min-width: 1600px) {
 	.conteiner {
 		/*width: 552px;*/

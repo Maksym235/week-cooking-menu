@@ -12,6 +12,7 @@ import { ModalConteiner } from "../ModalConteiner/ModalContainer.tsx";
 import dayjs from "dayjs";
 import { SetToDayNewDish } from "../Modals/SetToDayNewDish/SetToDayNewDish.tsx";
 import { week } from "./week.ts";
+import { Loading } from "../Loading/Loading.tsx";
 const WEEK_LIST = gql`
 	query ExampleQuery($period: String) {
 		getWeekByPeriod(period: $period) {
@@ -54,7 +55,7 @@ export const WeekList = () => {
 		setCurrentDay(day);
 	};
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error) {
 		if (error.message === "not auth" || error.message === "Unauthorized") {

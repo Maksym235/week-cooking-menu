@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { WellcomeMessage } from "./WellcomeMessage/WellcomeMessage";
 import { useTranslation } from "react-i18next";
+import { Loading } from "../Loading/Loading";
 const LOGIN = gql`
 	mutation Login($email: String, $password: String) {
 		login(email: $email, password: $password) {
@@ -148,7 +149,7 @@ export const LoginForm = ({ form }: { form: string }) => {
 					</form>
 				)}
 			</div>
-			{loading && <div>Loading...</div>}
+			{loading && <Loading />}
 			<ToastContainer
 				position="top-center"
 				autoClose={5000}

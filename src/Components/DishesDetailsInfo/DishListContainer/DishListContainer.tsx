@@ -7,6 +7,7 @@ import { useQuery, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import { Loading } from "../../Loading/Loading.tsx";
 
 export interface IDishesListProps {
 	setDish: (id: string) => void;
@@ -61,7 +62,7 @@ export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
 		return <div>{error.message}</div>;
 	}
 	if (loading) {
-		return <div>Loading....</div>;
+		return <Loading />;
 	}
 	return (
 		<>

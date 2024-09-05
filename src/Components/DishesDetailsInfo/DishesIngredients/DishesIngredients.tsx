@@ -8,6 +8,8 @@ import { EditDishIngredients } from "../../Modals/EditDishIngredients/EditDishIn
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from "/public/icon_pencil.svg?react";
+import { Loading } from "../../Loading/Loading";
+import { useTranslation } from "react-i18next";
 const GET_INGS = gql`
 	query Query($getDishByIdId: ID!) {
 		getDishById(id: $getDishByIdId) {
@@ -31,6 +33,7 @@ interface IProps {
 	dishId: string;
 }
 export const DishesIngredients: FC<IProps> = ({ dishId }) => {
+	const { t } = useTranslation();
 	const [isOpenModal, setIsOpenModal] = useState(false);
 	const { data, loading, error, refetch } = useQuery(GET_INGS, {
 		variables: {
@@ -42,20 +45,20 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 		setIsOpenModal((state) => !state);
 	};
 	if (loading) {
-		<div>loading...</div>;
+		<Loading />;
 	}
 	if (error) {
 		console.log(error);
-		toast.error(`${error.message}`, {
-			position: "top-center",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "light",
-		});
+		// toast.error(`${error.message}`, {
+		// 	position: "top-center",
+		// 	autoClose: 3000,
+		// 	hideProgressBar: false,
+		// 	closeOnClick: true,
+		// 	pauseOnHover: true,
+		// 	draggable: true,
+		// 	progress: undefined,
+		// 	theme: "light",
+		// });
 	}
 	// const data: IIng[] = [
 	// 	{
@@ -102,7 +105,7 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 	return (
 		<div className={styles.conteiner}>
 			<div className={styles.headerCard}>
-				<p className={styles.headerTitle}>Dishes ingredients</p>
+				<p className={styles.headerTitle}>{t(`DishesPage.dishIngs`)}</p>
 				<button
 					disabled={!data}
 					onClick={toggleAddIngModal}
@@ -116,44 +119,46 @@ export const DishesIngredients: FC<IProps> = ({ dishId }) => {
 						fill={data ? "var(--accentColor)" : "var(--silverColor)"}
 						stroke={data ? "var(--accentColor)" : "var(--silverColor)"}
 					/>{" "}
-					Edit ingredients
+					{t(`DishesPage.editIngs`)}
 				</button>
 			</div>
 			<div className={styles.listConteiner}>
 				<ul className={styles.list}>
-					{data
-						? data.getDishById.ingredients.map(
-								({
-									name,
-									category,
-									// defaultValue,
-									count,
-									weightType,
-								}: {
-									name: string;
-									category: string;
-									// defaultValue: number;
-									count: number;
-									weightType: string;
-								}) => (
-									<li>
-										<div className={styles.itemConteiner}>
-											<div className={styles.img}>
-												{name ? name.slice(0, 1) : ""}
-											</div>
-											<div className={styles.textConteiner}>
-												<p className={styles.itemTitle}>{name}</p>
-												<p className={styles.itemText}>
-													{count}
-													{weightType}
-												</p>
-												<p className={styles.itemText}>{category}</p>
-											</div>
+					{data ? (
+						data.getDishById.ingredients.map(
+							({
+								name,
+								category,
+								// defaultValue,
+								count,
+								weightType,
+							}: {
+								name: string;
+								category: string;
+								// defaultValue: number;
+								count: number;
+								weightType: string;
+							}) => (
+								<li>
+									<div className={styles.itemConteiner}>
+										<div className={styles.img}>
+											{name ? name.slice(0, 1) : ""}
 										</div>
-									</li>
-								),
-						  )
-						: "select dish"}
+										<div className={styles.textConteiner}>
+											<p className={styles.itemTitle}>{name}</p>
+											<p className={styles.itemText}>
+												{count}
+												{weightType}
+											</p>
+											<p className={styles.itemText}>{category}</p>
+										</div>
+									</div>
+								</li>
+							),
+						)
+					) : (
+						<p className={styles.emptyIngs}>{t(`DishesPage.selectDish`)}</p>
+					)}
 				</ul>
 			</div>
 			<ModalConteiner

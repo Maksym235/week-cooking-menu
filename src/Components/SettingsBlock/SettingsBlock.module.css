@@ -7,7 +7,7 @@
 
 .image_wrapper {
 	display: flex;
-	gap: 220px;
+	gap: 173px;
 	align-items: flex-end;
 }
 
@@ -51,6 +51,7 @@
 	font-weight: 600;
 	line-height: 20px; /* 142.857% */
 	letter-spacing: -0.15px;
+	color: var(--textColor);
 	/* margin-bottom: 8px; */
 }
 
@@ -90,6 +91,7 @@
 	padding: 6px 12px;
 	align-items: center;
 	background-color: #f6f8fa;
+	color: #000;
 	justify-content: center;
 	gap: 8px;
 	border: 1px solid var(--silverColor);

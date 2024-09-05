@@ -73,9 +73,13 @@
 	gap: 10px;
 	border-radius: 40px;
 	width: 74px;
-	color: var(--blackColor);
+	color: #000;
 	background-color: var(--activePage);
 	margin-bottom: 8px;
+}
+
+.itemName {
+	color: var(--textColor);
 }
 
 .dish {

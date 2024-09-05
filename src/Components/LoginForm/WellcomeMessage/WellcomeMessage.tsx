@@ -5,8 +5,8 @@ export const WellcomeMessage = () => {
 	const user = JSON.parse(localStorage.getItem("user")!);
 	return (
 		<div className={styles.container}>
-			<h2>{t(`Wellcome.wellcome`)},</h2>
-			<p>{user.name}</p>
+			<h2 className={styles.title}>{t(`Wellcome.wellcome`)},</h2>
+			<p className={styles.name}>{user.name}</p>
 		</div>
 	);
 };

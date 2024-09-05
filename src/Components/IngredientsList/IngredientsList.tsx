@@ -9,6 +9,7 @@ import { AddIngredientModal } from "../Modals/AddIngredient/AddIngredientModal.t
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import { errorOptions } from "../../utils/toastOptions.ts";
+import { Loading } from "../Loading/Loading.tsx";
 export interface IIngredient {
 	id: string;
 	name: string;
@@ -111,7 +112,7 @@ export const IngredientsList = ({ setCurrent }: any) => {
 	// ];
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 	if (error) {
 		if (error.message === "not auth") {
@@ -128,7 +129,9 @@ export const IngredientsList = ({ setCurrent }: any) => {
 	return (
 		<div className={styles.list_conteiner}>
 			<div className={styles.listHeader}>
-				<p>{curListState && titleVariables[curListState]}</p>
+				<p className={styles.title}>
+					{curListState && titleVariables[curListState]}
+				</p>
 				<button onClick={toggleAddIngModal} className={styles.listHeaderBtn}>
 					{t(`IngredientsPage.addIng`)}
 				</button>

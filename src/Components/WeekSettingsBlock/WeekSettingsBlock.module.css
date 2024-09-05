@@ -7,7 +7,7 @@
 	/* max-width: 300px; */
 	width: 300px;
 	/* height: 644px; */
-	background-color: #fff;
+	background-color: var(--sideBarBg);
 }
 
 .periods_container {
@@ -24,6 +24,7 @@
 	font-style: normal;
 	font-weight: 600;
 	line-height: 20px;
+	color: var(--textColor);
 }
 
 .btn {

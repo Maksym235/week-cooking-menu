@@ -10,6 +10,7 @@ import ErrorPage from "./Pages/Error/Error.tsx";
 import { useQuery, gql } from "@apollo/client";
 import { PrivateRoute } from "./routes/PrivateRoute.tsx";
 import { Settings } from "./Pages/Settings/Settings.tsx";
+import { Loading } from "./Components/Loading/Loading.tsx";
 
 const USER_BY_ID = gql`
 	query Query($getUserByIdId: ID!) {
@@ -64,7 +65,7 @@ function App() {
 		parseUser = JSON.parse(user);
 	}
 	useEffect(() => {
-		document.documentElement.dataset.theme = "light";
+		document.documentElement.dataset.theme = "dark";
 	}, []);
 	const { data, loading, error } = useQuery(USER_BY_ID, {
 		variables: {
@@ -73,7 +74,7 @@ function App() {
 	});
 
 	if (loading) {
-		return <div>Loading...</div>;
+		return <Loading />;
 	}
 
 	if (error) {

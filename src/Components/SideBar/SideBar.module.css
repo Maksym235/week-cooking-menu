@@ -33,7 +33,7 @@
 }
 
 .titleText {
-	color: #000;
+	color: var(--textColor);
 	font-family: Manrope;
 	font-size: 18px;
 	font-style: normal;
