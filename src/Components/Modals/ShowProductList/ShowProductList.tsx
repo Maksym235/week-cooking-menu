@@ -52,8 +52,7 @@ export const ShowProductList: React.FC<IProps> = ({ toggleIsOpen, data }) => {
 					<li className={styles.list_item}>
 						<p className={styles.list_item_desc}>
 							<span className={styles.list_item_title}>{el}</span> -{" "}
-							{data[el].count}
-							{data[el].weightType}
+							{data[el].count} {data[el].weightType}
 						</p>
 					</li>
 				))}

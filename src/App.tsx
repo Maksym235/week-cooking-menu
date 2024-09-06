@@ -65,7 +65,13 @@ function App() {
 		parseUser = JSON.parse(user);
 	}
 	useEffect(() => {
-		document.documentElement.dataset.theme = "dark";
+		const theme = localStorage.getItem("theme");
+		if (!theme) {
+			localStorage.setItem("theme", "dark");
+			document.documentElement.dataset.theme = "dark";
+		} else {
+			document.documentElement.dataset.theme = theme;
+		}
 	}, []);
 	const { data, loading, error } = useQuery(USER_BY_ID, {
 		variables: {

@@ -30,7 +30,7 @@
 }
 
 .list_item_title {
-	color: #000;
+	color: var(--textColor);
 }
 
 .list_item_desc {
@@ -43,7 +43,7 @@
 	left: 0;
 	width: 100%;
 	padding: 15px 0;
-	background-color: #fff;
+	background-color: var(--sideBarBg);
 	display: flex;
 	justify-content: center;
 	gap: 30px;

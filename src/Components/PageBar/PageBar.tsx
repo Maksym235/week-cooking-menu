@@ -4,6 +4,8 @@ import i18next from "i18next";
 import { constants } from "../../i18n/constants";
 import enFlag from "../../../public/en.svg";
 import ukFlag from "../../../public/ukr.svg";
+import { Toggler } from "../Header/Toggler/Toggler";
+import { LanguageToggler } from "./LanguageToggler/LanguageToggler";
 interface IlanguageOptions {
 	value: string;
 	label: any;
@@ -29,6 +31,10 @@ export const PageBar = ({ title }: any) => {
 	const onChangeLang = (value: any) => {
 		i18next.changeLanguage(value.value);
 	};
+	const handleChangeTheme = (isLight: boolean) => {
+		localStorage.setItem("theme", isLight ? "light" : "dark");
+		document.documentElement.dataset.theme = isLight ? "light" : "dark";
+	};
 	return (
 		<div className={styles.conteiner}>
 			<h2 className={styles.title}>{title}</h2>
@@ -36,7 +42,9 @@ export const PageBar = ({ title }: any) => {
         <input className={styles.input} placeholder={`Type here to search...`}/>
     </label> */}
 			<div className={styles.select_options}>
-				<Select options={themeOptions} />
+				<Toggler toggleTheme={handleChangeTheme} />
+				{/* <Select options={themeOptions} /> */}
+				<LanguageToggler />
 				<Select
 					isSearchable={false}
 					defaultValue={langOptions.find((el) => el.value === i18next.language)}
