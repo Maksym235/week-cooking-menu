@@ -113,6 +113,7 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 				isOpen={isOpenModal}
 				children={
 					<EditDishInfo
+						categories={data ? data.getDishById.category : []}
 						// refetchData={refetch}
 						toggleIsOpen={toggleAddIngModal}
 					/>

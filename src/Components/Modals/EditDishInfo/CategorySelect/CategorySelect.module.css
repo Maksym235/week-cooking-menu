@@ -1,0 +1,57 @@
+.form {
+	display: flex;
+	gap: 20px;
+}
+
+.label {
+	/* color: var(--textColor); */
+	display: flex;
+	padding: 8px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	/*font-family: Manrope;*/
+	font-size: 16px;
+	font-style: normal;
+	width: 100px;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 40px;
+	color: #000;
+	background-color: var(--activePage);
+	position: relative;
+	transition: all 0.3s ease-in-out;
+}
+
+.selected {
+	/* color: red; */
+	position: relative;
+	scale: 0.7;
+}
+
+.selected::after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background-color: transparent;
+	border-radius: 40px;
+	padding: 4px;
+}
+
+.selected:nth-child(1):after {
+	border: 3px solid var(--breakfast);
+}
+.selected:nth-child(2):after {
+	border: 3px solid var(--lunch);
+}
+.selected:nth-child(3):after {
+	border: 3px solid var(--dinner);
+}
+
+.input {
+	position: absolute;
+	visibility: hidden;
+	/* width: 60px;
+	height: 20px; */
+}

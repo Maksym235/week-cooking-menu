@@ -220,7 +220,7 @@ export const EditDishIngredients: FC<IProps> = ({
 		<>
 			<div className={styles.main_container}>
 				<div>
-					<p>Інгредієнти в страві</p>
+					<p className={styles.title}>Інгредієнти в страві</p>
 					<ul className={styles.form_list}>
 						{ingsData &&
 							ingsData.map((item: IIngredients) => (
@@ -289,7 +289,7 @@ export const EditDishIngredients: FC<IProps> = ({
 					</ul>
 				</div>
 				<div className={styles.new_ings_container}>
-					<p>Додати інгредієнт</p>
+					<p className={styles.add_ing_title}>Додати інгредієнт</p>
 					<Select
 						className={styles.select_ings}
 						onChange={(evt: any) => handleSelectIng(evt.value)}

@@ -10,6 +10,7 @@ interface IlanguageOptions {
 	isDisabled?: boolean;
 }
 export const LanguageToggler = () => {
+	const [lang, setLang] = useState(constants.UK);
 	const [isOpen, setIsOpen] = useState(false);
 	const langOptions: IlanguageOptions[] = [
 		{
@@ -26,6 +27,12 @@ export const LanguageToggler = () => {
 	const toggleIsOpen = () => {
 		setIsOpen((state) => !state);
 	};
+	const toggleLanguage = (value: any) => {
+		// setLang(value);
+		// onChangeLang(value);
+		i18next.changeLanguage(value);
+		toggleIsOpen();
+	};
 	return (
 		<div
 			className={
@@ -37,15 +44,25 @@ export const LanguageToggler = () => {
 			<button className={styles.btn} type="button" onClick={toggleIsOpen}>
 				{langOptions.find((el) => el.value === i18next.language)?.label}
 			</button>
-			{isOpen && (
-				<div className={styles.dropdown_container}>
-					{langOptions.map((el) => (
-						<button className={styles.btn}>{el.label}</button>
-					))}
-					{/* <button>UA</button>
+
+			<div
+				className={
+					isOpen
+						? `${styles.dropdown_container} ${styles.hidden}`
+						: `${styles.dropdown_container}`
+				}
+			>
+				{langOptions.map((el) => (
+					<button
+						onClick={() => toggleLanguage(el.value)}
+						className={styles.btn}
+					>
+						{el.label}
+					</button>
+				))}
+				{/* <button>UA</button>
 					<button>EN</button> */}
-				</div>
-			)}
+			</div>
 		</div>
 	);
 };

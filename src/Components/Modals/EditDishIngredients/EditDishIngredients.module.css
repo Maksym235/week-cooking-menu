@@ -10,6 +10,16 @@
 	overflow-y: auto;
 }
 
+.title {
+	color: var(--textColor);
+	margin-bottom: 20px;
+}
+
+.add_ing_title {
+	color: var(--textColor);
+	margin-bottom: 20px;
+}
+
 .form_list {
 	display: flex;
 	flex-direction: column;
@@ -24,6 +34,7 @@
 	display: flex;
 	justify-content: space-between;
 	/* flex-direction: column; */
+	color: var(--textColor);
 	align-items: center;
 	gap: 10px;
 	padding: 10px;
@@ -57,6 +68,7 @@
 	margin-top: 20px;
 	display: flex;
 	gap: 10px;
+	position: relative;
 	transition: all 0.3s ease-in-out;
 }
 
@@ -98,7 +110,8 @@
 .hidden {
 	opacity: 0;
 	visibility: hidden;
-	display: none;
+	/* display: none; */
+	position: absolute;
 }
 
 .select_weight_type {
@@ -109,7 +122,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	color: var(--fgColor-default) /* utility class: .color-fg-default */;
+	/* utility class: .color-fg-default */
 
 	/* Text style/text-bold */
 	/* font-family: "SF Pro Text"; */

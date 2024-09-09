@@ -272,7 +272,9 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				{ingredientsCount.map((el: any) => (
 					<div key={el.key}>
 						{/* <label className={styles.label}> */}
-						{t(`Modals.AddDish.ingredients.ingredient`)}
+						<p className={styles.label}>
+							{t(`Modals.AddDish.ingredients.ingredient`)}
+						</p>
 						<Select
 							onChange={(evt) => handleSelectIngredient(evt, el.key)}
 							isSearchable={true}
@@ -281,7 +283,9 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 						/>
 						<div className={styles.select_container}>
 							<div>
-								{t(`Modals.AddDish.ingredients.count`)}
+								<p className={styles.label}>
+									{t(`Modals.AddDish.ingredients.count`)}
+								</p>
 								<input
 									type="number"
 									onBlur={(evt) => handleChangeCountIng(evt, el.key)}
@@ -290,7 +294,9 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 								/>
 							</div>
 							<div>
-								{t(`Modals.AddDish.ingredients.weightType`)}
+								<p className={styles.label}>
+									{t(`Modals.AddDish.ingredients.weightType`)}
+								</p>
 								<Select
 									options={weightsType}
 									onChange={(evt) => handleChangeWeightType(evt, el.key)}

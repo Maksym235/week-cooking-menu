@@ -1,20 +1,25 @@
 .conteiner {
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-  /*display: flex;*/
-  /*align-items: center;*/
-  /*justify-content: center;*/
-  /*flex-direction: column;*/
-  /*gap: 20px;*/
-  margin-left: 16px;
-  width: 100%;
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	/*display: flex;*/
+	/*align-items: center;*/
+	/*justify-content: center;*/
+	/*flex-direction: column;*/
+	/*gap: 20px;*/
+	margin-left: 16px;
+	width: 100%;
 }
 
 .wrapper {
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.calendar {
+	background: var(--authTogglerBg) !important ;
+	color: var(--textColor) !important;
 }
 
 /* @media (min-width: 1600px) {

@@ -26,6 +26,7 @@ const Home = () => {
 			<div className={styles.wrapper}>
 				<HomeNavigationMenu />
 				<DateRange
+					className={styles.calendar}
 					editableDateInputs={false}
 					onChange={(item) => setState([item.selection])}
 					moveRangeOnFirstSelection={false}

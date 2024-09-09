@@ -45,12 +45,12 @@ export const PageBar = ({ title }: any) => {
 				<Toggler toggleTheme={handleChangeTheme} />
 				{/* <Select options={themeOptions} /> */}
 				<LanguageToggler />
-				<Select
+				{/* <Select
 					isSearchable={false}
 					defaultValue={langOptions.find((el) => el.value === i18next.language)}
 					onChange={(value) => onChangeLang(value)}
 					options={langOptions}
-				/>
+				/> */}
 			</div>
 		</div>
 	);
