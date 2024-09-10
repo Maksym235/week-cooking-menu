@@ -111,4 +111,10 @@ export const en_language = {
 			submit: "Submit",
 		},
 	},
+	EmptyWeek: {
+		title: "Opps...",
+		dontHaveList: "You don`t create list for this week",
+		doWantCreate: "Do you want to create ?",
+		create: "Create",
+	},
 };

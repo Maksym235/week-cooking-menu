@@ -1,5 +1,5 @@
 import "./Toggler.css";
-export const Toggler = ({ toggleTheme }: any) => {
+export const Toggler = ({ toggleTheme, isChecked }: any) => {
 	const handleChange = (evt: any) => {
 		const isLight = evt.target.checked;
 		toggleTheme(isLight);
@@ -7,7 +7,7 @@ export const Toggler = ({ toggleTheme }: any) => {
 	return (
 		<>
 			<label className="switch">
-				<input onChange={handleChange} type="checkbox" />
+				<input onChange={handleChange} checked={isChecked} type="checkbox" />
 				<span className="slider"></span>
 			</label>
 		</>

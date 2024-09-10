@@ -5,6 +5,9 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
 import { Loading } from "../../Loading/Loading";
+import { CategorySelect } from "../EditDishInfo/CategorySelect/CategorySelect";
+import plus from "../../../../public/plus.svg";
+import { FaRegTrashAlt } from "react-icons/fa";
 interface IPropsDishModal {
 	toggleIsOpen: () => void;
 }
@@ -68,6 +71,7 @@ export interface IIngredientCount {
 }
 const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 	const { t } = useTranslation();
+	const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
 	const [ingredientsCount, setIngredientsCount] = useState<IIngredientCount[]>([
 		{
 			key: 1,
@@ -114,7 +118,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 	const submitForm = (data: any) => {
 		const finishData = {
 			name: data.name,
-			category: data.category.map((item: any) => item.value),
+			category: selectedCategory,
 			description: data.description,
 			ingredients: ingredientsCount.map((item) => item.ing),
 		};
@@ -122,7 +126,7 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 			variables: finishData,
 		});
 
-		// console.log(finishData);
+		console.log(finishData);
 	};
 	if (data) {
 		toggleIsOpen();
@@ -163,6 +167,10 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 		}
 		setIngredientsCount((state: any) => [...state, { key: 0, ing: intialIng }]);
 	};
+	const handleDeleteIng = (key: number) => {
+		console.log(key);
+		setIngredientsCount(ingredientsCount.filter((item) => item.key !== key));
+	};
 	const handleSelectIngredient = (evt: any, key: number) => {
 		const index = indexFind(key);
 		const newIng = {
@@ -198,6 +206,13 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 
 		console.log(typeof evt.target.value);
 	};
+	const handdleSelectCategory = (category: string) => {
+		if (selectedCategory.includes(category)) {
+			setSelectedCategory(selectedCategory.filter((el) => el !== category));
+			return;
+		}
+		setSelectedCategory((state) => [...state, category]);
+	};
 	return (
 		<form
 			className={styles.form}
@@ -227,17 +242,21 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				<Controller
 					name="category"
 					control={control}
-					render={({ field }) => (
-						<Select
-							// className={styles.select}
-							{...field}
-							defaultValue={[options[1], options[2]]}
-							isMulti
-							name="colors"
-							options={options}
-							className="basic-multi-select"
-							classNamePrefix="select"
+					render={() => (
+						<CategorySelect
+							selectCategory={handdleSelectCategory}
+							selectedCategory={selectedCategory}
 						/>
+						// <Select
+						// 	// className={styles.select}
+						// 	{...field}
+						// 	defaultValue={[options[1], options[2]]}
+						// 	isMulti
+						// 	name="colors"
+						// 	options={options}
+						// 	className="basic-multi-select"
+						// 	classNamePrefix="select"
+						// />
 					)}
 				/>
 				{/* <select className={styles.select} {...register("category")}>
@@ -269,67 +288,63 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 				<label className={styles.label}>
 					{t(`Modals.AddDish.ingredients.ingredients`)}
 				</label>
-				{ingredientsCount.map((el: any) => (
-					<div key={el.key}>
-						{/* <label className={styles.label}> */}
-						<p className={styles.label}>
-							{t(`Modals.AddDish.ingredients.ingredient`)}
-						</p>
-						<Select
-							onChange={(evt) => handleSelectIngredient(evt, el.key)}
-							isSearchable={true}
-							options={ingsOptions}
-							isLoading={IngLoading}
-						/>
-						<div className={styles.select_container}>
-							<div>
+				<ul className={styles.ingredients_list}>
+					{ingredientsCount.map((el: any) => (
+						<li key={el.key}>
+							{/* <label className={styles.label}> */}
+							<div className={styles.list_title_wrapper}>
 								<p className={styles.label}>
-									{t(`Modals.AddDish.ingredients.count`)}
+									{t(`Modals.AddDish.ingredients.ingredient`)}
 								</p>
-								<input
-									type="number"
-									onBlur={(evt) => handleChangeCountIng(evt, el.key)}
-									// onChange={(evt) => handleChangeCountIng(evt, el.key)}
-									className={`${styles.input} ${styles["select_ing"]}`}
+								<FaRegTrashAlt
+									onClick={() => handleDeleteIng(el.key)}
+									className={styles.trash}
+									color="var(--accentColor)"
 								/>
 							</div>
-							<div>
-								<p className={styles.label}>
-									{t(`Modals.AddDish.ingredients.weightType`)}
-								</p>
-								<Select
-									options={weightsType}
-									onChange={(evt) => handleChangeWeightType(evt, el.key)}
-									defaultValue={
-										weightsType[
-											weightsType.findIndex(
-												(item) => item.value === el.ing.weightType,
-											)
-										]
-									}
-									className={styles["select_ing"]}
-								/>
+							<Select
+								onChange={(evt) => handleSelectIngredient(evt, el.key)}
+								isSearchable={true}
+								options={ingsOptions}
+								isLoading={IngLoading}
+							/>
+							<div className={styles.select_container}>
+								<div>
+									<p className={styles.label}>
+										{t(`Modals.AddDish.ingredients.count`)}
+									</p>
+									<input
+										type="number"
+										onBlur={(evt) => handleChangeCountIng(evt, el.key)}
+										// onChange={(evt) => handleChangeCountIng(evt, el.key)}
+										className={`${styles.input} ${styles["select_ing"]}`}
+									/>
+								</div>
+								<div>
+									<p className={styles.label}>
+										{t(`Modals.AddDish.ingredients.weightType`)}
+									</p>
+									<Select
+										options={weightsType}
+										onChange={(evt) => handleChangeWeightType(evt, el.key)}
+										defaultValue={
+											weightsType[
+												weightsType.findIndex(
+													(item) => item.value === el.ing.weightType,
+												)
+											]
+										}
+										className={styles["select_ing"]}
+									/>
+								</div>
 							</div>
-						</div>
-						{/* </label> */}
-					</div>
-					// <Controller
-					// 	key={index}
-					// 	name={`ingredient${index}`}
-					// 	control={control}
-					// 	render={({ field }) => (
-					// 		<input
-					// 			placeholder="description"
-					// 			className={styles.input}
-					// 			{...field}
-					// 		/>
-					// 	)}
-					// />
-				))}
-
-				<p onClick={handleAddIngredients}>
-					{t(`Modals.AddDish.ingredients.plus`)}
-				</p>
+							{/* </label> */}
+						</li>
+					))}
+				</ul>
+				<div className={styles.add_ing} onClick={handleAddIngredients}>
+					<img src={plus} alt="adds_ings" />
+				</div>
 			</div>
 			<input className={styles.submit_btn} type="submit" />
 		</form>

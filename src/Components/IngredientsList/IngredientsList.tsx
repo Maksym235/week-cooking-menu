@@ -155,6 +155,7 @@ export const IngredientsList = ({ setCurrent }: any) => {
 									<YourIngredientsListItem
 										img={"https://loremflickr.com/640/480/food"}
 										name={item.name}
+										isCurrent={curItem === item.id}
 										id={item.id}
 										description={item.description}
 									/>

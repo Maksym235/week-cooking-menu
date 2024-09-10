@@ -89,7 +89,7 @@ export const SelectListCard = ({
 				{category.map((item) => (
 					<p
 						style={{ backgroundColor: categoryColors[item] }}
-						className={`${styles.title} ${styles.mealtime}`}
+						className={`${styles.category_text} ${styles.mealtime}`}
 					>
 						{item}
 					</p>

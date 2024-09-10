@@ -4,7 +4,24 @@
 	gap: 20px;
 	overflow-y: auto;
 	max-height: 600px;
-	min-width: 350px;
+	min-width: 450px;
+}
+
+.ingredients_list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.list_title_wrapper {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.trash {
+	cursor: pointer;
 }
 
 .label {
@@ -57,7 +74,7 @@
 	letter-spacing: -0.15px;
 }
 .submit_btn {
-	display: flex;
+	/* display: flex;
 	padding: 6px 12px;
 	align-items: center;
 	background-color: #f6f8fa;
@@ -65,12 +82,30 @@
 	gap: 8px;
 	border: 1px solid var(--silverColor);
 	border-radius: 6px;
-	/* font-family: SF Pro Text; */
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: 20px; /* 142.857% */
-	letter-spacing: -0.15px;
+	line-height: 20px;
+	letter-spacing: -0.15px; */
+
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	height: 44px;
+	padding: 8px 40px;
+	align-items: center;
+	gap: 8px;
+	border-radius: 40px;
+	background-color: var(--activePage);
+	/*font-family: Manrope;*/
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border: none;
+	color: var(--accentColor);
+	transition: all 0.3s ease-in-out;
 }
 .select_container {
 	display: flex;
@@ -78,4 +113,16 @@
 }
 .select_ing {
 	width: 150px;
+}
+
+.add_ing {
+	margin: 20px auto 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	background-color: var(--buttonBg);
+	width: 40px;
+	border-radius: 40px;
+	cursor: pointer;
 }

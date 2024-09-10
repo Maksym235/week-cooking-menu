@@ -60,6 +60,7 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 	const { data, loading, error } = useQuery(GET_PRODUCTS_LIST, {
 		variables: {
 			getProductsListId: weekId,
+			fetchPolicy: "no-cache",
 		},
 	});
 	dayjs().locale("uk-ua");

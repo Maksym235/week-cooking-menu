@@ -111,4 +111,10 @@ export const uk_language = {
 			submit: "Гаразд",
 		},
 	},
+	EmptyWeek: {
+		title: "Уппс...",
+		dontHaveList: "Ви ще не створили список на цей тиждень",
+		doWantCreate: "Бажаєте створити ?",
+		create: "Створити",
+	},
 };

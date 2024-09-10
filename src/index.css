@@ -13,7 +13,7 @@
 	--sideBarBg: #fff;
 	--activePage: #feeeee;
 	--blackColor: #000;
-	--curentPageColor: rgba(237, 210, 203, 0.2);
+	--emptyBg: rgba(237, 210, 203, 0.3);
 	--accentColor: #f55951;
 	--silverColor: #9c9aa8;
 	--ligthSilverColor: #f7f7f7;
@@ -36,9 +36,9 @@
 	--sideBarBg: #302e2e;
 	--activePage: #3e3d43;
 	--blackColor: #fff;
-	--curentPageColor: rgb(237, 210, 203);
+	--emptyBg: rgba(48, 46, 46, 0.7);
 	--accentColor: rgb(253, 84, 78);
-	--silverColor: #cccad8;
+	--silverColor: #9c9aa8;
 	--ligthSilverColor: #2a2a2a;
 	--creamColor: #dedede;
 	--buttonBg: #cc423d4e;
