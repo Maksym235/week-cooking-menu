@@ -60,6 +60,7 @@ export const uk_language = {
 		dishesList: "Список страв",
 		addDish: "Додати страву",
 		selectDish: "виберіть страву",
+		dishDesc: "Опис",
 	},
 	MenuPage: {
 		days: {

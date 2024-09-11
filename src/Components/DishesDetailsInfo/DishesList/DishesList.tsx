@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import styles from "./DishesList.module.css";
 import { FC } from "react";
 export interface IIng {
 	name: string;
 	id: string;
+	description: string;
 	category: string[];
 }
 export interface IProps {
@@ -12,6 +14,7 @@ export interface IProps {
 }
 
 export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
+	const { t } = useTranslation();
 	const categoryColors: Record<string, string> = {
 		Breakfast: "var(--breakfast)",
 		Lunch: "var(--lunch) ",
@@ -31,7 +34,7 @@ export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 				</p>
 				<ul className={styles.list}>
 					{data &&
-						data.map(({ name, id }: IIng) => (
+						data.map(({ name, id, description }: IIng) => (
 							<li>
 								<div
 									onClick={() => handleSelectDish(id)}
@@ -42,8 +45,14 @@ export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
 									</div>
 									<div className={styles.textConteiner}>
 										<p className={styles.itemTitle}>{name}</p>
-										<p className={styles.itemText}>200gram</p>
-										<p className={styles.itemText}>{id}</p>
+										<p className={styles.itemText}>
+											<span className={styles.itemTextDesc}>
+												{t(`DishesPage.dishDesc`)}
+											</span>
+											{": "}
+											{description}
+										</p>
+										{/* <p className={styles.itemText}>{id}</p> */}
 									</div>
 								</div>
 							</li>

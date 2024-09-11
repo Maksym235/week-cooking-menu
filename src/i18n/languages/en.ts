@@ -60,6 +60,7 @@ export const en_language = {
 		dishesList: "List of dishes",
 		addDish: "Add dish",
 		selectDish: "select dish",
+		dishDesc: "Desc",
 	},
 	MenuPage: {
 		days: {

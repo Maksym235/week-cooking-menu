@@ -17,6 +17,7 @@ const DISHES = gql`
 		getDishes {
 			id
 			name
+			description
 			category
 		}
 	}

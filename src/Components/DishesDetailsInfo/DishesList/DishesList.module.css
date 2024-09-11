@@ -84,5 +84,9 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: 16px;
-	color: var(--blackColor);
+	color: var(--textColor);
+}
+
+.itemTextDesc {
+	color: var(--silverColor);
 }

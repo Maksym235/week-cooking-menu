@@ -13,6 +13,7 @@ import dayjs from "dayjs";
 import { SetToDayNewDish } from "../Modals/SetToDayNewDish/SetToDayNewDish.tsx";
 import { week } from "./week.ts";
 import { Loading } from "../Loading/Loading.tsx";
+import { EmptyWeek } from "../EmptyWeek/EmptyWeek.tsx";
 const WEEK_LIST = gql`
 	query ExampleQuery($period: String) {
 		getWeekByPeriod(period: $period) {
@@ -94,6 +95,9 @@ export const WeekList = () => {
 	const changeMealtime = (mealtime: string) => {
 		setEditedMealtime(mealtime);
 	};
+	if (data.getWeekByPeriod === null) {
+		return <EmptyWeek refetchData={refetch} />;
+	}
 	return (
 		<section className={styles.conteiner}>
 			<WeekDaysSideBar
@@ -124,13 +128,6 @@ export const WeekList = () => {
 				openModal={toggleCreateMenuModal}
 				refetchData={refetch}
 			/>
-			{/* <ul className={styles.list}>
-        {week.map((item: { day: string; key: number }) => (
-          <li key={item.key}>
-            <WeekDay color={getRandomColor()} title={item.day} />
-          </li>
-        ))}
-      </ul> */}
 			<ModalConteiner
 				toggleIsOpen={toggleCreateMenuModal}
 				isOpen={isOpenModal}

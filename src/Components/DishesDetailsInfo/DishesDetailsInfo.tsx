@@ -10,6 +10,7 @@ import { EditDishInfo } from "../Modals/EditDishInfo/EditDishInfo";
 import EditSvg from "/public/icon_pencil.svg?react";
 import { useTranslation } from "react-i18next";
 import { Loading } from "../Loading/Loading";
+import { useNavigate } from "react-router-dom";
 interface IProps {
 	dishId: string;
 }
@@ -29,6 +30,7 @@ const categoryColors: Record<string, string> = {
 	Dinner: "var(--dinner)",
 };
 export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
+	const navigate = useNavigate();
 	const { t } = useTranslation();
 	const [isOpenModal, setIsOpenModal] = useState(false);
 	const { data, loading, error } = useQuery(GET_DISH, {
@@ -44,17 +46,34 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
 		<Loading />;
 	}
 	if (error) {
-		console.log(error);
-		toast.error(`${error.message}`, {
-			position: "top-center",
-			autoClose: 3000,
-			hideProgressBar: false,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true,
-			progress: undefined,
-			theme: "light",
-		});
+		if (error.message === "not auth" || error.message === "Unauthorized") {
+			navigate("/");
+			toast.error(`please sign in or sign up`, {
+				position: "top-center",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light",
+			});
+		}
+		if (error.message === "Context creation failed: jwt expired") {
+			localStorage.clear();
+			navigate("/");
+			toast.error(`please sign in or sign up`, {
+				position: "top-center",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light",
+			});
+		}
+		// return <div>{error.message}</div>;
 	}
 	return (
 		<div className={styles.conteiner}>
