@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import logo from "/public/logo.svg";
 // import {Popover} from "antd";
 export const SideBar = () => {
 	const { t } = useTranslation();
@@ -34,7 +35,8 @@ export const SideBar = () => {
 		<section className={styles.sideBar_section}>
 			<div className={styles.conteiner}>
 				<div className={styles.titleConteiner}>
-					<div className={styles.titleLogo}></div>
+					<img src={logo} width={60} alt="logo" />
+					{/* <div className={styles.titleLogo}></div> */}
 					<p className={styles.titleText}>WeekMenu</p>
 				</div>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./LanguageToggler.module.css";
 import i18next from "i18next";
 import { constants } from "../../../i18n/constants";
@@ -10,7 +10,6 @@ interface IlanguageOptions {
 	isDisabled?: boolean;
 }
 export const LanguageToggler = () => {
-	const [lang, setLang] = useState(constants.UK);
 	const [isOpen, setIsOpen] = useState(false);
 	const langOptions: IlanguageOptions[] = [
 		{

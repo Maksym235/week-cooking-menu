@@ -8,6 +8,7 @@ import { DateRange } from "react-date-range";
 import { useState } from "react";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
+import { HistoryWeeks } from "../../Components/HistoryWeeks/HistoryWeeks.tsx";
 // import weekday from "dayjs/plugin/weekday.d.ts";
 const Home = () => {
 	const { t } = useTranslation();
@@ -25,6 +26,7 @@ const Home = () => {
 			{/*<img width={350} height={300} src={CookImg} alt='titlePhoto'/>*/}
 			<div className={styles.wrapper}>
 				<HomeNavigationMenu />
+				<HistoryWeeks />
 				<DateRange
 					className={styles.calendar}
 					editableDateInputs={false}

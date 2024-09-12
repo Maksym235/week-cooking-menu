@@ -118,4 +118,7 @@ export const en_language = {
 		doWantCreate: "Do you want to create ?",
 		create: "Create",
 	},
+	History: {
+		history: "History",
+	},
 };

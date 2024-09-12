@@ -41,6 +41,8 @@
 
 .icon_conteiner {
 	position: absolute;
+	background-color: transparent;
+	border: none;
 	right: 0;
 	bottom: 0;
 	cursor: pointer;

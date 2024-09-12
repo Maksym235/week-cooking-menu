@@ -95,11 +95,11 @@ const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
 	const [addDish, { data, loading, error }] = useMutation(ADD_DISH);
 	// const { register, handleSubmit } = useForm();;
 	const { control, handleSubmit } = useForm();
-	const options = [
-		{ value: "Dinner", label: "Dinner" },
-		{ value: "Lunch", label: "Lunch" },
-		{ value: "Breakfast", label: "Breakfast" },
-	];
+	// const options = [
+	// 	{ value: "Dinner", label: "Dinner" },
+	// 	{ value: "Lunch", label: "Lunch" },
+	// 	{ value: "Breakfast", label: "Breakfast" },
+	// ];
 	const ingsOptions = IngsData?.getIngredients?.map((item) => {
 		return { value: item, label: item.name };
 	});

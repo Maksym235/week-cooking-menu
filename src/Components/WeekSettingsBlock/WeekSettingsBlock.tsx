@@ -66,7 +66,9 @@ export const WeekSettingsBlock: FC<Iprops> = ({
 	dayjs().locale("uk-ua");
 	const currentWeekMonday = dayjs().day(1).format("YYYY-MM-DD");
 	const [isOpenModal, setIsModalOpen] = useState(false);
-
+	console.log(
+		dayjs(currentWeekMonday).subtract(21, "days").format("YYYY-MM-DD"),
+	);
 	const handleChangeWeek = () => {
 		if (currentWeekMonday === periods.period1) {
 			// console.log("create week ");

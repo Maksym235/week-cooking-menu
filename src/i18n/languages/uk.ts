@@ -118,4 +118,7 @@ export const uk_language = {
 		doWantCreate: "Бажаєте створити ?",
 		create: "Створити",
 	},
+	History: {
+		history: "Історія",
+	},
 };

@@ -23,6 +23,7 @@ export const WeekDaysSideBar: FC<IProps> = ({
 	handleSetCurrentDay,
 }) => {
 	const { t } = useTranslation();
+
 	return (
 		<>
 			<ul className={styles.daysList}>
@@ -36,7 +37,13 @@ export const WeekDaysSideBar: FC<IProps> = ({
 						}
 					>
 						{t(`MenuPage.days.${item.day.toLowerCase()}`)}
-						<Arrow />
+						<Arrow
+							stroke={
+								curDayKey === item.key
+									? "var(--textColor)"
+									: "var(--silverColor)"
+							}
+						/>
 						{/* <img
               className={styles.daysList_item_icon}
               src={arowRight}

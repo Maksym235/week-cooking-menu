@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import styles from "./ModalContainer.module.css";
 import { createPortal } from "react-dom";
-import { useTranslation } from "react-i18next";
 import close_icon from "../../../public/icon_close.svg";
 const modalRoot = document.querySelector("#modal-root")!;
 export const ModalConteiner = ({ children, isOpen, toggleIsOpen }: any) => {
-	const { t } = useTranslation();
 	useEffect(() => {
 		const handleKeyDown = (evt: any) => {
 			if (evt.code === "Escape") {

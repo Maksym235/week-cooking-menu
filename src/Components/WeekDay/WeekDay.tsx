@@ -12,7 +12,7 @@ interface IProps {
 	day: IWeekDay;
 	weekId: string;
 	togleIsOpen: () => void;
-	changeMealtime: (mealtime: string) => void;
+	changeMealtime: any;
 }
 
 export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
@@ -45,12 +45,24 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p className={styles.itemName}>{day?.b?.name ? day.b.name : "-"}</p>
-					<div
+					<button
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Breakfast")}
+						disabled={changeMealtime === null}
 					>
-						<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" />
-					</div>
+						<EditSvg
+							fill={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+							stroke={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+						/>
+					</button>
 				</div>
 
 				<div className={styles.mealtimes_conteiner}>
@@ -63,12 +75,24 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p className={styles.itemName}>{day?.l?.name ? day.l.name : "-"}</p>
-					<div
+					<button
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Lunch")}
+						disabled={changeMealtime === null}
 					>
-						<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" />
-					</div>
+						<EditSvg
+							fill={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+							stroke={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+						/>
+					</button>
 				</div>
 				<div className={styles.mealtimes_conteiner}>
 					<p className={styles.mealtimes}>{t(`MenuPage.mealtimes`)}:</p>
@@ -80,12 +104,24 @@ export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
 					</p>
 					<p className={styles.dish}>{t(`MenuPage.dish`)}:</p>
 					<p className={styles.itemName}>{day?.d?.name ? day.d.name : "-"}</p>
-					<div
+					<button
 						className={styles.icon_conteiner}
 						onClick={() => onEditDish("Dinner")}
+						disabled={changeMealtime === null}
 					>
-						<EditSvg fill="var(--accentColor)" stroke="var(--accentColor)" />
-					</div>
+						<EditSvg
+							fill={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+							stroke={
+								changeMealtime === null
+									? "var(--disabledColor)"
+									: "var(--accentColor)"
+							}
+						/>
+					</button>
 				</div>
 			</div>
 		</div>
