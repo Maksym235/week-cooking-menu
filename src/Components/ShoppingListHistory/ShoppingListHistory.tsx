@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import styles from './ShoppingListHistory.module.css'
-export const ShoppingListHistory:FC = () => {
+import { FC } from 'react';
+import styles from './ShoppingListHistory.module.css';
+export const ShoppingListHistory: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header_bar}>
@@ -8,7 +8,5 @@ export const ShoppingListHistory:FC = () => {
       </div>
       <ul></ul>
     </div>
-  )
-}
-
-
+  );
+};

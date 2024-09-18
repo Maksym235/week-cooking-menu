@@ -1,4 +1,4 @@
 export const constants = {
-	EN: "en",
-	UK: "uk-UA",
+  EN: 'en',
+  UK: 'uk-UA',
 };

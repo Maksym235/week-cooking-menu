@@ -1,68 +1,68 @@
 .container {
-	width: 252px;
-	padding: 24px;
-	border-radius: 24px;
-	background-color: var(--sideBarBg);
+  width: 252px;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: var(--sideBarBg);
 }
 
 .form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
 }
 
 .label {
-	color: var(--blackColor);
+  color: var(--blackColor);
 
-	/* font-family: SF Pro Text; */
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px; /* 142.857% */
-	letter-spacing: -0.15px;
+  /* font-family: SF Pro Text; */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.15px;
 }
 
 .input {
-	margin-top: 8px;
-	display: flex;
-	height: 32px;
-	padding: 0px 8px;
-	align-items: center;
-	gap: 8px;
-	align-self: stretch;
-	border-radius: 6px;
-	color: var(--textColor);
-	border: 1px solid var(--silverColor);
-	background: var(--sideBarBg);
+  margin-top: 8px;
+  display: flex;
+  height: 32px;
+  padding: 0px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 6px;
+  color: var(--textColor);
+  border: 1px solid var(--silverColor);
+  background: var(--sideBarBg);
 }
 
 .input::placeholder {
-	color: var(--silverColor) /* utility class: .color-fg-muted */;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 20px;
-	letter-spacing: -0.15px;
+  color: var(--silverColor) /* utility class: .color-fg-muted */;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.15px;
 }
 
 .button {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 70px;
-	height: 32px;
-	gap: 8px;
-	border: 1px solid var(--silverColor);
-	border-radius: 6px;
-	background-color: var(--sideBarBg);
-	box-shadow: 0px 1px 0px 0px rgba(27, 31, 35, 0.04);
-	color: var(--textColor);
-	/* font-family: SF Pro Text; */
-	font-size: 12px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 18px; /* 150% */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 32px;
+  gap: 8px;
+  border: 1px solid var(--silverColor);
+  border-radius: 6px;
+  background-color: var(--sideBarBg);
+  box-shadow: 0px 1px 0px 0px rgba(27, 31, 35, 0.04);
+  color: var(--textColor);
+  /* font-family: SF Pro Text; */
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 150% */
 }

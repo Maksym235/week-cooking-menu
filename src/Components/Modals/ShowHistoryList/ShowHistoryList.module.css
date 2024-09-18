@@ -1,20 +1,20 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
 }
 
 .list {
-	margin-top: 30px;
-	display: flex;
-	gap: 30px;
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
 }
 
 .list_item {
-	color: var(--textColor);
-	cursor: pointer;
-	padding: 7px;
-	border: 1px solid;
-	border-radius: 8px;
+  color: var(--textColor);
+  cursor: pointer;
+  padding: 7px;
+  border: 1px solid;
+  border-radius: 8px;
 }

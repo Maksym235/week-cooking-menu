@@ -1,45 +1,45 @@
 .container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	background-color: var(--bodyBcg);
-	border-radius: 16px;
-	transition: all 0.2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--bodyBcg);
+  border-radius: 16px;
+  transition: all 0.2s linear;
 }
 
 .container_opened {
-	border-top-left-radius: 16px;
-	border-top-right-radius: 16px;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .btn {
-	background-color: transparent;
-	border: none;
+  background-color: transparent;
+  border: none;
 }
 
 .dropdown_container {
-	position: absolute;
-	bottom: -80px;
-	left: 0;
-	background-color: var(--bodyBcg);
-	/* padding: 10px; */
-	border-bottom-left-radius: 16px;
-	border-bottom-right-radius: 16px;
-	display: flex;
-	gap: 20px;
-	overflow: visible;
-	opacity: 0;
-	flex-direction: column;
-	transition: all 0.2s linear;
-	z-index: 5;
-	padding: 8px 0px;
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  background-color: var(--bodyBcg);
+  /* padding: 10px; */
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  display: flex;
+  gap: 20px;
+  overflow: visible;
+  opacity: 0;
+  flex-direction: column;
+  transition: all 0.2s linear;
+  z-index: 5;
+  padding: 8px 0px;
 }
 
 .hidden {
-	overflow: hidden;
-	opacity: 1;
-	/* display: none; */
+  overflow: hidden;
+  opacity: 1;
+  /* display: none; */
 }

@@ -1,173 +1,173 @@
 .main_container {
-	display: flex;
-	/* justify-content: center; */
-	/* flex-direction: column; */
-	gap: 30px;
-	padding: 30px;
-	width: 800px;
-	min-height: 380px;
-	max-height: 586px;
-	overflow-y: auto;
+  display: flex;
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  gap: 30px;
+  padding: 30px;
+  width: 800px;
+  min-height: 380px;
+  max-height: 586px;
+  overflow-y: auto;
 }
 
 .title {
-	color: var(--textColor);
-	margin-bottom: 20px;
+  color: var(--textColor);
+  margin-bottom: 20px;
 }
 
 .add_ing_title {
-	color: var(--textColor);
-	margin-bottom: 20px;
+  color: var(--textColor);
+  margin-bottom: 20px;
 }
 
 .form_list {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	max-height: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 340px;
 }
 
 .form_list_item {
-	width: 300px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	display: flex;
-	justify-content: space-between;
-	/* flex-direction: column; */
-	color: var(--textColor);
-	align-items: center;
-	gap: 10px;
-	padding: 10px;
-	column-gap: 20px;
-	transition: background-color 0.3s ease;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  color: var(--textColor);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  column-gap: 20px;
+  transition: background-color 0.3s ease;
 }
 
 .form_list_item:hover,
 .form_list_item:focus {
-	background-color: var(--disabledColor);
+  background-color: var(--disabledColor);
 }
 
 .icons_container {
-	display: flex;
-	gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .icon {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .new_ings_container {
-	margin-left: 100px;
+  margin-left: 100px;
 }
 
 .select_ings {
-	width: 300px;
+  width: 300px;
 }
 
 .new_ing_details {
-	margin-top: 20px;
-	display: flex;
-	gap: 10px;
-	position: relative;
-	transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 .new_ing_count {
-	margin-top: 4px;
-	display: flex;
-	width: 150px;
-	height: var(--base-size-32, 32px);
-	padding: 0px 8px;
-	align-items: center;
-	gap: 8px;
-	align-self: stretch;
-	border-radius: 6px /* utility class: .rounded-2 */;
-	border: 1px solid var(--silverColor);
-	background: var(--sideBarBg) /* utility class: .color-bg-default */;
+  margin-top: 4px;
+  display: flex;
+  width: 150px;
+  height: var(--base-size-32, 32px);
+  padding: 0px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 6px /* utility class: .rounded-2 */;
+  border: 1px solid var(--silverColor);
+  background: var(--sideBarBg) /* utility class: .color-bg-default */;
 }
 
 .btn_add {
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	height: 44px;
-	padding: 8px 40px;
-	align-items: center;
-	gap: 8px;
-	border-radius: 40px;
-	background-color: var(--activePage);
-	/*font-family: Manrope;*/
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px;
-	border: none;
-	color: var(--accentColor);
-	transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: 44px;
+  padding: 8px 40px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 40px;
+  background-color: var(--activePage);
+  /*font-family: Manrope;*/
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  border: none;
+  color: var(--accentColor);
+  transition: all 0.3s ease-in-out;
 }
 
 .hidden {
-	opacity: 0;
-	visibility: hidden;
-	/* display: none; */
-	position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  /* display: none; */
+  position: absolute;
 }
 
 .select_weight_type {
-	width: 123px;
+  width: 123px;
 }
 
 .label {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	/* utility class: .color-fg-default */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* utility class: .color-fg-default */
 
-	/* Text style/text-bold */
-	/* font-family: "SF Pro Text"; */
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px; /* 142.857% */
-	letter-spacing: -0.15px;
+  /* Text style/text-bold */
+  /* font-family: "SF Pro Text"; */
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.15px;
 }
 
 .input {
-	margin-top: 4px;
-	display: flex;
-	height: var(--base-size-32, 32px);
-	padding: 0px 8px;
-	align-items: center;
-	gap: 8px;
-	align-self: stretch;
-	border-radius: 6px /* utility class: .rounded-2 */;
-	border: 1px solid var(--silverColor);
-	background: var(--sideBarBg) /* utility class: .color-bg-default */;
+  margin-top: 4px;
+  display: flex;
+  height: var(--base-size-32, 32px);
+  padding: 0px 8px;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 6px /* utility class: .rounded-2 */;
+  border: 1px solid var(--silverColor);
+  background: var(--sideBarBg) /* utility class: .color-bg-default */;
 }
 
 .input::placeholder {
-	color: var(--silverColor) /* utility class: .color-fg-muted */;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 20px; /* 142.857% */
-	letter-spacing: -0.15px;
+  color: var(--silverColor) /* utility class: .color-fg-muted */;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.15px;
 }
 
 .btn {
-	display: flex;
-	padding: 6px 12px;
-	align-items: center;
-	background-color: #f6f8fa;
-	justify-content: center;
-	gap: 8px;
-	border: 1px solid var(--silverColor);
-	border-radius: 6px;
-	/* font-family: SF Pro Text; */
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px; /* 142.857% */
-	letter-spacing: -0.15px;
+  display: flex;
+  padding: 6px 12px;
+  align-items: center;
+  background-color: #f6f8fa;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--silverColor);
+  border-radius: 6px;
+  /* font-family: SF Pro Text; */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: -0.15px;
 }

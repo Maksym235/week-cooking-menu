@@ -1,92 +1,92 @@
 .listsContainer {
-	display: flex;
-	position: relative;
-	width: 33.3%;
+  display: flex;
+  position: relative;
+  width: 33.3%;
 }
 .listsContainer:not(:last-child)::after {
-	content: "";
-	width: 1px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	right: -12px;
-	background-color: var(--creamColor);
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -12px;
+  background-color: var(--creamColor);
 }
 .listWrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-	overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
 }
 
 .listTitle {
-	display: flex;
-	padding: 8px 16px;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
-	/*font-family: Manrope;*/
-	font-size: 16px;
-	font-style: normal;
-	width: 100px;
-	font-weight: 600;
-	line-height: 20px;
-	border-radius: 40px;
-	color: #000;
-	background-color: var(--activePage);
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /*font-family: Manrope;*/
+  font-size: 16px;
+  font-style: normal;
+  width: 100px;
+  font-weight: 600;
+  line-height: 20px;
+  border-radius: 40px;
+  color: #000;
+  background-color: var(--activePage);
 }
 
 .list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .itemConteiner {
-	display: flex;
-	gap: 8px;
-	cursor: pointer;
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .img {
-	width: 60px;
-	height: 60px;
-	border-radius: 50%;
-	background-color: var(--cardBg);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 30px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px;
-	font-family: Manrope;
-	color: var(--sideBarBg);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--cardBg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  font-family: Manrope;
+  color: var(--sideBarBg);
 }
 .textConteiner {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .itemTitle {
-	/*font-family: Manrope;*/
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 20px;
-	color: var(--accentColor);
+  /*font-family: Manrope;*/
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--accentColor);
 }
 
 .itemText {
-	/*font-family: Manrope;*/
-	font-size: 13px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 16px;
-	color: var(--textColor);
+  /*font-family: Manrope;*/
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--textColor);
 }
 
 .itemTextDesc {
-	color: var(--silverColor);
+  color: var(--silverColor);
 }

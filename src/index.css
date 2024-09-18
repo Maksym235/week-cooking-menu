@@ -1,61 +1,61 @@
-@import "normalize.css";
+@import 'normalize.css';
 
 @font-face {
-	font-family: Manrope-SemiBold;
-	src: local("Manrope-SemiBold.ttf"),
-		url("../public/Manrope-SemiBold.ttf") format("woff");
+  font-family: Manrope-SemiBold;
+  src: local('Manrope-SemiBold.ttf'),
+    url('../public/Manrope-SemiBold.ttf') format('woff');
 }
-:root[data-theme="light"] {
-	--bodyBcg: #f1e8e6;
-	--cardBg: #edd2cb;
-	--textColor: #000;
-	/*--sideBarBg: #361d32;*/
-	--sideBarBg: #fff;
-	--activePage: #feeeee;
-	--blackColor: #000;
-	--emptyBg: rgba(237, 210, 203, 0.3);
-	--accentColor: #f55951;
-	--silverColor: #9c9aa8;
-	--ligthSilverColor: #f7f7f7;
-	--creamColor: #eeeeee;
-	--disabledColor: #e8e8e8;
-	--buttonBg: #feeeee;
-	--breakfast: #e8e0ff;
-	--lunch: #ffedc8;
-	--dinner: #ccf2ff;
-	--loadingBg: rgb(241, 232, 230, 0.8);
-	--authTogglerBg: #eeeeee;
-	--buttonBg: #f6f8fa;
+:root[data-theme='light'] {
+  --bodyBcg: #f1e8e6;
+  --cardBg: #edd2cb;
+  --textColor: #000;
+  /*--sideBarBg: #361d32;*/
+  --sideBarBg: #fff;
+  --activePage: #feeeee;
+  --blackColor: #000;
+  --emptyBg: rgba(237, 210, 203, 0.3);
+  --accentColor: #f55951;
+  --silverColor: #9c9aa8;
+  --ligthSilverColor: #f7f7f7;
+  --creamColor: #eeeeee;
+  --disabledColor: #e8e8e8;
+  --buttonBg: #feeeee;
+  --breakfast: #e8e0ff;
+  --lunch: #ffedc8;
+  --dinner: #ccf2ff;
+  --loadingBg: rgb(241, 232, 230, 0.8);
+  --authTogglerBg: #eeeeee;
+  --buttonBg: #f6f8fa;
 }
-:root[data-theme="dark"] {
-	--bodyBcg: #484545;
-	/* --bodyBcg: rgb(16, 0.9, 2); */
-	--cardBg: rgb(172, 119, 102);
-	--textColor: #fff;
-	/*--sideBarBg: #222222;*/
-	--sideBarBg: #302e2e;
-	--activePage: #3e3d43;
-	--blackColor: #fff;
-	--emptyBg: rgba(48, 46, 46, 0.7);
-	--accentColor: rgb(253, 84, 78);
-	--silverColor: #9c9aa8;
-	--ligthSilverColor: #2a2a2a;
-	--creamColor: #dedede;
-	--buttonBg: #cc423d4e;
-	--disabledColor: #484545;
-	--breakfast: #c5b1ff;
-	--lunch: #ffe1a4;
-	--dinner: #9ee7ff;
-	--loadingBg: rgb(72, 69, 69, 0.8);
-	--authTogglerBg: #000;
-	--buttonBg: #484545;
+:root[data-theme='dark'] {
+  --bodyBcg: #484545;
+  /* --bodyBcg: rgb(16, 0.9, 2); */
+  --cardBg: rgb(172, 119, 102);
+  --textColor: #fff;
+  /*--sideBarBg: #222222;*/
+  --sideBarBg: #302e2e;
+  --activePage: #3e3d43;
+  --blackColor: #fff;
+  --emptyBg: rgba(48, 46, 46, 0.7);
+  --accentColor: rgb(253, 84, 78);
+  --silverColor: #9c9aa8;
+  --ligthSilverColor: #2a2a2a;
+  --creamColor: #dedede;
+  --buttonBg: #cc423d4e;
+  --disabledColor: #484545;
+  --breakfast: #c5b1ff;
+  --lunch: #ffe1a4;
+  --dinner: #9ee7ff;
+  --loadingBg: rgb(72, 69, 69, 0.8);
+  --authTogglerBg: #000;
+  --buttonBg: #484545;
 }
 :root {
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 :root {
 }
@@ -65,59 +65,59 @@ h3,
 h4,
 h5,
 h6 {
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 ul,
 ol {
-	list-style: none;
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-left: 0;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 img {
-	display: block;
+  display: block;
 }
 
 p {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 /* * {
 	outline: 1px solid green;
 } */
 body {
-	font-family: Manrope-SemiBold, serif;
-	background-color: var(--bodyBcg);
+  font-family: Manrope-SemiBold, serif;
+  background-color: var(--bodyBcg);
 }
 
 @media (max-width: 1300px) {
-	main {
-		max-height: 550px;
-	}
+  main {
+    max-height: 550px;
+  }
 }
 ::-webkit-scrollbar {
-	width: 7px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-	background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #888;
-	border-radius: 16px;
+  background: #888;
+  border-radius: 16px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+  background: #555;
 }

@@ -1,5 +1,5 @@
 export const useAuth = () => {
-  const isLoggedIn = localStorage.getItem("token");
+  const isLoggedIn = localStorage.getItem('token');
   return {
     isLoggedIn,
   };

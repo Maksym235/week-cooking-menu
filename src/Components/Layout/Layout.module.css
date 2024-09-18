@@ -1,10 +1,10 @@
 .conteiner {
-    display: flex;
-    margin: 10px 10px 15px 10px;
+  display: flex;
+  margin: 10px 10px 15px 10px;
 }
 
 @media (min-width: 1600px) {
   .conteiner {
-      margin: 40px 40px 51px 40px;
+    margin: 40px 40px 51px 40px;
   }
 }
