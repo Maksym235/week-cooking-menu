@@ -7,20 +7,11 @@ import { ShowProductList } from '../Modals/ShowProductList/ShowProductList';
 import { gql, useQuery } from '@apollo/client';
 import { toast } from 'react-toastify';
 import { Loading } from '../Loading/Loading';
+import { IWeekSettingsBlockProps } from '../../types/WeekDay';
 // import { useMutation, useQuery, gql } from "@apollo/client";
 // import axios from "axios";
 // import "dayjs/locale/uk-ua";
-interface IPeriods {
-  period1: string;
-  period2: string;
-}
 
-interface Iprops {
-  openModal: () => void;
-  periods: IPeriods;
-  refetchData: any;
-  weekId: string;
-}
 const GET_PRODUCTS_LIST = gql`
   query Query($getProductsListId: ID!) {
     getProductsList(id: $getProductsListId)
@@ -49,7 +40,7 @@ const GET_PRODUCTS_LIST = gql`
 // 		}
 // 	}
 // `;
-export const WeekSettingsBlock: FC<Iprops> = ({
+export const WeekSettingsBlock: FC<IWeekSettingsBlockProps> = ({
   periods,
   refetchData,
   weekId,

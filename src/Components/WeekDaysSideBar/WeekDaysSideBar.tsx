@@ -6,18 +6,9 @@ import styles from './WeekDaysSideBar.module.css';
 //@ts-ignore
 import Arrow from '/public/arow-right.svg?react';
 import { useTranslation } from 'react-i18next';
-interface IDay {
-  day: string;
-  key: number;
-}
+import { IWeekDaysSideBarProps } from '../../types/WeekDay';
 
-interface IProps {
-  week: IDay[];
-  curDayKey: number;
-  handleSetCurrentDay: (day: IDay) => void;
-}
-
-export const WeekDaysSideBar: FC<IProps> = ({
+export const WeekDaysSideBar: FC<IWeekDaysSideBarProps> = ({
   curDayKey,
   week,
   handleSetCurrentDay,

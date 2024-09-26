@@ -1,28 +1,27 @@
 import styles from './WeekDay.module.css';
 // import Select from "react-select";
 import { FC } from 'react';
-import { IWeekDay } from '../../types/WeekDay';
+import { IWeekDayProps } from '../../types/WeekDay';
 // import edit from "../../../public/icon_pencil.svg";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from '/public/icon_pencil.svg?react';
 import { useTranslation } from 'react-i18next';
-interface IProps {
-  day: IWeekDay;
-  weekId: string;
-  togleIsOpen: () => void;
-  changeMealtime: any;
-}
+import { ICategoryColors } from '../../types/category';
 
-export const WeekDay: FC<IProps> = ({ day, togleIsOpen, changeMealtime }) => {
+export const WeekDay: FC<IWeekDayProps> = ({
+  day,
+  togleIsOpen,
+  changeMealtime,
+}) => {
   const { t } = useTranslation();
   const onEditDish = (mealtime: string) => {
     togleIsOpen();
     changeMealtime(mealtime);
   };
 
-  const categoryColors: Record<string, string> = {
+  const categoryColors: ICategoryColors = {
     Breakfast: 'var(--breakfast)',
     Lunch: 'var(--lunch) ',
     Dinner: 'var(--dinner)',

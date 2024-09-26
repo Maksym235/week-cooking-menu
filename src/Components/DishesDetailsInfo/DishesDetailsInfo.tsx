@@ -11,9 +11,9 @@ import EditSvg from '/public/icon_pencil.svg?react';
 import { useTranslation } from 'react-i18next';
 import { Loading } from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
-interface IProps {
-  dishId: string;
-}
+import { IDishId } from '../../types/dish';
+import { ICategoryColors } from '../../types/category';
+
 const GET_DISH = gql`
   query Query($getDishByIdId: ID!) {
     getDishById(id: $getDishByIdId) {
@@ -24,12 +24,12 @@ const GET_DISH = gql`
   }
 `;
 
-const categoryColors: Record<string, string> = {
+const categoryColors: ICategoryColors = {
   Breakfast: 'var(--breakfast)',
   Lunch: 'var(--lunch) ',
   Dinner: 'var(--dinner)',
 };
-export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
+export const DishesDetailsInfo: FC<IDishId> = ({ dishId }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -113,7 +113,10 @@ export const DishesDetailsInfo: FC<IProps> = ({ dishId }) => {
                 data.getDishById.category.map((item: string) => (
                   <li
                     className={styles.categoryValue}
-                    style={{ backgroundColor: categoryColors[item] }}
+                    style={{
+                      backgroundColor:
+                        categoryColors[item as keyof ICategoryColors],
+                    }}
                   >
                     {item}
                   </li>

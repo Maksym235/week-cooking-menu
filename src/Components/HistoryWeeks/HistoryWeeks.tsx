@@ -8,11 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ModalConteiner } from '../ModalConteiner/ModalContainer';
 import { ShowHistoryList } from '../Modals/ShowHistoryList/ShowHistoryList';
-interface IHistoryItem {
-  id: string;
-  period1: string;
-  period2: string;
-}
+import { IHistoryItem } from '../../types/WeekDay';
+
 const GET_HISTORY = gql`
   query GetHistory($periods: String) {
     getHistory(periods: $periods) {

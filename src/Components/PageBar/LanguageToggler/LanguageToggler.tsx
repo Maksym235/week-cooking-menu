@@ -4,11 +4,8 @@ import i18next from 'i18next';
 import { constants } from '../../../i18n/constants';
 import enFlag from '../../../../public/en.svg';
 import ukFlag from '../../../../public/ukr.svg';
-interface IlanguageOptions {
-  value: string;
-  label: any;
-  isDisabled?: boolean;
-}
+import { IlanguageOptions } from '../../../types/utils';
+
 export const LanguageToggler = () => {
   const [isOpen, setIsOpen] = useState(false);
   const langOptions: IlanguageOptions[] = [

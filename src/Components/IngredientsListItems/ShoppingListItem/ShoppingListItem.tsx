@@ -1,10 +1,8 @@
+import { IShoppingListItem } from '../../../types/ingredients';
 import styles from './ShoppingListItem.module.css';
 import { FC } from 'react';
-export interface IItem {
-  img: string;
-  name: string;
-}
-export const ShoppingListItem: FC<IItem> = ({ name }) => {
+
+export const ShoppingListItem: FC<IShoppingListItem> = ({ name }) => {
   return (
     <div className={styles.conteiner}>
       <div className={styles.wrapper}>

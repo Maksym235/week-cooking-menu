@@ -1,49 +1,12 @@
 import React from 'react';
 import styles from './ShowProductList.module.css';
 import { toast } from 'react-toastify';
-export interface IDataProduct {
-  count: number;
-  weightType: string;
-}
+import { IShowProductListProps } from '../../../types/WeekDay';
 
-export interface IdataType {
-  [key: string]: IDataProduct;
-}
-// const data: IdataType = {
-// 	Молоко: {
-// 		count: 350,
-// 		weightType: "мл",
-// 	},
-// 	Олія: {
-// 		count: 45,
-// 		weightType: "ст.л",
-// 	},
-// 	яйце: {
-// 		count: 0,
-// 		weightType: "шт",
-// 	},
-// 	цукор: {
-// 		count: 10,
-// 		weightType: "ч.л",
-// 	},
-// 	сіль: {
-// 		count: 2,
-// 		weightType: "дрібка",
-// 	},
-// 	Розпушувач: {
-// 		count: 5,
-// 		weightType: "ч.л",
-// 	},
-// 	борошно: {
-// 		count: 1,
-// 		weightType: "грам",
-// 	},
-// };
-export interface IProps {
-  toggleIsOpen: () => void;
-  data: IdataType;
-}
-export const ShowProductList: React.FC<IProps> = ({ toggleIsOpen, data }) => {
+export const ShowProductList: React.FC<IShowProductListProps> = ({
+  toggleIsOpen,
+  data,
+}) => {
   const stringToCopy = Object.keys(data)
     .map(
       (el) =>

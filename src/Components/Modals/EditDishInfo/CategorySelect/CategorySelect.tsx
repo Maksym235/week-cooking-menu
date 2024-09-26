@@ -1,14 +1,15 @@
 import { FC } from 'react';
 import styles from './CategorySelect.module.css';
-interface ICategorySelectProps {
-  selectedCategory: string[];
-  selectCategory: (category: string) => void;
-}
+import {
+  ICategoryColors,
+  ICategorySelectProps,
+} from '../../../../types/category';
+
 export const CategorySelect: FC<ICategorySelectProps> = ({
   selectCategory,
   selectedCategory,
 }) => {
-  const categoryColors: Record<string, string> = {
+  const categoryColors: ICategoryColors = {
     Breakfast: 'var(--breakfast)',
     Lunch: 'var(--lunch) ',
     Dinner: 'var(--dinner)',

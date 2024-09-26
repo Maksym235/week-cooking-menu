@@ -4,27 +4,16 @@ import styles from './SetToDayNewDish.module.css';
 import { useQuery, gql, useMutation } from '@apollo/client';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { IWeekDay } from '../../../types/WeekDay';
 import { useTranslation } from 'react-i18next';
 import { errorOptions } from '../../../utils/toastOptions';
 import { Loading } from '../../Loading/Loading';
-export interface IProps {
-  toggleIsOpen: () => void;
-  mealtime: string;
-  refetchData: any;
-  currentDay: {
-    day: string;
-    key: number;
-  };
-  dayData: IWeekDay;
-  weekId: string;
-}
-interface IDish {
-  name: string;
-  id: string;
-  description: string;
-  category: string[];
-}
+import {
+  IDish,
+  ISelectedListCard,
+  ISetToDayNewDishProps,
+} from '../../../types/dish';
+import { ICategoryColors } from '../../../types/category';
+
 const GET_DISHES = gql`
   query Query($mealtime: String) {
     getDishesByMealtime(mealtime: $mealtime) {
@@ -59,7 +48,7 @@ const UPDATE_WEEK = gql`
     }
   }
 `;
-const categoryColors: Record<string, string> = {
+const categoryColors: ICategoryColors = {
   Breakfast: '#E8E0FF',
   Lunch: '#FFEDC8 ',
   Dinner: '#CCF2FF',
@@ -68,14 +57,10 @@ const categoryColors: Record<string, string> = {
 // const St = "strawber";
 // const ctSt = "Lunch";
 
-export const SelectListCard = ({
+export const SelectListCard: FC<ISelectedListCard> = ({
   name,
   desc,
   category,
-}: {
-  name: string;
-  desc: string;
-  category: string[];
 }) => {
   return (
     <div className={styles.card_Container}>
@@ -88,7 +73,9 @@ export const SelectListCard = ({
       <div className={styles.category_block}>
         {category.map((item) => (
           <p
-            style={{ backgroundColor: categoryColors[item] }}
+            style={{
+              backgroundColor: categoryColors[item as keyof ICategoryColors],
+            }}
             className={`${styles.category_text} ${styles.mealtime}`}
           >
             {item}
@@ -99,7 +86,7 @@ export const SelectListCard = ({
   );
 };
 
-export const SetToDayNewDish: FC<IProps> = ({
+export const SetToDayNewDish: FC<ISetToDayNewDishProps> = ({
   mealtime,
   refetchData,
   toggleIsOpen,
@@ -154,7 +141,7 @@ export const SetToDayNewDish: FC<IProps> = ({
         <SelectListCard
           category={dish.category}
           name={dish.name}
-          desc={dish.description}
+          desc={dish.description ? dish.description : ''}
         />
       ),
     };

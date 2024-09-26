@@ -11,6 +11,7 @@ import EditSvg from '/public/icon_pencil.svg?react';
 import { Loading } from '../../Loading/Loading';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { IDishId } from '../../../types/dish';
 const GET_INGS = gql`
   query Query($getDishByIdId: ID!) {
     getDishById(id: $getDishByIdId) {
@@ -25,15 +26,7 @@ const GET_INGS = gql`
     }
   }
 `;
-export interface IIng {
-  img: string;
-  name: string;
-  id: string;
-}
-interface IProps {
-  dishId: string;
-}
-export const DishesIngredients: FC<IProps> = ({ dishId }) => {
+export const DishesIngredients: FC<IDishId> = ({ dishId }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isOpenModal, setIsOpenModal] = useState(false);

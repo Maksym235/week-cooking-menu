@@ -8,9 +8,13 @@ import { Loading } from '../../Loading/Loading';
 import { CategorySelect } from '../EditDishInfo/CategorySelect/CategorySelect';
 import plus from '../../../../public/plus.svg';
 import { FaRegTrashAlt } from 'react-icons/fa';
-interface IPropsDishModal {
-  toggleIsOpen: () => void;
-}
+import {
+  IAddDishModalProps,
+  IDishIngredient,
+  IIngredientCount,
+  IIngredientsData,
+} from '../../../types/dish';
+
 const GET_ALL_INGREDIENTS = gql`
   query Query {
     getIngredients {
@@ -43,33 +47,8 @@ const ADD_DISH = gql`
     }
   }
 `;
-export interface IIngredientsAddDish {
-  id: string;
-  name: string;
-  category: string;
-  defaultValue: number;
-  description: string;
-  weightType: string;
-}
-export interface IIngredientsData {
-  getIngredients: IIngredientsAddDish[];
-}
-export interface IDishIngredient {
-  id: '';
-  name: '';
-  category: '';
-  defaultValue: number;
-  weightType: '';
-  count: number;
-  description: '';
-  owner: '';
-}
 
-export interface IIngredientCount {
-  key: number;
-  ing: IDishIngredient;
-}
-const AddDishModal: React.FC<IPropsDishModal> = ({ toggleIsOpen }) => {
+const AddDishModal: React.FC<IAddDishModalProps> = ({ toggleIsOpen }) => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
   const [ingredientsCount, setIngredientsCount] = useState<IIngredientCount[]>([

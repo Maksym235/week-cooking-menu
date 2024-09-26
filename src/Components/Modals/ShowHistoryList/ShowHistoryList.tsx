@@ -5,13 +5,10 @@ import { Loading } from '../../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { week } from '../../WeekList/week';
 import { WeekDay } from '../../WeekDay/WeekDay';
-import { IWeekDay } from '../../../types/WeekDay';
+import { IShowHistoryListProps, IWeekDay } from '../../../types/WeekDay';
 import styles from './ShowHistoryList.module.css';
 import { useTranslation } from 'react-i18next';
-interface IProps {
-  period: string;
-  toggleIsOpen: () => void;
-}
+
 const WEEK_LIST = gql`
   query ExampleQuery($period: String) {
     getWeekByPeriod(period: $period) {
@@ -36,7 +33,10 @@ const WEEK_LIST = gql`
     }
   }
 `;
-export const ShowHistoryList: FC<IProps> = ({ period, toggleIsOpen }) => {
+export const ShowHistoryList: FC<IShowHistoryListProps> = ({
+  period,
+  toggleIsOpen,
+}) => {
   const { t } = useTranslation();
   const [currentDay, setCurrentDay] = useState(week[0]);
   const navigate = useNavigate();

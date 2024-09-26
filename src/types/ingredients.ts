@@ -7,3 +7,14 @@ export interface IIngredients {
   weightType: string;
   description?: string;
 }
+// IngredientsList========================
+
+export interface IIngredientInList {
+  id: string;
+  name: string;
+  description: string;
+}
+export interface IShoppingListItem {
+  img: string;
+  name: string;
+}

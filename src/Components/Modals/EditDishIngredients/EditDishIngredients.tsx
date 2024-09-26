@@ -13,16 +13,8 @@ import { errorOptions } from '../../../utils/toastOptions';
 // import Arrow from "/public/arow-right.svg?react";
 import EditSvg from '/public/icon_pencil.svg?react';
 import { Loading } from '../../Loading/Loading';
+import { IEditDishIngredientsProps } from '../../../types/dish';
 
-interface IProps {
-  refetchData: any;
-  toggleIsOpen: () => void;
-  dishId: string;
-  ings: Record<string, Record<string, Array<IIngredients>>>;
-}
-interface IItemProps {
-  name: string;
-}
 // ================================================
 // 		GET INGREDIENTS FOR SELECT AND CREATE ITEM FOR LIST
 const GET_ALL_INGREDIENTS = gql`
@@ -59,7 +51,7 @@ const UPDATE_DISH = gql`
   }
 `;
 
-export const SelectIngredientItem: FC<IItemProps> = ({ name }) => {
+export const SelectIngredientItem = ({ name }: { name: string }) => {
   return (
     <div>
       <p>{name}</p>
@@ -69,7 +61,7 @@ export const SelectIngredientItem: FC<IItemProps> = ({ name }) => {
 
 //================================================
 // 			EDIT DISH INGREDIENTS
-export const EditDishIngredients: FC<IProps> = ({
+export const EditDishIngredients: FC<IEditDishIngredientsProps> = ({
   ings,
   dishId,
   toggleIsOpen,
@@ -92,14 +84,7 @@ export const EditDishIngredients: FC<IProps> = ({
     ''
   );
   const navigate = useNavigate();
-  // const onAddOne = () => {
-  // 	const defaultIng = {
-  // 		name: "",
-  // 		defaultValue: 0,
-  // 		category: "",
-  // 	};
-  // 	setIngsData((state) => [...state, defaultIng]);
-  // };
+
   const weightsType = [
     { label: 'грам', value: 'грам' },
     { label: 'шт', value: 'шт' },

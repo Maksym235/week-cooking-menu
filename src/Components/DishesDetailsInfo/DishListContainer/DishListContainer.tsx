@@ -8,10 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import { Loading } from '../../Loading/Loading.tsx';
+import { IDish, IDishesListContainerProps } from '../../../types/dish.ts';
 
-export interface IDishesListProps {
-  setDish: (id: string) => void;
-}
 const DISHES = gql`
   query Query {
     getDishes {
@@ -23,7 +21,9 @@ const DISHES = gql`
   }
 `;
 const CATEGORIES: string[] = ['Breakfast', 'Lunch', 'Dinner'];
-export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
+export const DishListContainer: FC<IDishesListContainerProps> = ({
+  setDish,
+}) => {
   const { t } = useTranslation();
   const { data, loading, error } = useQuery(DISHES);
   const [isOpenmodal, setIsOpenModal] = useState(false);
@@ -76,7 +76,7 @@ export const DishListContainer: FC<IDishesListProps> = ({ setDish }) => {
         </div>
         <div className={styles.listFlex}>
           {CATEGORIES.map((item) => {
-            const dataOfCategory = data.getDishes.filter((dish: any) =>
+            const dataOfCategory = data.getDishes.filter((dish: IDish) =>
               dish.category.includes(item)
             );
             return (

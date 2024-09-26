@@ -1,21 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import styles from './DishesList.module.css';
 import { FC } from 'react';
-export interface IIng {
-  name: string;
-  id: string;
-  description: string;
-  category: string[];
-}
-export interface IProps {
-  title: string;
-  data: any;
-  setDish: (id: string) => void;
-}
+import { IDishesListProps } from '../../../types/dish';
+import { ICategoryColors } from '../../../types/category';
 
-export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
+export const DishesList: FC<IDishesListProps> = ({ setDish, data, title }) => {
   const { t } = useTranslation();
-  const categoryColors: Record<string, string> = {
+  const categoryColors: ICategoryColors = {
     Breakfast: 'var(--breakfast)',
     Lunch: 'var(--lunch) ',
     Dinner: 'var(--dinner)',
@@ -27,14 +18,16 @@ export const DishesList: FC<IProps> = ({ setDish, data, title }) => {
     <div className={styles.listsContainer}>
       <div className={styles.listWrapper}>
         <p
-          style={{ backgroundColor: categoryColors[title] }}
+          style={{
+            backgroundColor: categoryColors[title as keyof ICategoryColors],
+          }}
           className={styles.listTitle}
         >
           {title}
         </p>
         <ul className={styles.list}>
           {data &&
-            data.map(({ name, id, description }: IIng) => (
+            data.map(({ name, id, description }) => (
               <li>
                 <div
                   onClick={() => handleSelectDish(id)}

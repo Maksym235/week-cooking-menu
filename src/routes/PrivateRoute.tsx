@@ -1,10 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-interface IRoute {
-  component: React.ReactNode;
-  redirectTo: string;
-}
+import { IRoute } from '../types/utils';
 
 export const PrivateRoute: React.FC<IRoute> = ({
   component: Component,
