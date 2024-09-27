@@ -5,6 +5,7 @@ import {
   PiHouseBold,
   PiGearSixBold,
 } from 'react-icons/pi';
+import { FaHistory } from 'react-icons/fa';
 import styles from './SideBar.module.css';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -165,6 +166,32 @@ export const SideBar = () => {
             }
           >
             {t('Sidebar.menu')}
+          </p>
+        </NavLink>
+
+        <NavLink
+          onClick={changePage}
+          className={
+            pathname === '/history' ? styles.current : styles.NavLinkSideBar
+          }
+          to='/history'
+        >
+          <FaHistory
+            color={
+              pathname === '/history'
+                ? 'var(--accentColor)'
+                : 'var(--silverColor)'
+            }
+            size={26}
+          />
+          <p
+            className={
+              pathname === '/history'
+                ? styles.NavLinksTextCurrent
+                : styles.NavLinksText
+            }
+          >
+            {t(`History.history`)}
           </p>
         </NavLink>
 

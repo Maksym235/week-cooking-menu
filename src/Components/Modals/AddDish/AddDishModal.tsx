@@ -10,7 +10,6 @@ import plus from '../../../../public/plus.svg';
 import { FaRegTrashAlt } from 'react-icons/fa';
 import {
   IAddDishModalProps,
-  IDishIngredient,
   IIngredientCount,
   IIngredientsData,
 } from '../../../types/dish';

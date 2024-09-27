@@ -1,0 +1,53 @@
+.container {
+  width: 600px;
+}
+
+.brand_name {
+  color: var(--accentColor);
+}
+
+.title {
+  color: var(--textColor);
+  margin-bottom: 30px;
+}
+
+.text_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.text {
+  font-size: 18px;
+  color: var(--textColor);
+}
+
+.list_advantages {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-left: 20px;
+}
+
+.list_title {
+  font-size: 18px;
+  color: var(--textColor);
+  text-decoration: underline;
+}
+
+.list_item {
+  color: var(--textColor);
+  position: relative;
+}
+
+.list_item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accentColor);
+}

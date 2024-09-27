@@ -1,16 +1,28 @@
 import './App.css';
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { Layout } from './Components/Layout/Layout.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Ingredients from './Pages/Ingredients/Ingredients.tsx';
-import Dishes from './Pages/Dishes/Dishes.tsx';
-import Home from './Pages/Home/Home.tsx';
-import WeekMenu from './Pages/WeekMenu/WeekMenu.tsx';
-import ErrorPage from './Pages/Error/Error.tsx';
+// import Ingredients from './Pages/Ingredients/Ingredients.tsx';
+const IngredientsPage = lazy(
+  () => import('./Pages/Ingredients/Ingredients.tsx')
+);
+// import Dishes from './Pages/Dishes/Dishes.tsx';
+const DishesPage = lazy(() => import('./Pages/Dishes/Dishes.tsx'));
+// import Home from './Pages/Home/Home.tsx';
+const HomePage = lazy(() => import('./Pages/Home/Home.tsx'));
+// import WeekMenu from './Pages/WeekMenu/WeekMenu.tsx';
+const WeekMenuPage = lazy(() => import('./Pages/WeekMenu/WeekMenu.tsx'));
+// import Auth from './Pages/Auth/Auth.tsx';
+const AuthPage = lazy(() => import('./Pages/Auth/Auth.tsx'));
+// import History from './Pages/History/History.tsx';
+const HistoryPage = lazy(() => import('./Pages/History/History.tsx'));
+// import ErrorPage from './Pages/Error/Error.tsx';
+const ErrorPage = lazy(() => import('./Pages/Error/Error.tsx'));
 import { useQuery, gql } from '@apollo/client';
 import { PrivateRoute } from './routes/PrivateRoute.tsx';
 import { Settings } from './Pages/Settings/Settings.tsx';
 import { Loading } from './Components/Loading/Loading.tsx';
+import { RestrictedRoute } from './routes/RestrictedRoute.tsx';
 
 const USER_BY_ID = gql`
   query Query($getUserByIdId: ID!) {
@@ -27,27 +39,46 @@ const router = createBrowserRouter([
     Component: () => <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, Component: () => <Home /> },
+      {
+        index: true,
+        Component: () => (
+          <PrivateRoute component={<HomePage />} redirectTo='/auth' />
+        ),
+      },
       {
         path: '/ingredients',
         Component: () => (
-          <PrivateRoute component={<Ingredients />} redirectTo='/' />
+          <PrivateRoute component={<IngredientsPage />} redirectTo='/auth' />
         ),
       },
       {
         path: '/dishes',
-        Component: () => <PrivateRoute component={<Dishes />} redirectTo='/' />,
+        Component: () => (
+          <PrivateRoute component={<DishesPage />} redirectTo='/auth' />
+        ),
       },
       {
         path: '/weekMenu',
         Component: () => (
-          <PrivateRoute component={<WeekMenu />} redirectTo='/' />
+          <PrivateRoute component={<WeekMenuPage />} redirectTo='/auth' />
         ),
       },
       {
         path: '/settingsUser',
         Component: () => (
-          <PrivateRoute component={<Settings />} redirectTo='/' />
+          <PrivateRoute component={<Settings />} redirectTo='/auth' />
+        ),
+      },
+      {
+        path: '/auth',
+        Component: () => (
+          <RestrictedRoute component={<AuthPage />} redirectTo='/' />
+        ),
+      },
+      {
+        path: '/history',
+        Component: () => (
+          <PrivateRoute component={<HistoryPage />} redirectTo='/auth' />
         ),
       },
     ],
