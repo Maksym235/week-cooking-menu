@@ -1,23 +1,23 @@
 import './App.css';
-import { lazy, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { Layout } from './Components/Layout/Layout.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import Ingredients from './Pages/Ingredients/Ingredients.tsx';
-const IngredientsPage = lazy(
-  () => import('./Pages/Ingredients/Ingredients.tsx')
-);
-// import Dishes from './Pages/Dishes/Dishes.tsx';
-const DishesPage = lazy(() => import('./Pages/Dishes/Dishes.tsx'));
-// import Home from './Pages/Home/Home.tsx';
-const HomePage = lazy(() => import('./Pages/Home/Home.tsx'));
-// import WeekMenu from './Pages/WeekMenu/WeekMenu.tsx';
-const WeekMenuPage = lazy(() => import('./Pages/WeekMenu/WeekMenu.tsx'));
-// import Auth from './Pages/Auth/Auth.tsx';
-const AuthPage = lazy(() => import('./Pages/Auth/Auth.tsx'));
-// import History from './Pages/History/History.tsx';
-const HistoryPage = lazy(() => import('./Pages/History/History.tsx'));
-// import ErrorPage from './Pages/Error/Error.tsx';
-const ErrorPage = lazy(() => import('./Pages/Error/Error.tsx'));
+import Ingredients from './Pages/Ingredients/Ingredients.tsx';
+// const IngredientsPage = lazy(
+//   () => import('./Pages/Ingredients/Ingredients.tsx')
+// );
+import Dishes from './Pages/Dishes/Dishes.tsx';
+// const DishesPage = lazy(() => import('./Pages/Dishes/Dishes.tsx'));
+import Home from './Pages/Home/Home.tsx';
+// const HomePage = lazy(() => import('./Pages/Home/Home.tsx'));
+import WeekMenu from './Pages/WeekMenu/WeekMenu.tsx';
+// const WeekMenuPage = lazy(() => import('./Pages/WeekMenu/WeekMenu.tsx'));
+import Auth from './Pages/Auth/Auth.tsx';
+// const AuthPage = lazy(() => import('./Pages/Auth/Auth.tsx'));
+import History from './Pages/History/History.tsx';
+// const HistoryPage = lazy(() => import('./Pages/History/History.tsx'));
+import ErrorPage from './Pages/Error/Error.tsx';
+// const ErrorPage = lazy(() => import('./Pages/Error/Error.tsx'));
 import { useQuery, gql } from '@apollo/client';
 import { PrivateRoute } from './routes/PrivateRoute.tsx';
 import { Settings } from './Pages/Settings/Settings.tsx';
@@ -42,25 +42,25 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: () => (
-          <PrivateRoute component={<HomePage />} redirectTo='/auth' />
+          <PrivateRoute component={<Home />} redirectTo='/auth' />
         ),
       },
       {
         path: '/ingredients',
         Component: () => (
-          <PrivateRoute component={<IngredientsPage />} redirectTo='/auth' />
+          <PrivateRoute component={<Ingredients />} redirectTo='/auth' />
         ),
       },
       {
         path: '/dishes',
         Component: () => (
-          <PrivateRoute component={<DishesPage />} redirectTo='/auth' />
+          <PrivateRoute component={<Dishes />} redirectTo='/auth' />
         ),
       },
       {
         path: '/weekMenu',
         Component: () => (
-          <PrivateRoute component={<WeekMenuPage />} redirectTo='/auth' />
+          <PrivateRoute component={<WeekMenu />} redirectTo='/auth' />
         ),
       },
       {
@@ -72,13 +72,13 @@ const router = createBrowserRouter([
       {
         path: '/auth',
         Component: () => (
-          <RestrictedRoute component={<AuthPage />} redirectTo='/' />
+          <RestrictedRoute component={<Auth />} redirectTo='/' />
         ),
       },
       {
         path: '/history',
         Component: () => (
-          <PrivateRoute component={<HistoryPage />} redirectTo='/auth' />
+          <PrivateRoute component={<History />} redirectTo='/auth' />
         ),
       },
     ],
@@ -115,7 +115,7 @@ function App() {
   }
 
   if (error) {
-    console.log('error');
+    console.log('error', error.message);
     // localStorage.setItem("token", "");
     localStorage.removeItem('token');
     localStorage.setItem('user', '');
