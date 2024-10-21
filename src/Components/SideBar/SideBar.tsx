@@ -5,7 +5,7 @@ import {
   PiHouseBold,
   PiGearSixBold,
 } from 'react-icons/pi';
-import { FaHistory } from 'react-icons/fa';
+// import { FaHistory } from 'react-icons/fa';
 import styles from './SideBar.module.css';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -169,7 +169,7 @@ export const SideBar = () => {
           </p>
         </NavLink>
 
-        <NavLink
+        {/* <NavLink
           onClick={changePage}
           className={
             pathname === '/history' ? styles.current : styles.NavLinkSideBar
@@ -193,7 +193,7 @@ export const SideBar = () => {
           >
             {t(`History.history`)}
           </p>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           onClick={changePage}

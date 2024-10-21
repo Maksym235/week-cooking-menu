@@ -1,5 +1,5 @@
 import './App.css';
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import { Layout } from './Components/Layout/Layout.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Ingredients from './Pages/Ingredients/Ingredients.tsx';
@@ -14,7 +14,7 @@ import WeekMenu from './Pages/WeekMenu/WeekMenu.tsx';
 // const WeekMenuPage = lazy(() => import('./Pages/WeekMenu/WeekMenu.tsx'));
 import Auth from './Pages/Auth/Auth.tsx';
 // const AuthPage = lazy(() => import('./Pages/Auth/Auth.tsx'));
-import History from './Pages/History/History.tsx';
+// import History from './Pages/History/History.tsx';
 // const HistoryPage = lazy(() => import('./Pages/History/History.tsx'));
 import ErrorPage from './Pages/Error/Error.tsx';
 // const ErrorPage = lazy(() => import('./Pages/Error/Error.tsx'));
@@ -75,12 +75,12 @@ const router = createBrowserRouter([
           <RestrictedRoute component={<Auth />} redirectTo='/' />
         ),
       },
-      {
-        path: '/history',
-        Component: () => (
-          <PrivateRoute component={<History />} redirectTo='/auth' />
-        ),
-      },
+      // {
+      //   path: '/history',
+      //   Component: () => (
+      //     <PrivateRoute component={<History />} redirectTo='/auth' />
+      //   ),
+      // },
     ],
   },
 ]);
